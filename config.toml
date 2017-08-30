@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://cam-inc.github.io/viron-doc/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "ananke"

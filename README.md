@@ -1,5 +1,7 @@
 # viron-doc
 
+[open me](https://cam-inc.github.io/viron-doc/)
+
 ## Requisite
 
 - [Hugo](https://gohugo.io/getting-started/installing/)
