@@ -1,4 +1,9 @@
 baseURL = "https://cam-inc.github.io/viron-doc/"
 languageCode = "en-us"
-title = "My New Hugo Site"
-theme = "ananke"
+title = "Viron"
+theme = "hyde"
+
+[params]
+  description = "TODO: description"
+  copyright = "TODO: copyright"
+  layoutReverse = true

@@ -4,7 +4,7 @@
   "description": "Doc for Viron.",
   "main": "index.js",
   "scripts": {
-    "start": "hugo server -D",
+    "start": "hugo server -w",
     "build": "hugo",
     "clean": "rm -rf ./public",
     "deploy": "gh-pages -d public --add",
