@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Admin Guide on Viron</title>
+    <link>/admin_guide/</link>
+    <description>Recent content in Admin Guide on Viron</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>TODO: copyright</copyright>
+    
+	<atom:link href="/admin_guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sample</title>
+      <link>/admin_guide/sample/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/admin_guide/sample/</guid>
+      <description>サンプル。</description>
+    </item>
+    
+  </channel>
+</rss>

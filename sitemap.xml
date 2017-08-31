@@ -3,17 +3,84 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://cam-inc.github.io/viron-doc/categories/</loc>
+    <loc>/overview/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>/overview/</loc>
+  </url>
+  
+  <url>
+    <loc>/overview/demo/</loc>
+  </url>
+  
+  <url>
+    <loc>/installation_guide/</loc>
+  </url>
+  
+  <url>
+    <loc>/admin_guide/</loc>
+  </url>
+  
+  <url>
+    <loc>/overview/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>/overview/restrict/</loc>
+  </url>
+  
+  <url>
+    <loc>/user_guide/</loc>
+  </url>
+  
+  <url>
+    <loc>/development_guide/</loc>
+  </url>
+  
+  <url>
+    <loc>/release_note/</loc>
+  </url>
+  
+  <url>
+    <loc>/others/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cam-inc.github.io/viron-doc/</loc>
-    <priority>0</priority>
+    <loc>/admin_guide/sample/</loc>
   </url>
   
   <url>
-    <loc>https://cam-inc.github.io/viron-doc/tags/</loc>
+    <loc>/development_guide/sample/</loc>
+  </url>
+  
+  <url>
+    <loc>/installation_guide/sample/</loc>
+  </url>
+  
+  <url>
+    <loc>/others/sample/</loc>
+  </url>
+  
+  <url>
+    <loc>/release_note/sample/</loc>
+  </url>
+  
+  <url>
+    <loc>/user_guide/sample/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
