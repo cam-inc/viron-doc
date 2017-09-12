@@ -4,4 +4,9 @@ menu = "main"
 weight = 7
 +++
 
-その他、参考となる外部情報等。OAS2.0とかJSON Schema Specificationとかとか。
+Vironと関連のある情報源をまとめています。
+
+- [OpenAPI Specification](https://www.openapis.org/)
+- [OpenAPI Specification ver2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
+- [JSON Schema](http://json-schema.org/)
+- [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04)

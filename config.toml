@@ -4,6 +4,5 @@ title = "Viron"
 theme = "hyde"
 
 [params]
-  description = "TODO: description"
-  copyright = "TODO: copyright"
-  layoutReverse = true
+  description = "Design-based Management Console."
+  copyright = "Copyright © CA MOBILE, Ltd. All rights reserved."
