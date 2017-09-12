@@ -1,6 +1,6 @@
 +++
 title = "Architecture"
-weight = 3
+weight = 4
 +++
 
-アーキテクチャ。
+TODO
