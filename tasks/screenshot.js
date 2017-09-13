@@ -48,13 +48,13 @@ const capture = async (page) => {
   return Promise.all([
     (async () => {
       return await page.screenshot({
-        path: 'full.png'
+        path: 'content/overview/introduction/full.png'
       });
     })(),
     (async () => {
       const clip = await getClipArea(page, '.Application__menuItem');
       return await page.screenshot({
-        path: 'menuItem.png',
+        path: 'content/user_guide/endpoint_add/button.png',
         clip
       });
     })()
