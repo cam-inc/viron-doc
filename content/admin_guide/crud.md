@@ -16,7 +16,7 @@ weight = 4
 
 ### 前提
 
-追加するリソースはMySQLのテーブルで以下のようなスキーマを想定します。
+追加するリソースは以下のようなスキーマを想定します。
 
 ```
 mysql> desc books;
@@ -93,7 +93,7 @@ paths:
         name: payload
         required: true
         schema:
-        	$ref: '#/definitions/Book' # リクエストペイロードの型
+          $ref: '#/definitions/Book' # リクエストペイロードの型
       produces:
       - application/json
       responses:
@@ -147,7 +147,7 @@ paths:
         name: payload
         required: true
         schema:
-        	$ref: '#/definitions/Book' # リクエストペイロードの型
+          $ref: '#/definitions/Book' # リクエストペイロードの型
       produces:
       - application/json
       responses:
@@ -222,7 +222,8 @@ definitions:
 
 ### <a name="controller">controllerの追加</a>
 
-`api/controller/` 配下に `books.js` を作成します。
+`api/controller/` 配下に `books.js` を作成します。  
+実際は、期待するレスポンスを返すためにDBや外部APIなど各種リソースにアクセスするロジックが必要です。
 
 ```
 const list = (req, res, next) => {

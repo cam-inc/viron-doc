@@ -3,6 +3,9 @@ title = "サーバ構築の準備"
 weight = 1
 +++
 
+Vironのエンドポイントにはサービス専用のサーバを構築する必要があります。  
+私たちはサンプルとして、Node.jsで実装されたexample-nodeプロジェクトを提供しています。
+
 example-nodeはNode.js+MySQL環境で動作します。
 実際にサーバ構築を行う前にNode.jsとMySQLの実行環境を確認する必要があります。
 
