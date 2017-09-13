@@ -53,3 +53,11 @@ $ npm run build
 ```
 $ npm run release
 ```
+
+## スクリーンショット
+
+```
+$ npm run screenshot
+```
+
+手動でスクリーンショットをすると手間がかかる上に、画像サイズ揺れが発生してしまう。これを回避するために、可能な限りheadless Chromeを使用して画像生成を行います。
