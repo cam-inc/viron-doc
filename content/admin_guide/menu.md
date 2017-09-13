@@ -3,7 +3,7 @@ title = "グローバルメニューを編集する"
 weight = 3
 +++
 
-DMCトップに表示されるエンドポイントの情報や、サインイン後のグローバルメニューの構成を取得できる必要があります。  
+Vironトップに表示されるエンドポイントの情報や、サインイン後のグローバルメニューの構成を取得できる必要があります。  
 `/dmc` のレスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。
 
 ### dmc controller
@@ -15,10 +15,10 @@ DMCトップに表示されるエンドポイントの情報や、サインイ�
 {
   // エンドポイントに関する情報
   "color": "white", // カラーテーマ
-  "name": "DMC example for Node.js - local", // エンドポイントの名称。サービス名や環境など
+  "name": "Viron example for Node.js - local", // エンドポイントの名称。サービス名や環境など
   "tags": [ // エンドポイントに付与するタグ
     "local",
-    "dmc",
+    "viron",
     "example"
   ],
   "thumbnail": "https://avatars3.githubusercontent.com/u/23251378?v=3&s=200" // サムネイル画像URL
@@ -86,7 +86,7 @@ DMCトップに表示されるエンドポイントの情報や、サインイ�
 
 #### API間の関連付け
 
-DMCはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentのデータを操作するAPIとして表示します。  
+Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentのデータを操作するAPIとして表示します。  
 
 上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user`、  
 さらにprimaryの定義を使用して `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を抽出し、それらがswaggerに定義されている場合画面に表示します。  

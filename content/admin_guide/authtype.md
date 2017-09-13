@@ -3,12 +3,12 @@ title = "認証方式を追加する"
 weight = 2
 +++
 
-DMCサーバでは標準でメールアドレスおよびGoogleOAuthによる認証をサポートしています。  
+Vironサーバでは標準でメールアドレスおよびGoogleOAuthによる認証をサポートしています。  
 認証方式を追加する場合は、 `/dmc_authtype` に定義を追加する必要があります。
 
 ### authtype controller
 
-DMCサーバがサポートしている認証方式をクライアントに返すためのAPIです。   
+Vironサーバがサポートしている認証方式をクライアントに返すためのAPIです。   
 `api/controller/dmc_authtype.js` に `auth_type#list` という名前でcontrollerを実装します。  
 下記インターフェースでAPIを実装してください。
 

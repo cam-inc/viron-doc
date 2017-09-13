@@ -3,7 +3,7 @@ title = "エンドポイントを追加する"
 weight = 1
 +++
 
-DMCサーバのエンドポイントとは `swagger.json` を取得するパスです。  
+Vironサーバのエンドポイントとは `swagger.json` を取得するパスです。  
 example-nodeでは `/swagger.json` をエンドポイントとしています。  
 
 ### swagger.yaml
