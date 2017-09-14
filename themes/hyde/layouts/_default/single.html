@@ -9,7 +9,7 @@
     </div>
     <h2>関連項目</h2>
     <ul class="posts">
-      {{ range .Site.Sections }}
+      {{ range where .Site.Pages "Section" .Section }}
       <li>
         <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
       </li>
