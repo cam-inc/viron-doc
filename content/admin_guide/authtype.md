@@ -12,7 +12,7 @@ Vironサーバがサポートしている認証方式をクライアントに返
 `api/controller/dmc_authtype.js` に `auth_type#list` という名前でcontrollerを実装します。  
 下記インターフェースでAPIを実装してください。
 
-```
+```javascript
 [
   // メールアドレスとパスワードによる認証。利用しない場合は削除しても良い
   {
