@@ -1,5 +1,6 @@
 +++
 title = "Installation Guide"
+Categories = "index"
 menu = "main"
 weight = 2
 +++
