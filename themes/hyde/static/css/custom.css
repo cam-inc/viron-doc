@@ -49,23 +49,6 @@ html {
   font-family: "Noto Sans", "Noto Sans CJK JP", "NotoSansCJKjp-Jxck", "PT Sans", Helvetica, Arial, sans-serif;
 }
 
-@media (min-width: 38em) {
-  html {
-      font-size: 14px;
-  }
-}
-
-@media (min-width: 48em) {
-  html {
-    font-size: 14px;
-  }
-}
-@media (min-width: 58em) {
-  html {
-    font-size: 14px;
-  }
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -74,10 +57,6 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-weight: normal;
   word-break: break-word;
-}
-
-.sidebar-about h1 {
-  font-family: "Abril Fatface", serif;
 }
 
 pre {
@@ -89,13 +68,15 @@ pre {
   .content {
     max-width: 78rem;
   }
+
+  .sidebar-nav > li {
+    padding: 0.5rem 0;
+  }
 }
 
 .sidebar-nav a {
   cursor: pointer;
 }
-
-/* 開閉するリスト */
 
 summary {
   padding: 2px;
@@ -118,4 +99,22 @@ summary:not( :hover ) {
 details p,
 details > ul {
   cursor: default;
+}
+
+.sidebar-nav a:hover {
+  text-decoration: none;
+  color: #999;
+  transition: color 100ms linear;
+}
+
+.sidebar-about h1 {
+  transition: color 100ms linear;
+}
+
+.sidebar-about a:hover {
+  text-decoration: none;
+}
+
+.sidebar-about a:hover h1 {
+  color: #999;
 }
