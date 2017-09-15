@@ -1,5 +1,6 @@
 +++
 title = "Others"
+Categories = "index"
 menu = "main"
 weight = 7
 +++
