@@ -1,5 +1,6 @@
 +++
 title = "Development Guide"
+Categories = "index"
 menu = "main"
 weight = 5
 +++
