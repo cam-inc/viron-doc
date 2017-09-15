@@ -1,0 +1,80 @@
+/*
+ * Custom Setting
+ *
+ * Custom css settings for viron documentation.
+ */
+
+/*
+ * Font
+ *
+ * Apply Notosans font.
+ */
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../font/NotoSansCJKjp-Jxck-Light.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Light.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../font/NotoSansCJKjp-Jxck-Regular.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Regular.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../font/NotoSansCJKjp-Jxck-Medium.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Medium.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../font/NotoSansCJKjp-Jxck-Bold.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Bold.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Bold.ttf") format("truetype");
+}
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+html {
+  font-family: "Noto Sans", "Noto Sans CJK JP", "NotoSansCJKjp-Jxck", "PT Sans", Helvetica, Arial, sans-serif;
+}
+@media (min-width: 48em) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 58em) {
+  html {
+    font-size: 14px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 2rem;
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+p {
+  font-weight: normal;
+}
+
+.sidebar-about h1 {
+  font-family: "Abril Fatface", serif;
+}
+
+pre {
+  background-color: #fafafa;
+  white-space: pre;
+}
