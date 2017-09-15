@@ -1,5 +1,6 @@
 +++
 title = "Admin Guide"
+Categories = "index"
 menu = "main"
 weight = 3
 +++
