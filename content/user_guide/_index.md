@@ -1,5 +1,6 @@
 +++
 title = "User Guide"
+Categories = "index"
 menu = "main"
 weight = 4
 +++
