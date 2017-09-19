@@ -147,7 +147,7 @@ const capture = async (browser) => {
       const button = await page.$('.Application__menuItem:nth-child(4)');
       await button.click();
       await page.waitFor('.Modal__frame');
-      await delay(300);
+      await delay(1000);
       const clipForModal = await getClipArea(page, '.Modal__frame');
       return await page.screenshot({
         path: 'content/user_guide/endpoint_order/order_modal.png',
