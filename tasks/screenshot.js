@@ -263,6 +263,44 @@ const capture = async (browser) => {
         clip: clipForDetailButton
       });
     })(),
+    // アクション
+    // content/user_guide/action
+    (async () => {
+      const page = await createPage(browser, 'https://localhost:8080/#/sampleEndpointKey01/user', '.Table');
+      const actionButton = await page.$('.Component__action .Button');
+      await actionButton.click();
+      await page.waitFor('.Drawer__frame');
+      await delay(500);
+      const clipForActionDrawer = await getClipArea(page, '.Drawer__frame');
+      await page.screenshot({
+        path: 'content/user_guide/action/modal.png',
+        clip: clipForActionDrawer
+      });
+      const clipForToggleButton = await getClipArea(page, '.ParameterSchema__bodyOpenShutButton');
+      await page.screenshot({
+        path: 'content/user_guide/action/toggle_button.png',
+        clip: clipForToggleButton
+      });
+      const clipForInfoButton = await getClipArea(page, '.ParameterSchema__infoOpenShutButton');
+      await page.screenshot({
+        path: 'content/user_guide/action/info_button.png',
+        clip: clipForInfoButton
+      });
+      const clipForRawDataButton = await getClipArea(page, '.ParameterSchema__previewOpenShutButton');
+      await page.screenshot({
+        path: 'content/user_guide/action/rawData_button.png',
+        clip: clipForRawDataButton
+      });
+      await page.focus('.ParameterForm__body .Textinput__input');
+      await page.type('error');
+      const clipForValidationButton = await getClipArea(page, '.ParameterSchema__validateOpenShutButton');
+      await page.screenshot({
+        path: 'content/user_guide/action/validation_button.png',
+        clip: clipForValidationButton
+      });
+      await page.mouse.click(0, 0);
+      await delay(500);
+    })(),
   ]);
 };
 
