@@ -180,7 +180,7 @@ const capture = async (browser) => {
       });
     })(),
     // コンポーネント操作。
-    // content/user_guide/endpoint_share
+    // content/user_guide/component
     (async () => {
       const page = await createPage(browser, 'https://localhost:8080/#/sampleEndpointKey01/user', '.Table');
       const clipForComponent = await getClipArea(page, '.Component');
@@ -231,6 +231,36 @@ const capture = async (browser) => {
       return await page.screenshot({
         path: 'content/user_guide/component/action_buttons.png',
         clip: clipForActionButtons
+      });
+    })(),
+    // コンポーネントTable操作。
+    // content/user_guide/component_table
+    (async () => {
+      const page = await createPage(browser, 'https://localhost:8080/#/sampleEndpointKey01/user', '.Table');
+      const clipForTable = await getClipArea(page, '.Table');
+      await page.screenshot({
+        path: 'content/user_guide/component_table/table.png',
+        clip: clipForTable
+      });
+      const clipForToggleButton = await getClipArea(page, '.Table__itemsOpenShutButton', 4, 4, 4, 4);
+      await page.screenshot({
+        path: 'content/user_guide/component_table/toggle_button.png',
+        clip: clipForToggleButton
+      });
+      const clipForActionButton = await getClipArea(page, '.Table__itemsButton', 4, 4, 4, 4);
+      await page.screenshot({
+        path: 'content/user_guide/component_table/action_button.png',
+        clip: clipForActionButton
+      });
+      const clipForCell = await getClipArea(page, '.Table__item', 2, 2, 2, 2);
+      await page.screenshot({
+        path: 'content/user_guide/component_table/cell.png',
+        clip: clipForCell
+      });
+      const clipForDetailButton = await getClipArea(page, '.Table__itemsDetailButton', 4, 4, 4, 4);
+      await page.screenshot({
+        path: 'content/user_guide/component_table/detail_button.png',
+        clip: clipForDetailButton
       });
     })(),
   ]);
