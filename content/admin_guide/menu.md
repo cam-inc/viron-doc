@@ -11,7 +11,7 @@ Vironトップに表示されるエンドポイントの情報や、サインイ
 `api/controller/dmc.js` に `dmc#show` という名前でcontrollerを実装します。
 下記インターフェースでAPIを実装してください。  
 
-```
+```javascript
 {
   // エンドポイントに関する情報
   "color": "white", // カラーテーマ
@@ -92,5 +92,12 @@ Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、
 さらにprimaryの定義を使用して `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を抽出し、それらがswaggerに定義されている場合画面に表示します。  
   
 自動抽出されないAPIを関連付けたい場合、actionsを定義することで実現できます。
-上記例では `/user/download/csv` をactionsに定義し、 `GET:/user/download/csv`,`POST:/user/download/csv`,`PUT:/user/download/csv`,`DELETE:/user/download/csv` を追加で関連付けしています。  
+上記例では `/user/download/csv` をactionsに定義し、 
+
+- `GET:/user/download/csv`
+- `POST:/user/download/csv`
+- `PUT:/user/download/csv`
+- `DELETE:/user/download/csv`
+
+を追加で関連付けしています。  
 これらも自動抽出のAPIと同じように、swaggerに定義されている場合のみ表示されます。

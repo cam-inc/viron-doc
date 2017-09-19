@@ -18,7 +18,7 @@ weight = 4
 
 追加するリソースは以下のようなスキーマを想定します。
 
-```
+```SQL
 mysql> desc books;
 +-------------+-------------+------+-----+---------+----------------+
 | Field       | Type        | Null | Key | Default | Extra          |
@@ -39,7 +39,7 @@ mysql> desc books;
 
 `GET:/books`, `POST:/books`, `GET:/books/{id}`, `PUT:/books/{id}`, `DELETE:/books/{id}` を追加します。
 
-```
+```yaml
 paths:
   /books:
     get: # GET:/books
@@ -192,7 +192,7 @@ paths:
 paths内で `$ref` で参照するスキーマの定義を記述します。  
 ここでは `BookCollection` `Book` が必要です。
 
-```
+```yaml
 definitions:
   BookCollection:
     type: array
@@ -225,7 +225,7 @@ definitions:
 `api/controller/` 配下に `books.js` を作成します。  
 実際は、期待するレスポンスを返すためにDBや外部APIなど各種リソースにアクセスするロジックが必要です。
 
-```
+```js
 const list = (req, res, next) => {
   ...
   res.json([{}]);
@@ -264,7 +264,7 @@ module.exports = {
 
 最後に `/dmc` にページを追加します。
 
-```
+```js
 {
   pages: [
     {
