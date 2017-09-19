@@ -1,5 +1,7 @@
 const puppeteer = require('puppeteer');
 
+const token =  process.env.VIRON_DOC_TOKEN;
+
 // timeout
 const delay = async (ms) => {
   return new Promise(resolve => {
@@ -19,49 +21,51 @@ const debugHTML = async (page, selector = 'body') => {
 };
 
 // 新規pageを生成します。
-const createPage = async (browser) => {
+const createPage = async (browser, url = 'https://localhost:8080/', waitFor = '.EndpointsPage') => {
   const page = await browser.newPage();
-  await page.goto('https://localhost:8080/', {
+  await page.goto(url, {
     waitUntil: 'networkidle'
   });
-  await page.waitFor('.EndpointsPage');
-  await setEndpoints(page);
+  await page.waitFor(waitFor);
   return page;
 };
 
 // capture用のエンドポイントを追加する。
-const setEndpoints = async (page) => {
-  return await page.evaluate(() => {
-    store.state.endpoints = {
+const setEndpoints = async (browser) => {
+  const page = await createPage(browser);
+  return await page.evaluate(token => {
+    const endpoints = {
       sampleEndpointKey01: {
         name: 'sample01',
-        url: 'https://dmc.camplat.net/swagger.json',
+        url: 'https://viron.camplat.net/swagger.json',
         memo: 'viron endpoint for demo.',
-        thumbnail: 'https://avatars3.githubusercontent.com/u/23251378?v=3&s=200'
+        thumbnail: 'https://avatars3.githubusercontent.com/u/23251378?v=3&s=200',
+        token
       },
       sampleEndpointKey02: {
         name: 'sample02',
-        url: 'https://dmc.camplat.net/swagger.json',
+        url: 'https://viron.camplat.net/swagger.json',
         memo: 'viron endpoint for demo.',
-        thumbnail: 'https://avatars3.githubusercontent.com/u/23251378?v=3&s=200'
+        thumbnail: 'https://avatars3.githubusercontent.com/u/23251378?v=3&s=200',
+        token
       }
     };
-    store.trigger('ENDPOINTS');
-  });
+    localStorage.setItem('endpoints', JSON.stringify(endpoints));
+  }, token);
 };
 
 // 指定要素からclip領域を算出します。
-const getClipArea = async (page, selector, padding = 8) => {
-  return await page.evaluate(_selector => {
-    const elm = document.querySelector(_selector);
+const getClipArea = async (page, selector, paddingTop = 8, paddingRight = 8, paddingBottom = 8, paddingLeft = 8) => {
+  return await page.evaluate((selector, paddingTop, paddingRight, paddingBottom, paddingLeft) => {
+    const elm = document.querySelector(selector);
     const rect = elm.getBoundingClientRect();
     return {
-      x: rect.left - padding,
-      y: rect.top - padding,
-      width: rect.width + (padding * 2),
-      height: rect.height + (padding * 2)
+      x: rect.left - paddingLeft,
+      y: rect.top - paddingTop,
+      width: rect.width + (paddingLeft + paddingRight),
+      height: rect.height + (paddingTop + paddingBottom)
     };
-  }, selector);
+  }, selector, paddingTop, paddingRight, paddingBottom, paddingLeft);
 };
 
 // 指定要素をクリックします
@@ -175,6 +179,60 @@ const capture = async (browser) => {
         clip: clipForUploadButton
       });
     })(),
+    // コンポーネント操作。
+    // content/user_guide/endpoint_share
+    (async () => {
+      const page = await createPage(browser, 'https://localhost:8080/#/sampleEndpointKey01/user', '.Table');
+      const clipForComponent = await getClipArea(page, '.Component');
+      await page.screenshot({
+        path: 'content/user_guide/component/component.png',
+        clip: clipForComponent
+      });
+      const clipForRefreshButton = await getClipArea(page, '.Component__refresh', 4, 4, 4, 4);
+      await page.screenshot({
+        path: 'content/user_guide/component/refresh_button.png',
+        clip: clipForRefreshButton
+      });
+      const clipForFilterButton = await getClipArea(page, '.Component__filter', 4, 4, 4, 4);
+      await page.screenshot({
+        path: 'content/user_guide/component/filter_button.png',
+        clip: clipForFilterButton
+      });
+      const filterButton = await page.$('.Component__filter');
+      await filterButton.click();
+      await page.waitFor('.Modal__frame');
+      await delay(500);
+      await filterButton.dispose();
+      const clipForFilterModal = await getClipArea(page, '.Modal__frame');
+      await page.screenshot({
+        path: 'content/user_guide/component/filter_modal.png',
+        clip: clipForFilterModal
+      });
+      await page.mouse.click(0, 0);
+      await delay(500);
+      const clipForSearchButton = await getClipArea(page, '.Component__search', 4, 4, 4, 4);
+      await page.screenshot({
+        path: 'content/user_guide/component/search_button.png',
+        clip: clipForSearchButton
+      });
+      const searchButton = await page.$('.Component__search');
+      await searchButton.click();
+      await page.waitFor('.Modal__frame');
+      await delay(500);
+      await searchButton.dispose();
+      const clipForSearchModal = await getClipArea(page, '.Modal__frame');
+      await page.screenshot({
+        path: 'content/user_guide/component/search_modal.png',
+        clip: clipForSearchModal
+      });
+      await page.mouse.click(0, 0);
+      await delay(500);
+      const clipForActionButtons = await getClipArea(page, '.Component__tail', -16);
+      return await page.screenshot({
+        path: 'content/user_guide/component/action_buttons.png',
+        clip: clipForActionButtons
+      });
+    })(),
   ]);
 };
 
@@ -185,6 +243,7 @@ let browser;
     ignoreHTTPSErrors: true,
     headless: false
   });
+  await setEndpoints(browser);
   await capture(browser);
   browser.close();
 })().catch(err => {
