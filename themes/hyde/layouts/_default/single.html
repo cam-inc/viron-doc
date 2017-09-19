@@ -7,6 +7,16 @@
       <h1>{{ .Title }}</h1>
       {{ .Content }}
     </div>
+    <h2>関連項目</h2>
+    <ul class="posts">
+      {{ range where .Site.Pages.ByWeight "Section" .Section }}
+        {{if .IsPage }}
+        <li>
+          <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+        </li>
+        {{ end }}
+      {{ end }}
+    </ul>
 
 			{{ if .Site.Params.disqusShortname }}
 				<h2>Comments</h2>
