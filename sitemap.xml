@@ -11,6 +11,18 @@
   </url>
   
   <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/endpoint_add/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/admin_guide/swagger/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/installation_guide/provision/</loc>
+  </url>
+  
+  <url>
     <loc>https://cam-inc.github.io/viron-doc/overview/demo/</loc>
   </url>
   
@@ -19,7 +31,35 @@
   </url>
   
   <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/endpoint_edit/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/installation_guide/config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/admin_guide/authtype/</loc>
+  </url>
+  
+  <url>
     <loc>https://cam-inc.github.io/viron-doc/admin_guide/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/overview/terminology/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/endpoint_remove/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/admin_guide/menu/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/installation_guide/construction/</loc>
   </url>
   
   <url>
@@ -27,7 +67,7 @@
   </url>
   
   <url>
-    <loc>https://cam-inc.github.io/viron-doc/overview/restrict/</loc>
+    <loc>https://cam-inc.github.io/viron-doc/admin_guide/crud/</loc>
   </url>
   
   <url>
@@ -35,7 +75,23 @@
   </url>
   
   <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/endpoint_order/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/installation_guide/reference/</loc>
+  </url>
+  
+  <url>
     <loc>https://cam-inc.github.io/viron-doc/development_guide/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/overview/restrict/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/endpoint_filter/</loc>
   </url>
   
   <url>
@@ -43,36 +99,28 @@
   </url>
   
   <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/endpoint_share/</loc>
+  </url>
+  
+  <url>
     <loc>https://cam-inc.github.io/viron-doc/others/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/component/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/component_table/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cam-inc.github.io/viron-doc/user_guide/action/</loc>
   </url>
   
   <url>
     <loc>https://cam-inc.github.io/viron-doc/categories/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cam-inc.github.io/viron-doc/admin_guide/sample/</loc>
-  </url>
-  
-  <url>
-    <loc>https://cam-inc.github.io/viron-doc/development_guide/sample/</loc>
-  </url>
-  
-  <url>
-    <loc>https://cam-inc.github.io/viron-doc/installation_guide/sample/</loc>
-  </url>
-  
-  <url>
-    <loc>https://cam-inc.github.io/viron-doc/others/sample/</loc>
-  </url>
-  
-  <url>
-    <loc>https://cam-inc.github.io/viron-doc/release_note/sample/</loc>
-  </url>
-  
-  <url>
-    <loc>https://cam-inc.github.io/viron-doc/user_guide/sample/</loc>
   </url>
   
   <url>

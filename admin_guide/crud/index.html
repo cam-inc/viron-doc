@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.26" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>CRUDを追加する &middot; Viron</title>
+  
+
+  
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/print.css" media="print">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/poole.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/syntax.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/hyde.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/highlight/atom-one-light.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Viron" />
+
+  
+  <script src="https://cam-inc.github.io/viron-doc/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body class=" ">
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cam-inc.github.io/viron-doc/"><h1>Viron</h1></a>
+      <p class="lead">
+       Design-based Management Console. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+        <li><a href="/viron-doc/overview/"> Overview </a></li>
+      
+        <li><a href="/viron-doc/installation_guide/"> Installation Guide </a></li>
+      
+        <li><a href="/viron-doc/admin_guide/"> Admin Guide </a></li>
+      
+        <li><a href="/viron-doc/user_guide/"> User Guide </a></li>
+      
+        <li><a href="/viron-doc/development_guide/"> Development Guide </a></li>
+      
+        <li><a href="/viron-doc/release_note/"> Release Note </a></li>
+      
+        <li><a href="/viron-doc/others/"> Others </a></li>
+      
+    </ul>
+
+    <p>Copyright © CA MOBILE, Ltd. All rights reserved.</p>
+  </div>
+</div>
+
+
+  <div class="content container">
+    <div class="post">
+      <h1>CRUDを追加する</h1>
+      
+
+<p>ここでは開発のイメージを掴みやすくするために<br />
+架空のリソースに対するCRUDをVironに追加する手順を記載します。<br />
+実装には</p>
+
+<ul>
+<li><a href="#swagger">swaggerの編集</a></li>
+<li><a href="#controller">controllerの追加</a></li>
+<li><a href="#dmc">/dmc の編集</a></li>
+</ul>
+
+<p>の3つの手順が必要です。</p>
+
+<h3 id="前提">前提</h3>
+
+<p>追加するリソースは以下のようなスキーマを想定します。</p>
+
+<pre><code class="language-SQL">mysql&gt; desc books;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| id          | int(11)     | NO   | PRI | NULL    | auto_increment |
+| title       | varchar(64) | YES  |     | NULL    |                |
+| author_name | varchar(32) | YES  |     | NULL    |                |
+| detail      | text        | YES  |     | NULL    |                |
+| created_at  | datetime    | NO   |     | NULL    |                |
+| updated_at  | datetime    | NO   |     | NULL    |                |
+| deleted_at  | datetime    | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+</code></pre>
+
+<h3 id="a-name-swagger-swaggerの編集-a"><a name=swagger>swaggerの編集</a></h3>
+
+<h4 id="paths">paths</h4>
+
+<p><code>GET:/books</code>, <code>POST:/books</code>, <code>GET:/books/{id}</code>, <code>PUT:/books/{id}</code>, <code>DELETE:/books/{id}</code> を追加します。</p>
+
+<pre><code class="language-yaml">paths:
+  /books:
+    get: # GET:/books
+      x-swagger-router-controller: books # controllerファイル名
+      description: book一覧
+      operationId: books#list # controllerメソッド名 
+      parameters:
+      # pagination用のparameter
+      - in: query
+        name: limit
+        required: false
+        type: integer
+      - in: query
+        name: offset
+        required: false
+        type: integer
+      # 検索用のparameter
+      - in: query
+        name: id
+        required: false
+        type: integer
+      - in: query
+        name: title
+        required: false
+        type: string
+      - in: query
+        name: author_name
+        required: false
+        type: string
+      produces:
+      - application/json
+      responses:
+        &quot;200&quot;:
+          schema:
+            $ref: '#/definitions/BookCollection' # レスポンスデータの型
+      schemes:
+      - https
+      security:
+      - jwt:
+        - api:access
+      summary: book一覧
+      tags:
+      - books
+ 
+    post: # POST:/books
+      x-swagger-router-controller: books
+      description: book作成
+      operationId: books#create
+      parameters:
+      - in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/Book' # リクエストペイロードの型
+      produces:
+      - application/json
+      responses:
+        &quot;200&quot;:
+          schema:
+            $ref: '#/definitions/Book'
+      schemes:
+      - https
+      security:
+      - jwt
+        - api:access
+      summry: book作成
+      tags:
+      - books
+
+  /books/{id}:
+    get: # GET:/books/{id}
+      x-swagger-router-controller: books
+      description: book更新
+      operationId: books#show
+      parameters:
+      - in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        &quot;200&quot;:
+          schema:
+            $ref: '#/definitions/Book'
+      schemes:
+      - https
+      security:
+      - jwt
+        - api:access
+      summry: book取得
+      tags:
+      - books
+
+    put: # PUT:/books/{id}
+      x-swagger-router-controller: books
+      description: book更新
+      operationId: books#update
+      parameters:
+      - in: path
+        name: id
+        required: true
+        type: integer
+      - in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/Book' # リクエストペイロードの型
+      produces:
+      - application/json
+      responses:
+        &quot;200&quot;:
+          schema:
+            $ref: '#/definitions/Book'
+      schemes:
+      - https
+      security:
+      - jwt
+        - api:access
+      summry: book更新
+      tags:
+      - books
+
+    delete: # DELETE:/books/{id}
+      x-swagger-router-controller: books
+      description: book削除
+      operationId: books#remove
+      parameters:
+      - in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        &quot;204&quot;:
+          description: &quot;No Content&quot;
+      schemes:
+      - https
+      security:
+      - jwt
+        - api:access
+      summry: book削除
+      tags:
+      - books
+</code></pre>
+
+<h4 id="definitions">definitions</h4>
+
+<p>paths内で <code>$ref</code> で参照するスキーマの定義を記述します。<br />
+ここでは <code>BookCollection</code> <code>Book</code> が必要です。</p>
+
+<pre><code class="language-yaml">definitions:
+  BookCollection:
+    type: array
+    items:
+      $ref: '#/definitions/Book' # BookCollectionはBookの配列
+  
+  Book:
+    type: object
+    properties:
+      id:
+        description: book id
+        example: 1
+        type: integer
+      title:
+        description: title of the book
+        example: English Dictionary
+        type: string
+      author_name:
+        description: author of the book
+        example: noritama
+        type: string
+      detail:
+        description: detail of the book
+        example: this dictionary is ...
+        type: string
+</code></pre>
+
+<h3 id="a-name-controller-controllerの追加-a"><a name="controller">controllerの追加</a></h3>
+
+<p><code>api/controller/</code> 配下に <code>books.js</code> を作成します。<br />
+実際は、期待するレスポンスを返すためにDBや外部APIなど各種リソースにアクセスするロジックが必要です。</p>
+
+<pre><code class="language-js">const list = (req, res, next) =&gt; {
+  ...
+  res.json([{}]);
+};
+
+const create = (req, res, next) =&gt; {
+  ...
+  res.json({});
+};
+
+const show = (req, res, next) =&gt; {
+  ...
+  res.json({});
+};
+
+const update = (req, res, next) =&gt; {
+  ...
+  res.json({});
+};
+
+const remove = (req, res, next) =&gt; {
+  ...
+  res.status(204).end();
+};
+
+module.exports = {
+ 'books#list': list,
+ 'books#create': create,
+ 'books#show': show,
+ 'books#update': update,
+ 'books#remove': remove,
+}
+</code></pre>
+
+<h3 id="a-name-dmc-dmc-の編集-a"><a name="dmc">/dmc の編集</a></h3>
+
+<p>最後に <code>/dmc</code> にページを追加します。</p>
+
+<pre><code class="language-js">{
+  pages: [
+    {
+      group: &quot;book&quot;,
+      id: &quot;book&quot;,
+      name: &quot;ブック&quot;,
+      section: &quot;manage&quot;,
+      components: [{
+        name: &quot;ブック&quot;,
+        api: {
+          path: &quot;/books&quot;,
+          method: &quot;get&quot;,
+        },
+        style: &quot;table&quot;,
+        primary: &quot;id&quot;,
+        pagination: true,
+        query: [
+          {key: &quot;id&quot;, type: &quot;integer&quot;},
+          {key: &quot;title&quot;, type: &quot;string&quot;},
+          {key: &quot;author_name&quot;, type: &quot;string&quot;},
+        ],
+        table_labels: [
+          &quot;id&quot;,
+          &quot;title&quot;,
+        ],
+      }]
+    }
+  ]
+}
+</code></pre>
+
+    </div>
+    <h2>関連項目</h2>
+    <ul class="posts">
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを追加する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/authtype/">認証方式を追加する</a></span>
+        </li>
+        
+      
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/menu/">グローバルメニューを編集する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/crud/">CRUDを追加する</a></span>
+        </li>
+        
+      
+    </ul>
+
+			
+		</div>
+
+</body>
+</html>

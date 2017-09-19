@@ -6,18 +6,73 @@
     <description>Recent content in Installation Guide on Viron</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>TODO: copyright</copyright>
+    <copyright>Copyright © CA MOBILE, Ltd. All rights reserved.</copyright>
     
 	<atom:link href="https://cam-inc.github.io/viron-doc/installation_guide/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/installation_guide/sample/</link>
+      <title>サーバ構築の準備</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/provision/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cam-inc.github.io/viron-doc/installation_guide/sample/</guid>
-      <description>サンプル。</description>
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/provision/</guid>
+      <description>Vironのエンドポイントにはサービス専用のサーバを構築する必要があります。
+私たちはサンプルとして、Node.jsで実装されたexample-nodeプロジェクトを提供しています。
+example-nodeはNode.js+MySQL環境で動作します。 実際にサーバ構築を行う前にNode.jsとMySQLの実行環境を確認する必要があります。
+Node.jsの実行環境の確認 example-nodeはNode.js 7.x以上の環境で動作します。インストールされているNode.jsのバージョンを確認するには、以下のコマンドを実行します。
+$ node --version
+MySQLの実行環境の確認 MySQL 5.6でのみ動作確認を行っています。おそらく4.xでも動作しますが、新規に構築する場合（既存サービスのDBに接続しない場合）は5.6以上の利用をお勧めします。</description>
+    </item>
+    
+    <item>
+      <title>コンフィグの設定</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/config/</guid>
+      <description>example-nodeではDBの接続先等の環境情報をコンフィグファイルに記述します。
+読み込むファイルは環境変数{SERVICE_ENV}に依存します。
+ host
+ サーバのホスト名(:ポート)です。swagger.yamlのhostを上書きします。  default_role
+ 管理ユーザーが追加された際に付与される初期ロールID  super_role
+ すべての権限を持つスーパーユーザーのロールID  google_oauth
+ redirect_url: Google認証後に呼び出されるViron側のAPI。クライアントID発行時に「承認済みのリダイレクトURI」に登録する必要があります。 allow_email_domains: 企業などで独自ドメインを運用している場合、そのドメインを記入することでドメインのユーザーのみに利用させることができます。独自ドメインがない場合は、利用者の制限を行う実装が必要かもしれません。  stores
+ MySQLサーバーの接続情報やSequelizeの設定  auth_jwt
+ VironはJWT認証を採用しています。JWTの有効期限や暗号化に使用する設定を行います。  ssl
+ HTTPSサーバで起動する場合のSSL鍵の情報。use: falseとするとHTTPサーバでの起動となり、keyおよびcertは無視されます。   </description>
+    </item>
+    
+    <item>
+      <title>サーバ構築</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/construction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/construction/</guid>
+      <description>example-nodeをサーバ上の任意の場所に配置すればデプロイは完了です。
+インストール 依存するライブラリ群をインストールするため、以下のコマンドを実行してください。
+$ npm install
+起動 $ npm start</description>
+    </item>
+    
+    <item>
+      <title>各種リファレンス</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/reference/</guid>
+      <description> 環境変数 example-nodeが利用する環境変数の一覧です。
+ SERVICE_ENV
+ 環境を表す名称を指定します。名称が一致したコンフィグファイルがロードされます。省略した場合は local が適用されます。  PORT
+ サーバをListenするポート番号を指定します。省略した場合は swagger.yaml の host に記述されているポート番号が適用されます。  GOOGLE_OAUTH_CLIENT_ID
+ GoogleOAuth認証を使用する際のクライアントIDです。省略した場合GoogleOAuthは利用できません。  GOOGLE_OAUTH_CLIENT_SECRET
+ GoogleOAuth認証を使用する際のクライアントシークレットです。省略した場合GoogleOAuthは利用できません。  MYSQL_USER_NAME
+ MySQLサーバーのユーザーです。  MYSQL_USER_PASSWORD
+ MySQLサーバーのパスワードです。  AUTH_JWT_PRIVATE_KEY
+ JWT生成用の秘密鍵です。  AUTH_JWT_PUBLIC_KEY
+ JWT検証用の公開鍵です。  SSL_PRIVATE_KEY
+ example-nodeをHTTPSサーバで起動する場合のSSL秘密鍵です。  SSL_CERTIFICATE
+ example-nodeをHTTPSサーバで起動する場合のSSL証明書です。   </description>
     </item>
     
   </channel>

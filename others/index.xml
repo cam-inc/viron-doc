@@ -6,19 +6,10 @@
     <description>Recent content in Others on Viron</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>TODO: copyright</copyright>
+    <copyright>Copyright © CA MOBILE, Ltd. All rights reserved.</copyright>
     
 	<atom:link href="https://cam-inc.github.io/viron-doc/others/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/others/sample/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://cam-inc.github.io/viron-doc/others/sample/</guid>
-      <description>サンプル。</description>
-    </item>
     
   </channel>
 </rss>

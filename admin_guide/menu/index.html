@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.26" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  <title>グローバルメニューを編集する &middot; Viron</title>
+  
+
+  
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/print.css" media="print">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/poole.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/syntax.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/hyde.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/highlight/atom-one-light.css">
+  <link rel="stylesheet" href="https://cam-inc.github.io/viron-doc/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Viron" />
+
+  
+  <script src="https://cam-inc.github.io/viron-doc/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body class=" ">
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cam-inc.github.io/viron-doc/"><h1>Viron</h1></a>
+      <p class="lead">
+       Design-based Management Console. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+        <li><a href="/viron-doc/overview/"> Overview </a></li>
+      
+        <li><a href="/viron-doc/installation_guide/"> Installation Guide </a></li>
+      
+        <li><a href="/viron-doc/admin_guide/"> Admin Guide </a></li>
+      
+        <li><a href="/viron-doc/user_guide/"> User Guide </a></li>
+      
+        <li><a href="/viron-doc/development_guide/"> Development Guide </a></li>
+      
+        <li><a href="/viron-doc/release_note/"> Release Note </a></li>
+      
+        <li><a href="/viron-doc/others/"> Others </a></li>
+      
+    </ul>
+
+    <p>Copyright © CA MOBILE, Ltd. All rights reserved.</p>
+  </div>
+</div>
+
+
+  <div class="content container">
+    <div class="post">
+      <h1>グローバルメニューを編集する</h1>
+      
+
+<p>Vironトップに表示されるエンドポイントの情報や、サインイン後のグローバルメニューの構成を取得できる必要があります。<br />
+<code>/dmc</code> のレスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。</p>
+
+<h3 id="dmc-controller">dmc controller</h3>
+
+<p><code>api/controller/dmc.js</code> に <code>dmc#show</code> という名前でcontrollerを実装します。
+下記インターフェースでAPIを実装してください。</p>
+
+<pre><code class="language-javascript">{
+  // エンドポイントに関する情報
+  &quot;color&quot;: &quot;white&quot;, // カラーテーマ
+  &quot;name&quot;: &quot;Viron example for Node.js - local&quot;, // エンドポイントの名称。サービス名や環境など
+  &quot;tags&quot;: [ // エンドポイントに付与するタグ
+    &quot;local&quot;,
+    &quot;viron&quot;,
+    &quot;example&quot;
+  ],
+  &quot;thumbnail&quot;: &quot;https://avatars3.githubusercontent.com/u/23251378?v=3&amp;s=200&quot; // サムネイル画像URL
+
+  // グローバルメニュー
+  &quot;pages&quot;: [ 
+    {
+      &quot;section&quot;: &quot;dashboard&quot; // 大項目。&quot;dashboard&quot; or &quot;manage&quot;
+      &quot;group&quot;: &quot;&quot;, // 中項目。空の場合はsection直下にcomponentsを配置
+      &quot;id&quot;: &quot;quickview&quot;, // ページのID。全ページでユニークになっている必要があります
+      &quot;name&quot;: &quot;クイックビュー&quot;, // ページ名
+      &quot;components&quot;: [ // メニューからページを選択した際に表示されるコンポーネントの一覧
+        {
+          &quot;api&quot;: { // コンポーネントに表示する値を取得するためのAPI
+            &quot;method&quot;: &quot;get&quot;,
+            &quot;path&quot;: &quot;/stats/dau&quot;
+          },
+          &quot;name&quot;: &quot;DAU&quot;, // コンポーネント名
+          &quot;style&quot;: &quot;number&quot; // コンポーネントスタイル。数字(number)、テーブル(table)の他に各種グラフ(graph-*)が利用できます
+        },
+        {
+          &quot;api&quot;: {
+            &quot;method&quot;: &quot;get&quot;,
+            &quot;path&quot;: &quot;/stats/mau&quot;
+          },
+          &quot;name&quot;: &quot;MAU&quot;,
+          &quot;style&quot;: &quot;number&quot;
+        },
+      ],
+    },
+    {
+      &quot;section&quot;: &quot;manage&quot;
+      &quot;group&quot;: &quot;user&quot;,
+      &quot;id&quot;: &quot;user&quot;,
+      &quot;name&quot;: &quot;ユーザー&quot;,
+      &quot;components&quot;: [
+        {
+          &quot;api&quot;: {
+            &quot;method&quot;: &quot;get&quot;,
+            &quot;path&quot;: &quot;/user&quot;
+          },
+          &quot;name&quot;: &quot;ユーザー&quot;,
+          &quot;style&quot;: &quot;table&quot;,
+          &quot;primary&quot;: &quot;id&quot;, // テーブルデータの主キーにあたるフィールド
+          &quot;pagination&quot;: true, // テーブルスタイルのページャーを有効にするフラグ
+          &quot;query&quot;: [ // テーブルスタイルの検索フィールドを指定
+            {
+              &quot;key&quot;: &quot;name&quot;,
+              &quot;type&quot;: &quot;string&quot;
+            }
+          ],
+          &quot;table_labels&quot;: [ // テーブルスタイルの見出しにするフィールドを指定
+            &quot;id&quot;,
+            &quot;name&quot;
+          ],
+          &quot;actions&quot;: [ // 他APIの関連付けが必要な場合は指定。詳細は下記[API間の関連付け]を参照
+            &quot;/user/download/csv&quot;
+          ]
+        }
+      ],
+    },
+  ],
+}
+</code></pre>
+
+<h4 id="api間の関連付け">API間の関連付け</h4>
+
+<p>Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentのデータを操作するAPIとして表示します。</p>
+
+<p>上記例では <code>GET:/user</code> を基点に <code>POST:/user</code>, <code>PUT:/user</code>, <code>DELETE:/user</code>、<br />
+さらにprimaryの定義を使用して <code>GET:/user/{id}</code>, <code>POST:/user/{id}</code>, <code>PUT:/user/{id}</code>, <code>DELETE:/user/{id}</code> を抽出し、それらがswaggerに定義されている場合画面に表示します。</p>
+
+<p>自動抽出されないAPIを関連付けたい場合、actionsを定義することで実現できます。
+上記例では <code>/user/download/csv</code> をactionsに定義し、</p>
+
+<ul>
+<li><code>GET:/user/download/csv</code></li>
+<li><code>POST:/user/download/csv</code></li>
+<li><code>PUT:/user/download/csv</code></li>
+<li><code>DELETE:/user/download/csv</code></li>
+</ul>
+
+<p>を追加で関連付けしています。<br />
+これらも自動抽出のAPIと同じように、swaggerに定義されている場合のみ表示されます。</p>
+
+    </div>
+    <h2>関連項目</h2>
+    <ul class="posts">
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを追加する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/authtype/">認証方式を追加する</a></span>
+        </li>
+        
+      
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/menu/">グローバルメニューを編集する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/crud/">CRUDを追加する</a></span>
+        </li>
+        
+      
+    </ul>
+
+			
+		</div>
+
+</body>
+</html>

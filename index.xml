@@ -6,7 +6,7 @@
     <description>Recent content in TOP on Viron</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>TODO: copyright</copyright>
+    <copyright>Copyright © CA MOBILE, Ltd. All rights reserved.</copyright>
     
 	<atom:link href="https://cam-inc.github.io/viron-doc/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,9 +17,51 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cam-inc.github.io/viron-doc/overview/introduction/</guid>
-      <description>DMCとは
-リスト
- aa bb cc  リンク</description>
+      <description>Vironは、サービス運用に必要となる運用管理画面をOSSとして提供します。
+もう運用管理画面をゼロから構築する必要はありません。代わりに、OpenAPI Specificationを満たすAPI定義書を用意して下さい。そうすれば、あなたのサービス専用の運用管理画面が出来上がります。
+TODO</description>
+    </item>
+    
+    <item>
+      <title>エンドポイントを新規追加する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_add/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/endpoint_add/</guid>
+      <description>Step1 - モーダルを開く 左カラムの新規追加ボタンをクリックして新しい管理画面を作成するモーダルを開いて下さい。
+Step2 - エンドポイントURLを入力する エンドポイント欄にエンドポイントURLを入力して下さい。エンドポイントURLが不明な場合は、サービスを運用している技術者に問い合わせて下さい。登録済のエンドポイントURLは使用できないので注意して下さい。
+Step3 - メモを入力する エンドポイントに対するメモを任意で入力出来ます。メモ内容はVironの動作に影響しないので安心して自由に入力して下さい。
+Step4 - 作成する 入力内容に問題が無ければ作成ボタンをクリックして下さい。エンドポイント一覧にカードが追加されれば成功です。
+FAQ - 作成ボタンをクリックしたらエラーが発生する エンドポイントURLが存在しないことが原因かもしれません。サービスを運用している技術者に、エンドポイントURLが有効状態にあるか問い合わせて下さい。別の原因として、自己署名証明書が使用されていることも考えられます。自己署名証明書を使用している場合、お使いのwebブラウザでセキュリティ設定を行う必要があります。</description>
+    </item>
+    
+    <item>
+      <title>エンドポイントを追加する</title>
+      <link>https://cam-inc.github.io/viron-doc/admin_guide/swagger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/admin_guide/swagger/</guid>
+      <description>Vironサーバのエンドポイントとは swagger.json を取得するパスです。
+example-nodeでは /swagger.json をエンドポイントとしています。
+swagger.yaml SwaggerExpressではswaggerはyamlで記述します。
+yamlファイルの場所は api/swagger/swagger.yaml です。
+swagger controller api/controller/swagger.js に swagger#show という名前でcontrollerを実装します。
+example-nodeではnode-vironlibが提供するcontrollerを利用しています。
+このcontrollerは api/swagger/swagger.yaml をパースしたjsonを返すだけでなく、ログインユーザーが権限を持たないパスは返さないなど動的な変換にも対応しています。</description>
+    </item>
+    
+    <item>
+      <title>サーバ構築の準備</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/provision/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/provision/</guid>
+      <description>Vironのエンドポイントにはサービス専用のサーバを構築する必要があります。
+私たちはサンプルとして、Node.jsで実装されたexample-nodeプロジェクトを提供しています。
+example-nodeはNode.js+MySQL環境で動作します。 実際にサーバ構築を行う前にNode.jsとMySQLの実行環境を確認する必要があります。
+Node.jsの実行環境の確認 example-nodeはNode.js 7.x以上の環境で動作します。インストールされているNode.jsのバージョンを確認するには、以下のコマンドを実行します。
+$ node --version
+MySQLの実行環境の確認 MySQL 5.6でのみ動作確認を行っています。おそらく4.xでも動作しますが、新規に構築する場合（既存サービスのDBに接続しない場合）は5.6以上の利用をお勧めします。</description>
     </item>
     
     <item>
@@ -28,7 +70,93 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cam-inc.github.io/viron-doc/overview/demo/</guid>
-      <description>デモ。</description>
+      <description>Step1 Vironにアクセスする。 webブラウザでVironを開いて下さい。
+Step2 デモ用エンドポイントを追加する。  左カラム内の新規追加ボタンをクリックして下さい。 新しい管理画面を作成するモーダルが表示されるので、エンドポイント欄にhttps://viron.camplat.com/swagger.jsonを入力して下さい。 新規作成ボタンをクリックして下さい。  Step3 エンドポイントにサインインする。  エンドポイントカードをクリックして下さい。 googleボタンをクリックし、Google OAuth認証を行って下さい。デモ用エンドポイントは一般向けにGoogle OAuth認証のみを提供しています。  Step4 無事に認証をパスするとデモ用エンドポイントの各種データを閲覧/操作出来ます。自由に試してみて下さい。</description>
+    </item>
+    
+    <item>
+      <title>エンドポイントを編集する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_edit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/endpoint_edit/</guid>
+      <description>Step1 - モーダルを開く 編集したいエンドポイントカード内の編集ボタンをクリックして、エンドポイント編集モーダルを開いて下さい。
+Step2 - 編集する 入力値を自由に変更して下さい。エンドポイントURLは編集不可です。
+Step3 - 保存する 入力内容に問題が無ければ保存ボタンをクリックして下さい。</description>
+    </item>
+    
+    <item>
+      <title>コンフィグの設定</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/config/</guid>
+      <description>example-nodeではDBの接続先等の環境情報をコンフィグファイルに記述します。
+読み込むファイルは環境変数{SERVICE_ENV}に依存します。
+ host
+ サーバのホスト名(:ポート)です。swagger.yamlのhostを上書きします。  default_role
+ 管理ユーザーが追加された際に付与される初期ロールID  super_role
+ すべての権限を持つスーパーユーザーのロールID  google_oauth
+ redirect_url: Google認証後に呼び出されるViron側のAPI。クライアントID発行時に「承認済みのリダイレクトURI」に登録する必要があります。 allow_email_domains: 企業などで独自ドメインを運用している場合、そのドメインを記入することでドメインのユーザーのみに利用させることができます。独自ドメインがない場合は、利用者の制限を行う実装が必要かもしれません。  stores
+ MySQLサーバーの接続情報やSequelizeの設定  auth_jwt
+ VironはJWT認証を採用しています。JWTの有効期限や暗号化に使用する設定を行います。  ssl
+ HTTPSサーバで起動する場合のSSL鍵の情報。use: falseとするとHTTPサーバでの起動となり、keyおよびcertは無視されます。   </description>
+    </item>
+    
+    <item>
+      <title>認証方式を追加する</title>
+      <link>https://cam-inc.github.io/viron-doc/admin_guide/authtype/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/admin_guide/authtype/</guid>
+      <description> Vironサーバでは標準でメールアドレスおよびGoogleOAuthによる認証をサポートしています。
+認証方式を追加する場合は、 /dmc_authtype に定義を追加する必要があります。
+authtype controller Vironサーバがサポートしている認証方式をクライアントに返すためのAPIです。
+api/controller/dmc_authtype.js に auth_type#list という名前でcontrollerを実装します。
+下記インターフェースでAPIを実装してください。
+[ // メールアドレスとパスワードによる認証。利用しない場合は削除しても良い { type: &#39;email&#39;, // メールアドレスとパスワードによる独自認証を利用する場合のtype provider: &#39;example-node&#39;, url: &#39;/signin&#39;, // サインインフォームでsubmitする際のリクエストURL method: &#39;POST&#39;, // submitする際のリクエストメソッド }, // GoogleOAuthによる認証。利用しない場合は削除しても良い { type: &#39;oauth&#39;, // OAuth認証を利用する場合のtype provider: &#39;google&#39;, // OAuthを提供するプロバイダ。 url: &#39;/googlesignin&#39;, method: &#39;POST&#39;, }, // 認証方式ではありませんが、サインアウト時にコールするAPIを定義するために必須です。 { type: &#39;signout&#39;, provider: &#39;&#39;, url: &#39;/signout&#39;, method: &#39;POST&#39;, }, ];  </description>
+    </item>
+    
+    <item>
+      <title>Terminology</title>
+      <link>https://cam-inc.github.io/viron-doc/overview/terminology/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/overview/terminology/</guid>
+      <description>  エンドポイント   Viron上で運用管理を行うサービスを意味します。サービスにdevelopやstaging等の環境が存在する場合、各々は別のエンドポイントとして扱われます。   エンドポイントURL   エンドポイントのAPI定義書を取得するためのGETリクエストパスを意味します。(e.g. `https://viron.camplat.com/swagger.js`)   エンドポイントカード   [TODO:サムネイル] エンドポイント用のUIを意味します。   ページ   エンドポイント内の第一階層ディレクトリです。エンドポイントへサインイン後、左カラムにメニューとして表示されます。   コンポーネント   [TODO: サムネイル]エンドポイント内の第二階層ディレクトリです。ページの子要素として扱われ、ページ内でカードUIとして表示されます。   アクション   コンポーネントに対するAPIコールを意味します。ユーザ情報を取得する/更新する/削除する等は全てアクションとして扱われます。   Swagger   TODO   </description>
+    </item>
+    
+    <item>
+      <title>エンドポイントを削除する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_remove/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/endpoint_remove/</guid>
+      <description>エンドポイント一覧内の削除したいエンドポイントカードにある削除ボタンをクリックして下さい。</description>
+    </item>
+    
+    <item>
+      <title>グローバルメニューを編集する</title>
+      <link>https://cam-inc.github.io/viron-doc/admin_guide/menu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/admin_guide/menu/</guid>
+      <description>Vironトップに表示されるエンドポイントの情報や、サインイン後のグローバルメニューの構成を取得できる必要があります。
+/dmc のレスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。
+dmc controller api/controller/dmc.js に dmc#show という名前でcontrollerを実装します。 下記インターフェースでAPIを実装してください。
+{ // エンドポイントに関する情報 &amp;quot;color&amp;quot;: &amp;quot;white&amp;quot;, // カラーテーマ &amp;quot;name&amp;quot;: &amp;quot;Viron example for Node.js - local&amp;quot;, // エンドポイントの名称。サービス名や環境など &amp;quot;tags&amp;quot;: [ // エンドポイントに付与するタグ &amp;quot;local&amp;quot;, &amp;quot;viron&amp;quot;, &amp;quot;example&amp;quot; ], &amp;quot;thumbnail&amp;quot;: &amp;quot;https://avatars3.githubusercontent.com/u/23251378?v=3&amp;amp;s=200&amp;quot; // サムネイル画像URL // グローバルメニュー &amp;quot;pages&amp;quot;: [ { &amp;quot;section&amp;quot;: &amp;quot;dashboard&amp;quot; // 大項目。&amp;quot;dashboard&amp;quot; or &amp;quot;manage&amp;quot; &amp;quot;group&amp;quot;: &amp;quot;&amp;quot;, // 中項目。空の場合はsection直下にcomponentsを配置 &amp;quot;id&amp;quot;: &amp;quot;quickview&amp;quot;, // ページのID。全ページでユニークになっている必要があります &amp;quot;name&amp;quot;: &amp;quot;クイックビュー&amp;quot;, // ページ名 &amp;quot;components&amp;quot;: [ // メニューからページを選択した際に表示されるコンポーネントの一覧 { &amp;quot;api&amp;quot;: { // コンポーネントに表示する値を取得するためのAPI &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/stats/dau&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;DAU&amp;quot;, // コンポーネント名 &amp;quot;style&amp;quot;: &amp;quot;number&amp;quot; // コンポーネントスタイル。数字(number)、テーブル(table)の他に各種グラフ(graph-*)が利用できます }, { &amp;quot;api&amp;quot;: { &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/stats/mau&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;MAU&amp;quot;, &amp;quot;style&amp;quot;: &amp;quot;number&amp;quot; }, ], }, { &amp;quot;section&amp;quot;: &amp;quot;manage&amp;quot; &amp;quot;group&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;id&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;name&amp;quot;: &amp;quot;ユーザー&amp;quot;, &amp;quot;components&amp;quot;: [ { &amp;quot;api&amp;quot;: { &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/user&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;ユーザー&amp;quot;, &amp;quot;style&amp;quot;: &amp;quot;table&amp;quot;, &amp;quot;primary&amp;quot;: &amp;quot;id&amp;quot;, // テーブルデータの主キーにあたるフィールド &amp;quot;pagination&amp;quot;: true, // テーブルスタイルのページャーを有効にするフラグ &amp;quot;query&amp;quot;: [ // テーブルスタイルの検索フィールドを指定 { &amp;quot;key&amp;quot;: &amp;quot;name&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot; } ], &amp;quot;table_labels&amp;quot;: [ // テーブルスタイルの見出しにするフィールドを指定 &amp;quot;id&amp;quot;, &amp;quot;name&amp;quot; ], &amp;quot;actions&amp;quot;: [ // 他APIの関連付けが必要な場合は指定。詳細は下記[API間の関連付け]を参照 &amp;quot;/user/download/csv&amp;quot; ] } ], }, ], }  API間の関連付け Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentのデータを操作するAPIとして表示します。</description>
+    </item>
+    
+    <item>
+      <title>サーバ構築</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/construction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/construction/</guid>
+      <description>example-nodeをサーバ上の任意の場所に配置すればデプロイは完了です。
+インストール 依存するライブラリ群をインストールするため、以下のコマンドを実行してください。
+$ npm install
+起動 $ npm start</description>
     </item>
     
     <item>
@@ -37,7 +165,51 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cam-inc.github.io/viron-doc/overview/architecture/</guid>
-      <description>アーキテクチャ。</description>
+      <description>TODO</description>
+    </item>
+    
+    <item>
+      <title>CRUDを追加する</title>
+      <link>https://cam-inc.github.io/viron-doc/admin_guide/crud/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/admin_guide/crud/</guid>
+      <description>ここでは開発のイメージを掴みやすくするために
+架空のリソースに対するCRUDをVironに追加する手順を記載します。
+実装には
+ swaggerの編集 controllerの追加 /dmc の編集  の3つの手順が必要です。
+前提 追加するリソースは以下のようなスキーマを想定します。
+mysql&amp;gt; desc books; +-------------+-------------+------+-----+---------+----------------+ | Field | Type | Null | Key | Default | Extra | +-------------+-------------+------+-----+---------+----------------+ | id | int(11) | NO | PRI | NULL | auto_increment | | title | varchar(64) | YES | | NULL | | | author_name | varchar(32) | YES | | NULL | | | detail | text | YES | | NULL | | | created_at | datetime | NO | | NULL | | | updated_at | datetime | NO | | NULL | | | deleted_at | datetime | YES | | NULL | | +-------------+-------------+------+-----+---------+----------------+  swaggerの編集 paths GET:/books, POST:/books, GET:/books/{id}, PUT:/books/{id}, DELETE:/books/{id} を追加します。</description>
+    </item>
+    
+    <item>
+      <title>エンドポイントの並び順を変更する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_order/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/endpoint_order/</guid>
+      <description>Step1 - モーダルを開く 左カラムの並び替えボタンをクリックして下さい。エンドポイント件数が2件未満の場合、並び替えボタンは表示されません。
+Step2 - 並び替える 並び替えたいエンドポイントをドラッグ&amp;amp;ドロップで移動して下さい。上方に配置されたエンドポイントがより先方に並び替えられます。</description>
+    </item>
+    
+    <item>
+      <title>各種リファレンス</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/reference/</guid>
+      <description> 環境変数 example-nodeが利用する環境変数の一覧です。
+ SERVICE_ENV
+ 環境を表す名称を指定します。名称が一致したコンフィグファイルがロードされます。省略した場合は local が適用されます。  PORT
+ サーバをListenするポート番号を指定します。省略した場合は swagger.yaml の host に記述されているポート番号が適用されます。  GOOGLE_OAUTH_CLIENT_ID
+ GoogleOAuth認証を使用する際のクライアントIDです。省略した場合GoogleOAuthは利用できません。  GOOGLE_OAUTH_CLIENT_SECRET
+ GoogleOAuth認証を使用する際のクライアントシークレットです。省略した場合GoogleOAuthは利用できません。  MYSQL_USER_NAME
+ MySQLサーバーのユーザーです。  MYSQL_USER_PASSWORD
+ MySQLサーバーのパスワードです。  AUTH_JWT_PRIVATE_KEY
+ JWT生成用の秘密鍵です。  AUTH_JWT_PUBLIC_KEY
+ JWT検証用の公開鍵です。  SSL_PRIVATE_KEY
+ example-nodeをHTTPSサーバで起動する場合のSSL秘密鍵です。  SSL_CERTIFICATE
+ example-nodeをHTTPSサーバで起動する場合のSSL証明書です。   </description>
     </item>
     
     <item>
@@ -46,61 +218,71 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cam-inc.github.io/viron-doc/overview/restrict/</guid>
-      <description>注意事項・制限事項・既知の問題。 推奨ブラウザとか。</description>
+      <description>動作環境 
+ Chrome Safari Firefox Edge  の最新版で動作します。
+
+既知の問題   リダイレクトを行うエンドポイントURLと認証  Safariにて、リダイレクトを行うエンドポイントURLを指定すると正しく認証を行うことが出来ません。</description>
     </item>
     
     <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/admin_guide/sample/</link>
+      <title>エンドポイントを絞り込む</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_filter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cam-inc.github.io/viron-doc/admin_guide/sample/</guid>
-      <description>サンプル。</description>
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/endpoint_filter/</guid>
+      <description>左カラムのfilter欄に文字列を入力することで、エンドポイント一覧にリストアップするエンドポイントをフィルタリング出来ます。OR検索を行うには、入力ワードを空白文字で区切って下さい。</description>
     </item>
     
     <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/development_guide/sample/</link>
+      <title>エンドポイントを共有する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_share/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cam-inc.github.io/viron-doc/development_guide/sample/</guid>
-      <description>サンプル。</description>
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/endpoint_share/</guid>
+      <description>Step1 - 共有用ファイルをダウンロードする 左カラムのダウンロードボタンをクリックすると、現在のエンドポイント群情報の共有用ファイルをダウンロード出来ます。
+Step2 - 共有用ファイルを配置する ダウンロードした共有用ファイルを、DropboxやGithub上等、チームメンバーがアクセス可能な場所に配置して下さい。共有用ファイルには、環境別のエンドポイント群を含めると良いでしょう。
+Step3 - 共有用ファイルをアップロードする 共有用ファイルをVironに反映させるには、左カラムのアップロードボタンをクリックして下さい。ファイル選択ダイアログが表示されるので共有用ファイルを選択して下さい。エンドポイント群が追加されるとアップロード成功となります。</description>
     </item>
     
     <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/installation_guide/sample/</link>
+      <title>コンポーネントを操作する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/component/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cam-inc.github.io/viron-doc/installation_guide/sample/</guid>
-      <description>サンプル。</description>
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/component/</guid>
+      <description>コンポーネント内では、
+ 更新 フィルタリング 検索 アクションの実行  等を行えます。コンポーネントのデータに応じて各ボタンの表示/非表示が切り替わります。
+更新する データを更新するには、コンポーネント内右上に配置されている更新ボタンをクリックして下さい。既に設定されている検索条件でデータを取得し直します。
+フィルタリングする テーブルデータのみ有効になる機能です。表示データをフィルタリングするには、コンポーネント内右上に配置されているフィルタリングボタンをクリックして下さい。クリック後に現れるモーダル内で、テーブルに表示させたい項目をONにして下さい。
+検索する GETリクエストがクエリパラメータを受け付ける時のみ有効になる機能です。検索クエリ付きでデータを取得するには、コンポーネント内右上に配置されている検索ボタンをクリックして下さい。クリック後に現れるモーダル内で、検索クエリに使用する値を入力して下さい。
+アクションを実行する コンポーネントに対するアクションが定義されている時のみ有効になる機能です。コンポーネント下部のボタン群をクリックしてアクションを実行して下さい。</description>
     </item>
     
     <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/others/sample/</link>
+      <title>テーブルコンポーネントを操作する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/component_table/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cam-inc.github.io/viron-doc/others/sample/</guid>
-      <description>サンプル。</description>
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/component_table/</guid>
+      <description>テーブル内では、
+ 行の開閉 アクションの実行 クリップボードコピー セルデータの全件表示  等を行えます。
+行の開閉 行の開閉を行うにはテーブル行右上に配置された開閉ボタンをクリックして下さい。行名クリックでも開閉を行えます。
+アクションの実行 行に対するアクションの実行を行うには、テーブル行右上のアクションボタンをクリックして下さい。アクションボタンのアイコンはアクション内容によって異なります。swaggerに定義された分だけアクションボタンが表示されます。
+クリップボードコピー セルをクリックすると、セル内容がクリッピボードにコピーされます。
+全件表示 全件表示ボタンをクリックすると、行の全セル情報を表示できます。セル数が多くスクロール表示では見辛い時に便利です。</description>
     </item>
     
     <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/release_note/sample/</link>
+      <title>アクションを実行する</title>
+      <link>https://cam-inc.github.io/viron-doc/user_guide/action/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cam-inc.github.io/viron-doc/release_note/sample/</guid>
-      <description>サンプル。</description>
-    </item>
-    
-    <item>
-      <title>Sample</title>
-      <link>https://cam-inc.github.io/viron-doc/user_guide/sample/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://cam-inc.github.io/viron-doc/user_guide/sample/</guid>
-      <description>サンプル。</description>
+      <guid>https://cam-inc.github.io/viron-doc/user_guide/action/</guid>
+      <description>アクションドローワーでPOST/PUT/DELETE等のデータ操作を行えます。
+フォームの開閉 各フォームを開閉するには、開閉ボタンをクリックして下さい。
+パラメータ詳細表示 情報ボタンをクリックすると、パラメータ詳細情報が表示されます。パラメータタイプやバリデート情報等、Swaggerに定義されたリクエストパラメータ情報が表示されます。
+入力値を確認 ノートボタンをクリックすると、生のパラメータ値が表示されます。デバッグ用に活用して下さい。
+バリデーション情報 入力値に誤りがあるとエラーボタンが表示されます。バリデート結果が正になるよう修正して下さい。</description>
     </item>
     
   </channel>
