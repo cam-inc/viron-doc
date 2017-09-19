@@ -64,6 +64,10 @@ pre {
   white-space: pre;
 }
 
+img {
+  border: 2px solid #eee;
+}
+
 @media (min-width: 48em) {
   .content {
     max-width: 78rem;
