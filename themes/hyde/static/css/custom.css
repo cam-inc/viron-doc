@@ -1,0 +1,120 @@
+/*
+ * Custom Setting
+ *
+ * Custom css settings for viron documentation.
+ */
+
+/*
+ * Font
+ *
+ * Apply Notosans font.
+ */
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../font/NotoSansCJKjp-Jxck-Light.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Light.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../font/NotoSansCJKjp-Jxck-Regular.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Regular.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../font/NotoSansCJKjp-Jxck-Medium.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Medium.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSansCJKjp-Jxck";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../font/NotoSansCJKjp-Jxck-Bold.woff2") format("woff2"), url("../font/NotoSansCJKjp-Jxck-Bold.woff") format("woff"), url("../font/NotoSansCJKjp-Jxck-Bold.ttf") format("truetype");
+}
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+html {
+  font-size: 14px;
+  font-family: "Noto Sans", "Noto Sans CJK JP", "NotoSansCJKjp-Jxck", "PT Sans", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+p {
+  font-weight: normal;
+  word-break: break-word;
+}
+
+pre {
+  background-color: #fafafa;
+  white-space: pre;
+}
+
+@media (min-width: 48em) {
+  .content {
+    max-width: 78rem;
+  }
+
+  .sidebar-nav a {
+    padding: 0.5rem 0;
+    display: block;
+  }
+}
+
+summary {
+  padding: 2px;
+  cursor: pointer;
+  outline: 0;
+  transition: background-color 100ms linear;
+}
+
+summary:hover {
+  background-color: #F1F1F1;
+  border-radius: 3px;
+  /* color: #999; */
+}
+
+summary:not( :hover ) {
+  color: #515151;
+}
+
+details p,
+details > ul {
+  cursor: default;
+}
+
+.sidebar-nav a:hover {
+  text-decoration: none;
+  color: #999;
+  transition: color 100ms linear;
+}
+
+.sidebar-about h1 {
+  transition: color 100ms linear;
+}
+
+.sidebar-about a:hover {
+  text-decoration: none;
+}
+
+.sidebar-about a:hover h1 {
+  color: #999;
+}
+
+.sidebar-nav a {
+  width: 100%;
+}
