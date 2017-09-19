@@ -57,6 +57,7 @@ $ npm run release
 ## スクリーンショット
 
 ```
+$ export VIRON_DOC_TOKEN=xxx
 $ npm run screenshot
 ```
 
