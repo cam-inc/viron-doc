@@ -1,6 +1,5 @@
 +++
 title = "Release Note"
-Categories = "index"
 menu = "main"
 weight = 6
 +++

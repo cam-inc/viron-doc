@@ -10,7 +10,7 @@
     <h2>関連項目</h2>
     <ul class="posts">
       {{ range where .Site.Pages.ByWeight "Section" .Section }}
-        {{if ne .Params.categories "index" }}
+        {{if .IsPage }}
         <li>
           <span><a href="{{ .Permalink }}">{{ .Title }}</a></span>
         </li>
