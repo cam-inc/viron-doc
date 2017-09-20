@@ -87,6 +87,50 @@ const capture = async (browser) => {
         path: 'content/full.png'
       });
     })(),
+    // 用語集。
+    // content/overview/terminology
+    (async () => {
+      const page = await createPage(browser);
+      const clipForEndpointCard = await getClipArea(page, '.EndpointsPage__item');
+      return await page.screenshot({
+        path: 'content/overview/terminology/endpoint_card.png',
+        clip: clipForEndpointCard
+      });
+    })(),
+    // 用語集。
+    // content/overview/terminology
+    (async () => {
+      const page = await createPage(browser);
+      const clipForEndpointCard = await getClipArea(page, '.EndpointsPage__item');
+      return await page.screenshot({
+        path: 'content/overview/terminology/endpoint_card.png',
+        clip: clipForEndpointCard
+      });
+    })(),
+    // 用語集。サインイン後。
+    // content/overview/terminology
+    (async () => {
+      const page = await createPage(browser, 'https://localhost:8080/#/sampleEndpointKey01/user', '.Table');
+      const clipForMenu = await getClipArea(page, '.Menu');
+      await page.screenshot({
+        path: 'content/overview/terminology/menu.png',
+        clip: clipForMenu
+      });
+      const clipForComponent = await getClipArea(page, '.Component');
+      await page.screenshot({
+        path: 'content/overview/terminology/component.png',
+        clip: clipForComponent
+      });
+      const actionButton = await page.$('.Component__action .Button');
+      await actionButton.click();
+      await page.waitFor('.Drawer__frame');
+      await delay(500);
+      const clipForActionDrawer = await getClipArea(page, '.Drawer__frame');
+      await page.screenshot({
+        path: 'content/overview/terminology/action.png',
+        clip: clipForActionDrawer
+      });
+    })(),
     // エンドポイント新規作成。
     // content/user_guide/endpoint_add
     (async () => {

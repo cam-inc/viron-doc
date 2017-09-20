@@ -101,6 +101,10 @@ details > ul {
   cursor: default;
 }
 
+details img {
+  margin-top: 1rem;
+}
+
 .sidebar-nav a:hover {
   text-decoration: none;
   color: #999;
