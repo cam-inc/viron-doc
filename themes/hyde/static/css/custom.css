@@ -80,7 +80,7 @@ img {
 }
 
 summary {
-  padding: 2px;
+  padding: 8px;
   cursor: pointer;
   outline: 0;
   transition: background-color 100ms linear;

@@ -80,11 +80,11 @@ const click = async (page, selector) => {
 const capture = async (browser) => {
   return Promise.all([
     // Viron全体。
-    // content/overview/introduction
+    // content
     (async () => {
       const page = await createPage(browser);
       return await page.screenshot({
-        path: 'content/overview/introduction/full.png'
+        path: 'content/full.png'
       });
     })(),
     // エンドポイント新規作成。
