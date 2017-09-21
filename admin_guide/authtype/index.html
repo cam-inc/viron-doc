@@ -72,12 +72,12 @@
       
 
 <p>Vironサーバでは標準でメールアドレスおよびGoogleOAuthによる認証をサポートしています。<br />
-認証方式を追加する場合は、 <code>/dmc_authtype</code> に定義を追加する必要があります。</p>
+認証方式を追加する場合は、 <code>/viron_authtype</code> に定義を追加する必要があります。</p>
 
 <h3 id="authtype-controller">authtype controller</h3>
 
 <p>Vironサーバがサポートしている認証方式をクライアントに返すためのAPIです。<br />
-<code>api/controller/dmc_authtype.js</code> に <code>auth_type#list</code> という名前でcontrollerを実装します。<br />
+<code>api/controller/viron_authtype.js</code> に <code>auth_type#list</code> という名前でcontrollerを実装します。<br />
 下記インターフェースでAPIを実装してください。</p>
 
 <pre><code class="language-javascript">[

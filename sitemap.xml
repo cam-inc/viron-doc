@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://cam-inc.github.io/viron-doc/overview/introduction/</loc>
-  </url>
-  
-  <url>
     <loc>https://cam-inc.github.io/viron-doc/overview/</loc>
   </url>
   
@@ -124,12 +120,12 @@
   </url>
   
   <url>
-    <loc>https://cam-inc.github.io/viron-doc/</loc>
+    <loc>https://cam-inc.github.io/viron-doc/tags/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cam-inc.github.io/viron-doc/tags/</loc>
-    <priority>0</priority>
+    <loc>https://cam-inc.github.io/viron-doc/</loc>
   </url>
   
 </urlset>

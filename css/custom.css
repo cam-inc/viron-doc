@@ -80,7 +80,7 @@ img {
 }
 
 summary {
-  padding: 2px;
+  padding: 8px;
   cursor: pointer;
   outline: 0;
   transition: background-color 100ms linear;
@@ -99,6 +99,10 @@ summary:not( :hover ) {
 details p,
 details > ul {
   cursor: default;
+}
+
+details img {
+  margin-top: 1rem;
 }
 
 .sidebar-nav a:hover {
@@ -121,4 +125,35 @@ details > ul {
 
 .sidebar-nav a {
   width: 100%;
+}
+
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left-style: solid;
+  border-left-color: #ddd;
+  background-color: #f9f9f9;
+}
+
+.content h2 {
+  border-left-width: 10px;
+}
+
+.content h3 {
+  border-left-width: 8px;
+}
+
+.content h4 {
+  border-left-width: 6px;
+}
+
+.content h5 {
+  border-left-width: 4px;
+}
+
+.content h6 {
+  border-left-width: 2px;
 }

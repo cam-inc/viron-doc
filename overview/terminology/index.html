@@ -69,68 +69,43 @@
   <div class="content container">
     <div class="post">
       <h1>Terminology</h1>
-      <dl>
+      <p><details>
+  <summary>エンドポイント</summary>
+Viron上で運用管理を行うサービスを意味します。サービスにdevelopやstaging等の環境が存在する場合、各々は別のエンドポイントとして扱われます。
+</details></p>
 
-  <dt>
-    エンドポイント
-  </dt>
-  <dd>
-    Viron上で運用管理を行うサービスを意味します。サービスにdevelopやstaging等の環境が存在する場合、各々は別のエンドポイントとして扱われます。
-  </dd>
+<p><details>
+  <summary>エンドポイントURL</summary>
+  エンドポイントのAPI定義書を取得するためのGETリクエストパスを意味します。(e.g. <code>https://viron.camplat.com/swagger.js</code>)
+</details></p>
 
-  <dt>
-    エンドポイントURL
-  </dt>
-  <dd>
-    エンドポイントのAPI定義書を取得するためのGETリクエストパスを意味します。(e.g. `https://viron.camplat.com/swagger.js`)
-  </dd>
+<p><details>
+  <summary>エンドポイントカード</summary>
+  <img src="endpoint_card.png" alt="endpoint_card" />
+  エンドポイントを示すカードUIを意味します。
+</details></p>
 
-  <dt>
-    エンドポイントカード
-  </dt>
-  <dd>
-    [TODO:サムネイル] エンドポイント用のUIを意味します。
-  </dd>
+<p><details>
+  <summary>ページ</summary>
+  <img src="menu.png" alt="menu" />
+  エンドポイント内の第一階層ディレクトリです。エンドポイントへサインイン後、左カラムにメニューとして表示されます。
+</details></p>
 
-  <dt>
-    ページ
-  </dt>
-  <dd>
-    エンドポイント内の第一階層ディレクトリです。エンドポイントへサインイン後、左カラムにメニューとして表示されます。
-  </dd>
+<p><details>
+  <summary>コンポーネント</summary>
+  <img src="component.png" alt="component" />
+  エンドポイント内の第二階層ディレクトリです。ページの子要素として扱われ、ページ内でカードUIとして表示されます。
+</details></p>
 
-  <dt>
-    コンポーネント
-  </dt>
-  <dd>
-    [TODO: サムネイル]エンドポイント内の第二階層ディレクトリです。ページの子要素として扱われ、ページ内でカードUIとして表示されます。
-  </dd>
-
-  <dt>
-    アクション
-  </dt>
-  <dd>
-    コンポーネントに対するAPIコールを意味します。ユーザ情報を取得する/更新する/削除する等は全てアクションとして扱われます。
-  </dd>
-
-  <dt>
-    Swagger
-  </dt>
-  <dd>
-    TODO
-  </dd>
-
-</dl>
+<p><details>
+  <summary>アクション</summary>
+  <img src="action.png" alt="action" />
+  コンポーネントに対するAPIコールを意味します。ユーザ情報を取得する/更新する/削除する等は全てアクションとして扱
+</details></p>
 
     </div>
     <h2>関連項目</h2>
     <ul class="posts">
-      
-        
-        <li>
-          <span><a href="https://cam-inc.github.io/viron-doc/overview/introduction/">Introduction</a></span>
-        </li>
-        
       
         
       
