@@ -4,11 +4,11 @@ weight = 3
 +++
 
 Vironトップに表示されるエンドポイントの情報や、サインイン後のグローバルメニューの構成を取得できる必要があります。  
-`/dmc` のレスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。
+`/viron` のレスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。
 
-### dmc controller
+### viron controller
 
-`api/controller/dmc.js` に `dmc#show` という名前でcontrollerを実装します。
+`api/controller/viron.js` に `viron#show` という名前でcontrollerを実装します。
 下記インターフェースでAPIを実装してください。  
 
 ```javascript

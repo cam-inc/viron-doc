@@ -9,7 +9,7 @@ weight = 4
 
 - [swaggerの編集](#swagger)
 - [controllerの追加](#controller)
-- [/dmc の編集](#dmc)
+- [/viron の編集](#viron)
 
 の3つの手順が必要です。
 
@@ -260,9 +260,9 @@ module.exports = {
 }
 ```
 
-### <a name="dmc">/dmc の編集</a>
+### <a name="viron">/viron の編集</a>
 
-最後に `/dmc` にページを追加します。
+最後に `/viron` にページを追加します。
 
 ```js
 {
