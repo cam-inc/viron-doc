@@ -9,7 +9,7 @@ Vironトップに表示されるエンドポイントの情報や、サインイ
 ### viron controller
 
 `api/controller/viron.js` に `viron#show` という名前でcontrollerを実装します。
-下記インターフェースでAPIを実装してください。  
+下記インタフェースでAPIを実装してください。  
 
 ```javascript
 {

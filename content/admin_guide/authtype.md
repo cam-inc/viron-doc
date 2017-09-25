@@ -10,7 +10,7 @@ Vironサーバでは標準でメールアドレスおよびGoogleOAuthによる�
 
 Vironサーバがサポートしている認証方式をクライアントに返すためのAPIです。   
 `api/controller/viron_authtype.js` に `auth_type#list` という名前でcontrollerを実装します。  
-下記インターフェースでAPIを実装してください。
+下記インタフェースでAPIを実装してください。
 
 ```javascript
 [

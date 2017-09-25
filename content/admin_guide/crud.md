@@ -33,7 +33,7 @@ mysql> desc books;
 +-------------+-------------+------+-----+---------+----------------+
 ```
 
-### <a name=swagger>swaggerの編集</a>
+### <a name=swagger>Step1 - swaggerの編集</a>
 
 #### paths
 
@@ -220,7 +220,7 @@ definitions:
         type: string
 ```
 
-### <a name="controller">controllerの追加</a>
+### <a name="controller">Step2 - controllerの追加</a>
 
 `api/controller/` 配下に `books.js` を作成します。  
 実際は、期待するレスポンスを返すためにDBや外部APIなど各種リソースにアクセスするロジックが必要です。
@@ -260,7 +260,7 @@ module.exports = {
 }
 ```
 
-### <a name="viron">/viron の編集</a>
+### <a name="viron">Step3 - /viron の編集</a>
 
 最後に `/viron` にページを追加します。
 
