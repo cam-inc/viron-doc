@@ -1,7 +1,7 @@
 +++
 title = "Others"
 menu = "main"
-weight = 7
+weight = 8
 +++
 
 Vironと関連のある情報源をまとめています。

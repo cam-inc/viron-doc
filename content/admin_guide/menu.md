@@ -86,7 +86,7 @@ Vironトップに表示されるエンドポイントの情報や、サインイ
 
 #### API間の関連付け
 
-Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentのデータを操作するAPIとして表示します。  
+Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentを操作するAPIとして表示します。  
 
 上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user`、  
 さらにprimaryの定義を使用して `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を抽出し、それらがswaggerに定義されている場合画面に表示します。  

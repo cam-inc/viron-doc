@@ -1,7 +1,7 @@
 +++
 title = "Release Note"
 menu = "main"
-weight = 6
+weight = 7
 +++
 
 各リリースに関する情報をまとめています。

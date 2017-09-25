@@ -9,7 +9,8 @@
     "clean": "rm -rf ./public",
     "deploy": "gh-pages -d public --add",
     "release": "run-s clean build deploy",
-    "screenshot": "node tasks/screenshot.js"
+    "screenshot": "node tasks/screenshot.js",
+    "screenshot-safety": "CAPTURE_SAFETY=true node tasks/screenshot.js"
   },
   "repository": {
     "type": "git",
