@@ -55,6 +55,8 @@
       
         <li><a href="/viron-doc/development_guide/"> Development Guide </a></li>
       
+        <li><a href="/viron-doc/operation_guide/"> Operation Guide </a></li>
+      
         <li><a href="/viron-doc/release_note/"> Release Note </a></li>
       
         <li><a href="/viron-doc/others/"> Others </a></li>
@@ -71,7 +73,7 @@
       <h1>サーバ構築</h1>
       
 
-<p>example-nodeをサーバ上の任意の場所に配置すればデプロイは完了です。</p>
+<p>Vironサーバのソースを任意の場所に配置すればデプロイは完了です。</p>
 
 <h3 id="インストール">インストール</h3>
 
@@ -82,6 +84,80 @@
 <h3 id="起動">起動</h3>
 
 <p><code>$ npm start</code></p>
+
+<h3 id="動作確認">動作確認</h3>
+
+<pre><code>$ curl http://localhost:3000/ping
+pong
+</code></pre>
+
+<h4 id="dbのテーブル追加の確認">DBのテーブル追加の確認</h4>
+
+<p>Vironサーバを起動するとデータベースに3つのテーブルが作成されます。</p>
+
+<p><details>
+  <summary>admin_users</summary>
+Vironサーバを利用するユーザ情報を管理するテーブルです。</p>
+
+<pre><code>mysql&gt; desc admin_users;
++-----------+------------------+------+-----+---------+----------------+
+| Field     | Type             | Null | Key | Default | Extra          |
++-----------+------------------+------+-----+---------+----------------+
+| id        | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| email     | varchar(255)     | NO   | UNI | NULL    |                |
+| role_id   | varchar(255)     | NO   |     | NULL    |                |
+| password  | varchar(1024)    | YES  |     | NULL    |                |
+| salt      | varchar(256)     | YES  |     | NULL    |                |
+| createdAt | datetime         | NO   |     | NULL    |                |
+| updatedAt | datetime         | NO   |     | NULL    |                |
+| deletedAt | datetime         | YES  |     | NULL    |                |
++-----------+------------------+------+-----+---------+----------------+
+</code></pre>
+
+<p></details></p>
+
+<p><details>
+  <summary>admin_roles</summary>
+Vironユーザに付与するロールを管理するテーブルです。</p>
+
+<pre><code>mysql&gt; desc admin_roles;
++-----------+------------------+------+-----+---------+----------------+
+| Field     | Type             | Null | Key | Default | Extra          |
++-----------+------------------+------+-----+---------+----------------+
+| id        | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| role_id   | varchar(255)     | NO   | MUL | NULL    |                |
+| method    | varchar(255)     | YES  |     | NULL    |                |
+| resource  | varchar(255)     | YES  |     | NULL    |                |
+| createdAt | datetime         | NO   |     | NULL    |                |
+| updatedAt | datetime         | NO   |     | NULL    |                |
+| deletedAt | datetime         | YES  |     | NULL    |                |
++-----------+------------------+------+-----+---------+----------------+
+</code></pre>
+
+<p></details></p>
+
+<p><details>
+  <summary>audit_logs</summary>
+Vironサーバの監査ログを記録するテーブルです。</p>
+
+<pre><code>mysql&gt; desc audit_logs;
++----------------+------------------+------+-----+---------+----------------+
+| Field          | Type             | Null | Key | Default | Extra          |
++----------------+------------------+------+-----+---------+----------------+
+| id             | int(11)          | NO   | PRI | NULL    | auto_increment |
+| request_method | varchar(255)     | YES  |     | NULL    |                |
+| request_uri    | varchar(2048)    | YES  |     | NULL    |                |
+| source_ip      | varchar(255)     | YES  |     | NULL    |                |
+| user_id        | varchar(255)     | YES  |     | NULL    |                |
+| request_body   | text             | YES  |     | NULL    |                |
+| status_code    | int(10) unsigned | YES  |     | NULL    |                |
+| createdAt      | datetime         | NO   |     | NULL    |                |
+| updatedAt      | datetime         | NO   |     | NULL    |                |
+| deletedAt      | datetime         | YES  |     | NULL    |                |
++----------------+------------------+------+-----+---------+----------------+
+</code></pre>
+
+<p></details></p>
 
     </div>
     <h2>関連項目</h2>
@@ -109,7 +185,7 @@
       
         
         <li>
-          <span><a href="https://cam-inc.github.io/viron-doc/installation_guide/reference/">各種リファレンス</a></span>
+          <span><a href="https://cam-inc.github.io/viron-doc/installation_guide/env/">環境変数</a></span>
         </li>
         
       

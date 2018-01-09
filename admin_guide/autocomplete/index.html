@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-  <title>認証方式を追加する &middot; Viron</title>
+  <title>オートコンプリートを実装する &middot; Viron</title>
   
 
   
@@ -70,41 +70,70 @@
 
   <div class="content container">
     <div class="post">
-      <h1>認証方式を追加する</h1>
+      <h1>オートコンプリートを実装する</h1>
       
 
-<p>Vironサーバでは標準でメールアドレスおよびGoogleOAuthによる認証をサポートしています。<br />
-認証方式を追加する場合は、 <code>/viron_authtype</code> に定義を追加する必要があります。</p>
+<p>データ入力補助としてオートコンプリート機能を実装することができます。</p>
 
-<h3 id="authtype-controller">authtype controller</h3>
+<h4 id="step1-swaggerの定義">Step1 - swaggerの定義</h4>
 
-<p>Vironサーバがサポートしている認証方式をクライアントに返すためのAPIです。<br />
-<code>api/controller/viron_authtype.js</code> に <code>auth_type#list</code> という名前でcontrollerを実装します。<br />
+<p>オートコンプリートを適用したいパラメータに<code>x-autocomplete</code>を定義することでオートコンプリートが有効になります。</p>
+
+<pre><code class="language-yaml">user_id:
+    description: ユーザーID
+    example: 1
+    format: int64
+    type: integer
+    x-autocomplete:
+        field: name
+        path: /viron_autocomplete
+        query:
+            model: users
+            value: id
+</code></pre>
+
+<p>上記はexample-nodeの<code>UserBlogPayload</code>を一部抜粋したものです。<br />
+<code>name</code>を入力することで<code>users</code>テーブルを検索し、<code>id</code>を補完することができます。</p>
+
+<h5 id="x-autocomplete-の各フィールドについて"><code>x-autocomplete</code>の各フィールドについて</h5>
+
+<ul>
+<li>field
+
+<ul>
+<li>ユーザが入力する値がどのフィールドの値なのかを指定します。</li>
+<li>ex) 上記例でユーザーが<code>hoge</code>と入力しているとき、サーバへのリクエストは <code>GET: /viron_autocomplete?name=hoge</code> となります。</li>
+</ul></li>
+<li>path
+
+<ul>
+<li>検索を行い、一致するリストを返却するコントローラのパスです。</li>
+<li>example-nodeで使用している<code>/viron_autocomplete</code>は<code>model</code>で指定したテーブルに部分一致検索を行うシンプルな汎用コントローラです。</li>
+</ul></li>
+<li>query
+
+<ul>
+<li>field以外にサーバに送信したいクエリがあるときに指定します。</li>
+<li>上記例では <code>GET: /viron_autocomplete?name=hoge&amp;model=users&amp;value=id</code> が実際に送信されるリクエストになります。</li>
+</ul></li>
+</ul>
+
+<h4 id="step2-controllerの実装">Step2 - controllerの実装</h4>
+
+<p><code>x-autocomplete</code>.<code>path</code>に指定したコントローラの実装を行います。<br />
+他のコントローラ同様、swaggerの定義も必要です。<br />
 下記インタフェースでAPIを実装してください。</p>
 
 <pre><code class="language-javascript">[
-  // メールアドレスとパスワードによる認証。利用しない場合は削除しても良い
   {
-    type: 'email', // メールアドレスとパスワードによる独自認証を利用する場合のtype
-    provider: 'example-node',
-    url: '/signin', // サインインフォームでsubmitする際のリクエストURL
-    method: 'POST', // submitする際のリクエストメソッド
+    name: 'test-user01', // オートコンプリート結果をリスト表示する際の表示項目です
+    value: 1,            // 選択時に実際に入力される値です
   },
-  // GoogleOAuthによる認証。利用しない場合は削除しても良い
   {
-    type: 'oauth', // OAuth認証を利用する場合のtype
-    provider: 'google', // OAuthを提供するプロバイダ。
-    url: '/googlesignin',
-    method: 'POST',
+    name: 'test-user02',
+    value: 2,
   },
-  // 認証方式ではありませんが、サインアウト時にコールするAPIを定義するために必須です。
-  {
-    type: 'signout',
-    provider: '',
-    url: '/signout',
-    method: 'POST',
-  },
-];
+]
 </code></pre>
 
     </div>

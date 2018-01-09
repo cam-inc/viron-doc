@@ -55,6 +55,8 @@
       
         <li><a href="/viron-doc/development_guide/"> Development Guide </a></li>
       
+        <li><a href="/viron-doc/operation_guide/"> Operation Guide </a></li>
+      
         <li><a href="/viron-doc/release_note/"> Release Note </a></li>
       
         <li><a href="/viron-doc/others/"> Others </a></li>
@@ -69,33 +71,46 @@
   <div class="content container">
     <div class="post">
       <h1>コンフィグの設定</h1>
-      <p>example-nodeではDBの接続先等の環境情報をコンフィグファイルに記述します。<br />
-読み込むファイルは環境変数{SERVICE_ENV}に依存します。</p>
+      <p>example-nodeはDBの接続先等の環境情報をコンフィグファイルに記述します。<br />
+読み込むファイルは<code>shared/config/</code>に配置し、環境変数<code>{SERVICE_ENV}</code>でロードするファイルを切り替えることができます。</p>
 
 <ul>
 <li><p><code>host</code></p>
 
 <ul>
-<li>サーバのホスト名(:ポート)です。swagger.yamlのhostを上書きします。</li>
+<li>サーバのホスト名(:ポート)です。ブラウザからアクセスをされるホストを指定してください。</li>
+<li>環境変数<code>{PORT}</code>を省略した場合はexample-nodeをListenするポートにもなります。</li>
 </ul></li>
 
 <li><p><code>default_role</code></p>
 
 <ul>
-<li>管理ユーザーが追加された際に付与される初期ロールID</li>
+<li>管理ユーザーが追加された際に付与される初期ロールIDです。</li>
 </ul></li>
 
 <li><p><code>super_role</code></p>
 
 <ul>
-<li>すべての権限を持つスーパーユーザーのロールID</li>
+<li>すべての権限を持つスーパーユーザーのロールIDです。</li>
 </ul></li>
 
 <li><p><code>google_oauth</code></p>
 
 <ul>
-<li><code>redirect_url</code>: Google認証後に呼び出されるViron側のAPI。クライアントID発行時に「承認済みのリダイレクトURI」に登録する必要があります。</li>
+<li>Google認証を利用するには<a href="https://console.cloud.google.com/">GoogleCloudConsole</a>でOAuthクライアントの認証情報を作成する必要があります。</li>
+<li><code>client_id</code>: 認証情報を作成した際に発行されたOAuthクライアントID</li>
+<li><code>client_secret</code>: 認証情報を作成した際に発行されたOAuthクライアントシークレット</li>
+<li><code>redirect_url</code>: Google認証後に呼び出されるViron側のAPI。認証情報作成時に「承認済みのリダイレクトURI」に登録する必要があります。</li>
 <li><code>allow_email_domains</code>: 企業などで独自ドメインを運用している場合、そのドメインを記入することでドメインのユーザーのみに利用させることができます。独自ドメインがない場合は、利用者の制限を行う実装が必要かもしれません。</li>
+</ul></li>
+
+<li><p><code>acl</code></p>
+
+<ul>
+<li>CORS対応のためにレスポンスヘッダに付与するAccessControlの設定です。</li>
+<li><code>allow_origin</code>: <code>Access-Control-Allow-Origin</code>ヘッダに付与されます。</li>
+<li><code>allow_headers</code>: <code>Access-Control-Allow-Headers</code>ヘッダに付与されます。</li>
+<li><code>expose_headers</code>: <code>Access-Control-Expose-Headers</code>ヘッダに付与されます。</li>
 </ul></li>
 
 <li><p><code>stores</code></p>
@@ -108,12 +123,22 @@
 
 <ul>
 <li>Vironは<a href="https://tools.ietf.org/html/rfc7519">JWT</a>認証を採用しています。JWTの有効期限や暗号化に使用する設定を行います。</li>
+<li><code>token_expire</code>: JWTの有効期限をミリ秒単位で指定します。</li>
+<li><code>algorithm</code>: 暗号化に用いるアルゴリズムです。RSA(RS256,RS384,RS512)およびHMAC(HS256,HS384,HS512)をサポートしています。</li>
+<li><code>claims</code>: JWTに含めるクレームセットです。</li>
+<li><code>rsa_private_key</code>: RSAを利用する場合の秘密鍵です。</li>
+<li><code>rsa_public_key</code>: RSAを利用する場合の公開鍵です。</li>
+<li><code>secret</code>: HMACを利用する場合の共通鍵です。</li>
 </ul></li>
 
 <li><p><code>ssl</code></p>
 
 <ul>
-<li>HTTPSサーバで起動する場合のSSL鍵の情報。<code>use: false</code>とするとHTTPサーバでの起動となり、<code>key</code>および<code>cert</code>は無視されます。</li>
+<li>HTTPSサーバを起動する場合のSSL鍵や証明書の情報。</li>
+<li>Vironは<code>GitHub Pages</code>で提供されるため、クロスオリジンとなるVironサーバへのアクセスもHTTPSが必須です。<code>ssl</code>設定はVironサーバ自身をHTTPSで起動する手段を提供しますが、SSLに対応したLoadBalancerを経由させることでVironサーバはHTTPで起動するといった構成も可能です。</li>
+<li><code>use</code>: HTTP/HTTPSのどちらで起動するかを制御します。<code>true</code>でHTTPSサーバになります。</li>
+<li><code>key</code>: SSL公開鍵です。</li>
+<li><code>cert</code>: SSLサーバ証明書です。</li>
 </ul></li>
 </ul>
 
@@ -143,7 +168,7 @@
       
         
         <li>
-          <span><a href="https://cam-inc.github.io/viron-doc/installation_guide/reference/">各種リファレンス</a></span>
+          <span><a href="https://cam-inc.github.io/viron-doc/installation_guide/env/">環境変数</a></span>
         </li>
         
       

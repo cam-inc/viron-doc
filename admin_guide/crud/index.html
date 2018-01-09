@@ -55,6 +55,8 @@
       
         <li><a href="/viron-doc/development_guide/"> Development Guide </a></li>
       
+        <li><a href="/viron-doc/operation_guide/"> Operation Guide </a></li>
+      
         <li><a href="/viron-doc/release_note/"> Release Note </a></li>
       
         <li><a href="/viron-doc/others/"> Others </a></li>
@@ -101,7 +103,7 @@
 +-------------+-------------+------+-----+---------+----------------+
 </code></pre>
 
-<h3 id="a-name-swagger-swaggerの編集-a"><a name=swagger>swaggerの編集</a></h3>
+<h3 id="a-name-swagger-step1-swaggerの編集-a"><a name=swagger>Step1 - swaggerの編集</a></h3>
 
 <h4 id="paths">paths</h4>
 
@@ -286,7 +288,7 @@
         type: string
 </code></pre>
 
-<h3 id="a-name-controller-controllerの追加-a"><a name="controller">controllerの追加</a></h3>
+<h3 id="a-name-controller-step2-controllerの追加-a"><a name="controller">Step2 - controllerの追加</a></h3>
 
 <p><code>api/controller/</code> 配下に <code>books.js</code> を作成します。<br />
 実際は、期待するレスポンスを返すためにDBや外部APIなど各種リソースにアクセスするロジックが必要です。</p>
@@ -325,7 +327,7 @@ module.exports = {
 }
 </code></pre>
 
-<h3 id="a-name-viron-viron-の編集-a"><a name="viron">/viron の編集</a></h3>
+<h3 id="a-name-viron-step3-viron-の編集-a"><a name="viron">Step3 - /viron の編集</a></h3>
 
 <p>最後に <code>/viron</code> にページを追加します。</p>
 
@@ -366,7 +368,7 @@ module.exports = {
       
         
         <li>
-          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを追加する</a></span>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを実装する</a></span>
         </li>
         
       
@@ -387,6 +389,18 @@ module.exports = {
         
         <li>
           <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/crud/">CRUDを追加する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/autocomplete/">オートコンプリートを実装する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/validator/">バリデータを定義する</a></span>
         </li>
         
       

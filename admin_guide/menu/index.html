@@ -55,6 +55,8 @@
       
         <li><a href="/viron-doc/development_guide/"> Development Guide </a></li>
       
+        <li><a href="/viron-doc/operation_guide/"> Operation Guide </a></li>
+      
         <li><a href="/viron-doc/release_note/"> Release Note </a></li>
       
         <li><a href="/viron-doc/others/"> Others </a></li>
@@ -77,7 +79,7 @@
 <h3 id="viron-controller">viron controller</h3>
 
 <p><code>api/controller/viron.js</code> に <code>viron#show</code> という名前でcontrollerを実装します。
-下記インターフェースでAPIを実装してください。</p>
+下記インタフェースでAPIを実装してください。</p>
 
 <pre><code class="language-javascript">{
   // エンドポイントに関する情報
@@ -153,7 +155,7 @@
 
 <h4 id="api間の関連付け">API間の関連付け</h4>
 
-<p>Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentのデータを操作するAPIとして表示します。</p>
+<p>Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentを操作するAPIとして表示します。</p>
 
 <p>上記例では <code>GET:/user</code> を基点に <code>POST:/user</code>, <code>PUT:/user</code>, <code>DELETE:/user</code>、<br />
 さらにprimaryの定義を使用して <code>GET:/user/{id}</code>, <code>POST:/user/{id}</code>, <code>PUT:/user/{id}</code>, <code>DELETE:/user/{id}</code> を抽出し、それらがswaggerに定義されている場合画面に表示します。</p>
@@ -177,7 +179,7 @@
       
         
         <li>
-          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを追加する</a></span>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを実装する</a></span>
         </li>
         
       
@@ -198,6 +200,18 @@
         
         <li>
           <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/crud/">CRUDを追加する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/autocomplete/">オートコンプリートを実装する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/validator/">バリデータを定義する</a></span>
         </li>
         
       

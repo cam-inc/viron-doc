@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operation Guide on Viron</title>
+    <link>https://cam-inc.github.io/viron-doc/operation_guide/</link>
+    <description>Recent content in Operation Guide on Viron</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © CA MOBILE, Ltd. All rights reserved.</copyright>
+    
+	<atom:link href="https://cam-inc.github.io/viron-doc/operation_guide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vironユーザを管理する</title>
+      <link>https://cam-inc.github.io/viron-doc/operation_guide/adminuser/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/operation_guide/adminuser/</guid>
+      <description>Vironサーバを利用するユーザに適切なロールを割り当てたり、ユーザの追加/削除を行います。
+Email認証とOAuth認証で運用が異なるため、認証方式別に記述します。
+Email認証の場合 ユーザが利用を開始する前に、運用管理者がユーザを追加する必要があります。
+Step1 - Viron 管理ユーザ コンポーネントを開く 左カラムのViron 管理ユーザボタンをクリックしてコンポーネントを開きます。
+Step2 - 管理ユーザ作成 モーダルを開く コンポーネント下部の管理ユーザ作成をクリックしてモーダルを開きます。
+Step3 - 管理ユーザを作成する 必要な情報を入力して管理ユーザを作成します。
+ email  ログインIDとなるユーザのメールアドレスです。  password  ログインパスワードです。初回ログイン時に変更させるよう促してください。  role_id  ユーザ権限です。ユーザの役割に適したロールを設定してください。 superロールは管理メニューを含めたすべての操作が行えます。取扱いには十分注意してください。   GoogleOAuth認証の場合 OAuthでは認証をGoogle側で行うため、あらかじめVironに管理ユーザを登録しておく必要はありません。
+初回ログイン時に管理ユーザが自動的に作成され、初期ロールが付与されます。
+必要に応じて役割を変更してください。</description>
+    </item>
+    
+    <item>
+      <title>ユーザ権限を管理する</title>
+      <link>https://cam-inc.github.io/viron-doc/operation_guide/adminrole/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/operation_guide/adminrole/</guid>
+      <description> Vironユーザに割り当てる権限を追加/変更/削除します。
+Vironのユーザ権限はリソース毎に参照/追加/変更/削除を設定することが可能です。
+ユーザ権限を追加する Step1 - Viron ユーザ権限 コンポーネントを開く 左カラムのViron ユーザ権限ボタンをクリックしてコンポーネントを開きます。
+Step2 - ユーザ権限作成 モーダルを開く コンポーネント下部のユーザ権限作成をクリックしてモーダルを開きます。
+Step3 - ユーザ権限を作成する 必要な情報を入力してユーザ権限を作成します。
+ paths.path  対象の操作をセレクトボックスから選択します。  paths.allow  選択した操作を許可する場合はチェックします。  role_id  ユーザ権限のIDです。ユーザへはこのIDを付与します。   </description>
+    </item>
+    
+    <item>
+      <title>監査ログを閲覧する</title>
+      <link>https://cam-inc.github.io/viron-doc/operation_guide/auditlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/operation_guide/auditlog/</guid>
+      <description> Vironサーバへのリクエストは監査ログに保存されます。 Vironには監査ログを閲覧するためのUIがあり、ログの閲覧/検索が可能です。
+監査ログを検索する Step1 - Viron 監査ログ コンポーネントを開く 左カラムのViron 監査ログボタンをクリックしてコンポーネントを開きます。
+Step2 - 検索 ポップアップを開く コンポーネント右上部のをクリックしてポップアップを開きます。
+Step3 - 検索条件を入力する 必要な情報を入力して検索を行います。
+ request_method  HTTPメソッドです。特定の操作のみ検索できます。 ex) POST  user_id  ユーザID(メールアドレス)です。特定のユーザによる操作のみ検索できます。  request_uri  HTTPリクエストURIです。特定のリソースに対する操作のみ検索できます。 ex) /user   </description>
+    </item>
+    
+  </channel>
+</rss>

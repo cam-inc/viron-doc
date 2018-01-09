@@ -12,6 +12,38 @@
     
     
     <item>
+      <title>Vironユーザを管理する</title>
+      <link>https://cam-inc.github.io/viron-doc/operation_guide/adminuser/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/operation_guide/adminuser/</guid>
+      <description>Vironサーバを利用するユーザに適切なロールを割り当てたり、ユーザの追加/削除を行います。
+Email認証とOAuth認証で運用が異なるため、認証方式別に記述します。
+Email認証の場合 ユーザが利用を開始する前に、運用管理者がユーザを追加する必要があります。
+Step1 - Viron 管理ユーザ コンポーネントを開く 左カラムのViron 管理ユーザボタンをクリックしてコンポーネントを開きます。
+Step2 - 管理ユーザ作成 モーダルを開く コンポーネント下部の管理ユーザ作成をクリックしてモーダルを開きます。
+Step3 - 管理ユーザを作成する 必要な情報を入力して管理ユーザを作成します。
+ email  ログインIDとなるユーザのメールアドレスです。  password  ログインパスワードです。初回ログイン時に変更させるよう促してください。  role_id  ユーザ権限です。ユーザの役割に適したロールを設定してください。 superロールは管理メニューを含めたすべての操作が行えます。取扱いには十分注意してください。   GoogleOAuth認証の場合 OAuthでは認証をGoogle側で行うため、あらかじめVironに管理ユーザを登録しておく必要はありません。
+初回ログイン時に管理ユーザが自動的に作成され、初期ロールが付与されます。
+必要に応じて役割を変更してください。</description>
+    </item>
+    
+    <item>
+      <title>エンドポイントを実装する</title>
+      <link>https://cam-inc.github.io/viron-doc/admin_guide/swagger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/admin_guide/swagger/</guid>
+      <description>Vironサーバのエンドポイントは swagger.json を取得するURLで、GETでアクセスできる必要があります。
+example-nodeでは /swagger.json をエンドポイントとしています。
+swagger.yaml example-nodeではswaggerをyamlで記述しています。
+yamlファイルの場所は api/swagger/swagger.yaml です。
+swagger controller api/controller/swagger.js に swagger#show という名前でcontrollerを実装します。
+example-nodeはnode-vironlibが提供するcontrollerを利用しています。
+このcontrollerは api/swagger/swagger.yaml をパースしたjsonを返すだけでなく、ログインユーザーが権限を持たないパスは返さないなど動的な変換にも対応しています。</description>
+    </item>
+    
+    <item>
       <title>エンドポイントを新規追加する</title>
       <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_add/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -25,32 +57,20 @@ FAQ - 作成ボタンをクリックしたらエラーが発生する エンド�
     </item>
     
     <item>
-      <title>エンドポイントを追加する</title>
-      <link>https://cam-inc.github.io/viron-doc/admin_guide/swagger/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://cam-inc.github.io/viron-doc/admin_guide/swagger/</guid>
-      <description>Vironサーバのエンドポイントとは swagger.json を取得するパスです。
-example-nodeでは /swagger.json をエンドポイントとしています。
-swagger.yaml SwaggerExpressではswaggerはyamlで記述します。
-yamlファイルの場所は api/swagger/swagger.yaml です。
-swagger controller api/controller/swagger.js に swagger#show という名前でcontrollerを実装します。
-example-nodeではnode-vironlibが提供するcontrollerを利用しています。
-このcontrollerは api/swagger/swagger.yaml をパースしたjsonを返すだけでなく、ログインユーザーが権限を持たないパスは返さないなど動的な変換にも対応しています。</description>
-    </item>
-    
-    <item>
       <title>サーバ構築の準備</title>
       <link>https://cam-inc.github.io/viron-doc/installation_guide/provision/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cam-inc.github.io/viron-doc/installation_guide/provision/</guid>
       <description>Vironのエンドポイントにはサービス専用のサーバを構築する必要があります。
-私たちはサンプルとして、Node.jsで実装されたexample-nodeプロジェクトを提供しています。
+私たちはVironサーバのサンプルとして、Node.jsで実装されたexample-nodeプロジェクトを提供しています。
 example-nodeはNode.js+MySQL環境で動作します。 実際にサーバ構築を行う前にNode.jsとMySQLの実行環境を確認する必要があります。
-Node.jsの実行環境の確認 example-nodeはNode.js 7.x以上の環境で動作します。インストールされているNode.jsのバージョンを確認するには、以下のコマンドを実行します。
+Node.jsの実行環境の確認 example-nodeはNode.js 7.x以上の環境で動作します。
+Node.jsをインストールする場合はこちらからダウンロードしてください。
+インストールされているNode.jsのバージョンを確認するには、以下のコマンドを実行します。
 $ node --version
-MySQLの実行環境の確認 MySQL 5.6でのみ動作確認を行っています。おそらく4.xでも動作しますが、新規に構築する場合（既存サービスのDBに接続しない場合）は5.6以上の利用をお勧めします。</description>
+MySQLの実行環境の確認 MySQL 5.6でのみ動作確認を行っています。おそらく4.xでも動作しますが、新規に構築する場合（既存サービスのDBに接続しない場合）は5.6以上の利用をお勧めします。
+MySQLをインストールする場合はこちらからダウンロードしてください。</description>
     </item>
     
     <item>
@@ -80,16 +100,31 @@ Step3 - 保存する 入力内容に問題が無ければ保存ボタンをク�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cam-inc.github.io/viron-doc/installation_guide/config/</guid>
-      <description>example-nodeではDBの接続先等の環境情報をコンフィグファイルに記述します。
-読み込むファイルは環境変数{SERVICE_ENV}に依存します。
+      <description>example-nodeはDBの接続先等の環境情報をコンフィグファイルに記述します。
+読み込むファイルはshared/config/に配置し、環境変数{SERVICE_ENV}でロードするファイルを切り替えることができます。
  host
- サーバのホスト名(:ポート)です。swagger.yamlのhostを上書きします。  default_role
- 管理ユーザーが追加された際に付与される初期ロールID  super_role
- すべての権限を持つスーパーユーザーのロールID  google_oauth
- redirect_url: Google認証後に呼び出されるViron側のAPI。クライアントID発行時に「承認済みのリダイレクトURI」に登録する必要があります。 allow_email_domains: 企業などで独自ドメインを運用している場合、そのドメインを記入することでドメインのユーザーのみに利用させることができます。独自ドメインがない場合は、利用者の制限を行う実装が必要かもしれません。  stores
+ サーバのホスト名(:ポート)です。ブラウザからアクセスをされるホストを指定してください。 環境変数{PORT}を省略した場合はexample-nodeをListenするポートにもなります。  default_role
+ 管理ユーザーが追加された際に付与される初期ロールIDです。  super_role
+ すべての権限を持つスーパーユーザーのロールIDです。  google_oauth
+ Google認証を利用するにはGoogleCloudConsoleでOAuthクライアントの認証情報を作成する必要があります。 client_id: 認証情報を作成した際に発行されたOAuthクライアントID client_secret: 認証情報を作成した際に発行されたOAuthクライアントシークレット redirect_url: Google認証後に呼び出されるViron側のAPI。認証情報作成時に「承認済みのリダイレクトURI」に登録する必要があります。 allow_email_domains: 企業などで独自ドメインを運用している場合、そのドメインを記入することでドメインのユーザーのみに利用させることができます。独自ドメインがない場合は、利用者の制限を行う実装が必要かもしれません。  acl
+ CORS対応のためにレスポンスヘッダに付与するAccessControlの設定です。 allow_origin: Access-Control-Allow-Originヘッダに付与されます。 allow_headers: Access-Control-Allow-Headersヘッダに付与されます。 expose_headers: Access-Control-Expose-Headersヘッダに付与されます。  stores
  MySQLサーバーの接続情報やSequelizeの設定  auth_jwt
- VironはJWT認証を採用しています。JWTの有効期限や暗号化に使用する設定を行います。  ssl
- HTTPSサーバで起動する場合のSSL鍵の情報。use: falseとするとHTTPサーバでの起動となり、keyおよびcertは無視されます。   </description>
+ VironはJWT認証を採用しています。JWTの有効期限や暗号化に使用する設定を行います。 token_expire: JWTの有効期限をミリ秒単位で指定します。 algorithm: 暗号化に用いるアルゴリズムです。RSA(RS256,RS384,RS512)およびHMAC(HS256,HS384,HS512)をサポートしています。 claims: JWTに含めるクレームセットです。 rsa_private_key: RSAを利用する場合の秘密鍵です。 rsa_public_key: RSAを利用する場合の公開鍵です。 secret: HMACを利用する場合の共通鍵です。  ssl
+ HTTPSサーバを起動する場合のSSL鍵や証明書の情報。 VironはGitHub Pagesで提供されるため、クロスオリジンとなるVironサーバへのアクセスもHTTPSが必須です。ssl設定はVironサーバ自身をHTTPSで起動する手段を提供しますが、SSLに対応したLoadBalancerを経由させることでVironサーバはHTTPで起動するといった構成も可能です。 use: HTTP/HTTPSのどちらで起動するかを制御します。trueでHTTPSサーバになります。 key: SSL公開鍵です。 cert: SSLサーバ証明書です。   </description>
+    </item>
+    
+    <item>
+      <title>ユーザ権限を管理する</title>
+      <link>https://cam-inc.github.io/viron-doc/operation_guide/adminrole/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/operation_guide/adminrole/</guid>
+      <description> Vironユーザに割り当てる権限を追加/変更/削除します。
+Vironのユーザ権限はリソース毎に参照/追加/変更/削除を設定することが可能です。
+ユーザ権限を追加する Step1 - Viron ユーザ権限 コンポーネントを開く 左カラムのViron ユーザ権限ボタンをクリックしてコンポーネントを開きます。
+Step2 - ユーザ権限作成 モーダルを開く コンポーネント下部のユーザ権限作成をクリックしてモーダルを開きます。
+Step3 - ユーザ権限を作成する 必要な情報を入力してユーザ権限を作成します。
+ paths.path  対象の操作をセレクトボックスから選択します。  paths.allow  選択した操作を許可する場合はチェックします。  role_id  ユーザ権限のIDです。ユーザへはこのIDを付与します。   </description>
     </item>
     
     <item>
@@ -102,7 +137,7 @@ Step3 - 保存する 入力内容に問題が無ければ保存ボタンをク�
 認証方式を追加する場合は、 /viron_authtype に定義を追加する必要があります。
 authtype controller Vironサーバがサポートしている認証方式をクライアントに返すためのAPIです。
 api/controller/viron_authtype.js に auth_type#list という名前でcontrollerを実装します。
-下記インターフェースでAPIを実装してください。
+下記インタフェースでAPIを実装してください。
 [ // メールアドレスとパスワードによる認証。利用しない場合は削除しても良い { type: &#39;email&#39;, // メールアドレスとパスワードによる独自認証を利用する場合のtype provider: &#39;example-node&#39;, url: &#39;/signin&#39;, // サインインフォームでsubmitする際のリクエストURL method: &#39;POST&#39;, // submitする際のリクエストメソッド }, // GoogleOAuthによる認証。利用しない場合は削除しても良い { type: &#39;oauth&#39;, // OAuth認証を利用する場合のtype provider: &#39;google&#39;, // OAuthを提供するプロバイダ。 url: &#39;/googlesignin&#39;, method: &#39;POST&#39;, }, // 認証方式ではありませんが、サインアウト時にコールするAPIを定義するために必須です。 { type: &#39;signout&#39;, provider: &#39;&#39;, url: &#39;/signout&#39;, method: &#39;POST&#39;, }, ];  </description>
     </item>
     
@@ -137,8 +172,8 @@ api/controller/viron_authtype.js に auth_type#list という名前でcontroller
       <guid>https://cam-inc.github.io/viron-doc/admin_guide/menu/</guid>
       <description>Vironトップに表示されるエンドポイントの情報や、サインイン後のグローバルメニューの構成を取得できる必要があります。
 /viron のレスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。
-viron controller api/controller/viron.js に viron#show という名前でcontrollerを実装します。 下記インターフェースでAPIを実装してください。
-{ // エンドポイントに関する情報 &amp;quot;color&amp;quot;: &amp;quot;white&amp;quot;, // カラーテーマ &amp;quot;name&amp;quot;: &amp;quot;Viron example for Node.js - local&amp;quot;, // エンドポイントの名称。サービス名や環境など &amp;quot;tags&amp;quot;: [ // エンドポイントに付与するタグ &amp;quot;local&amp;quot;, &amp;quot;viron&amp;quot;, &amp;quot;example&amp;quot; ], &amp;quot;thumbnail&amp;quot;: &amp;quot;https://avatars3.githubusercontent.com/u/23251378?v=3&amp;amp;s=200&amp;quot; // サムネイル画像URL // グローバルメニュー &amp;quot;pages&amp;quot;: [ { &amp;quot;section&amp;quot;: &amp;quot;dashboard&amp;quot; // 大項目。&amp;quot;dashboard&amp;quot; or &amp;quot;manage&amp;quot; &amp;quot;group&amp;quot;: &amp;quot;&amp;quot;, // 中項目。空の場合はsection直下にcomponentsを配置 &amp;quot;id&amp;quot;: &amp;quot;quickview&amp;quot;, // ページのID。全ページでユニークになっている必要があります &amp;quot;name&amp;quot;: &amp;quot;クイックビュー&amp;quot;, // ページ名 &amp;quot;components&amp;quot;: [ // メニューからページを選択した際に表示されるコンポーネントの一覧 { &amp;quot;api&amp;quot;: { // コンポーネントに表示する値を取得するためのAPI &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/stats/dau&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;DAU&amp;quot;, // コンポーネント名 &amp;quot;style&amp;quot;: &amp;quot;number&amp;quot; // コンポーネントスタイル。数字(number)、テーブル(table)の他に各種グラフ(graph-*)が利用できます }, { &amp;quot;api&amp;quot;: { &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/stats/mau&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;MAU&amp;quot;, &amp;quot;style&amp;quot;: &amp;quot;number&amp;quot; }, ], }, { &amp;quot;section&amp;quot;: &amp;quot;manage&amp;quot; &amp;quot;group&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;id&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;name&amp;quot;: &amp;quot;ユーザー&amp;quot;, &amp;quot;components&amp;quot;: [ { &amp;quot;api&amp;quot;: { &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/user&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;ユーザー&amp;quot;, &amp;quot;style&amp;quot;: &amp;quot;table&amp;quot;, &amp;quot;primary&amp;quot;: &amp;quot;id&amp;quot;, // テーブルデータの主キーにあたるフィールド &amp;quot;pagination&amp;quot;: true, // テーブルスタイルのページャーを有効にするフラグ &amp;quot;query&amp;quot;: [ // テーブルスタイルの検索フィールドを指定 { &amp;quot;key&amp;quot;: &amp;quot;name&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot; } ], &amp;quot;table_labels&amp;quot;: [ // テーブルスタイルの見出しにするフィールドを指定 &amp;quot;id&amp;quot;, &amp;quot;name&amp;quot; ], &amp;quot;actions&amp;quot;: [ // 他APIの関連付けが必要な場合は指定。詳細は下記[API間の関連付け]を参照 &amp;quot;/user/download/csv&amp;quot; ] } ], }, ], }  API間の関連付け Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentのデータを操作するAPIとして表示します。</description>
+viron controller api/controller/viron.js に viron#show という名前でcontrollerを実装します。 下記インタフェースでAPIを実装してください。
+{ // エンドポイントに関する情報 &amp;quot;color&amp;quot;: &amp;quot;white&amp;quot;, // カラーテーマ &amp;quot;name&amp;quot;: &amp;quot;Viron example for Node.js - local&amp;quot;, // エンドポイントの名称。サービス名や環境など &amp;quot;tags&amp;quot;: [ // エンドポイントに付与するタグ &amp;quot;local&amp;quot;, &amp;quot;viron&amp;quot;, &amp;quot;example&amp;quot; ], &amp;quot;thumbnail&amp;quot;: &amp;quot;https://avatars3.githubusercontent.com/u/23251378?v=3&amp;amp;s=200&amp;quot; // サムネイル画像URL // グローバルメニュー &amp;quot;pages&amp;quot;: [ { &amp;quot;section&amp;quot;: &amp;quot;dashboard&amp;quot; // 大項目。&amp;quot;dashboard&amp;quot; or &amp;quot;manage&amp;quot; &amp;quot;group&amp;quot;: &amp;quot;&amp;quot;, // 中項目。空の場合はsection直下にcomponentsを配置 &amp;quot;id&amp;quot;: &amp;quot;quickview&amp;quot;, // ページのID。全ページでユニークになっている必要があります &amp;quot;name&amp;quot;: &amp;quot;クイックビュー&amp;quot;, // ページ名 &amp;quot;components&amp;quot;: [ // メニューからページを選択した際に表示されるコンポーネントの一覧 { &amp;quot;api&amp;quot;: { // コンポーネントに表示する値を取得するためのAPI &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/stats/dau&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;DAU&amp;quot;, // コンポーネント名 &amp;quot;style&amp;quot;: &amp;quot;number&amp;quot; // コンポーネントスタイル。数字(number)、テーブル(table)の他に各種グラフ(graph-*)が利用できます }, { &amp;quot;api&amp;quot;: { &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/stats/mau&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;MAU&amp;quot;, &amp;quot;style&amp;quot;: &amp;quot;number&amp;quot; }, ], }, { &amp;quot;section&amp;quot;: &amp;quot;manage&amp;quot; &amp;quot;group&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;id&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;name&amp;quot;: &amp;quot;ユーザー&amp;quot;, &amp;quot;components&amp;quot;: [ { &amp;quot;api&amp;quot;: { &amp;quot;method&amp;quot;: &amp;quot;get&amp;quot;, &amp;quot;path&amp;quot;: &amp;quot;/user&amp;quot; }, &amp;quot;name&amp;quot;: &amp;quot;ユーザー&amp;quot;, &amp;quot;style&amp;quot;: &amp;quot;table&amp;quot;, &amp;quot;primary&amp;quot;: &amp;quot;id&amp;quot;, // テーブルデータの主キーにあたるフィールド &amp;quot;pagination&amp;quot;: true, // テーブルスタイルのページャーを有効にするフラグ &amp;quot;query&amp;quot;: [ // テーブルスタイルの検索フィールドを指定 { &amp;quot;key&amp;quot;: &amp;quot;name&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot; } ], &amp;quot;table_labels&amp;quot;: [ // テーブルスタイルの見出しにするフィールドを指定 &amp;quot;id&amp;quot;, &amp;quot;name&amp;quot; ], &amp;quot;actions&amp;quot;: [ // 他APIの関連付けが必要な場合は指定。詳細は下記[API間の関連付け]を参照 &amp;quot;/user/download/csv&amp;quot; ] } ], }, ], }  API間の関連付け Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentを操作するAPIとして表示します。</description>
     </item>
     
     <item>
@@ -147,10 +182,26 @@ viron controller api/controller/viron.js に viron#show という名前でcontro
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://cam-inc.github.io/viron-doc/installation_guide/construction/</guid>
-      <description>example-nodeをサーバ上の任意の場所に配置すればデプロイは完了です。
+      <description>Vironサーバのソースを任意の場所に配置すればデプロイは完了です。
 インストール 依存するライブラリ群をインストールするため、以下のコマンドを実行してください。
 $ npm install
-起動 $ npm start</description>
+起動 $ npm start
+動作確認 $ curl http://localhost:3000/ping pong  DBのテーブル追加の確認 Vironサーバを起動するとデータベースに3つのテーブルが作成されます。
+ admin_users Vironサーバを利用するユーザ情報を管理するテーブルです。
+mysql&amp;gt; desc admin_users; +-----------+------------------+------+-----+---------+----------------+ | Field | Type | Null | Key | Default | Extra | +-----------+------------------+------+-----+---------+----------------+ | id | int(10) unsigned | NO | PRI | NULL | auto_increment | | email | varchar(255) | NO | UNI | NULL | | | role_id | varchar(255) | NO | | NULL | | | password | varchar(1024) | YES | | NULL | | | salt | varchar(256) | YES | | NULL | | | createdAt | datetime | NO | | NULL | | | updatedAt | datetime | NO | | NULL | | | deletedAt | datetime | YES | | NULL | | +-----------+------------------+------+-----+---------+----------------+</description>
+    </item>
+    
+    <item>
+      <title>監査ログを閲覧する</title>
+      <link>https://cam-inc.github.io/viron-doc/operation_guide/auditlog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/operation_guide/auditlog/</guid>
+      <description> Vironサーバへのリクエストは監査ログに保存されます。 Vironには監査ログを閲覧するためのUIがあり、ログの閲覧/検索が可能です。
+監査ログを検索する Step1 - Viron 監査ログ コンポーネントを開く 左カラムのViron 監査ログボタンをクリックしてコンポーネントを開きます。
+Step2 - 検索 ポップアップを開く コンポーネント右上部のをクリックしてポップアップを開きます。
+Step3 - 検索条件を入力する 必要な情報を入力して検索を行います。
+ request_method  HTTPメソッドです。特定の操作のみ検索できます。 ex) POST  user_id  ユーザID(メールアドレス)です。特定のユーザによる操作のみ検索できます。  request_uri  HTTPリクエストURIです。特定のリソースに対する操作のみ検索できます。 ex) /user   </description>
     </item>
     
     <item>
@@ -178,7 +229,7 @@ Projectページ エンドポイントカードのユーザ認証にパスした
 実装には
  swaggerの編集 controllerの追加 /viron の編集  の3つの手順が必要です。
 前提 追加するリソースは以下のようなスキーマを想定します。
-mysql&amp;gt; desc books; +-------------+-------------+------+-----+---------+----------------+ | Field | Type | Null | Key | Default | Extra | +-------------+-------------+------+-----+---------+----------------+ | id | int(11) | NO | PRI | NULL | auto_increment | | title | varchar(64) | YES | | NULL | | | author_name | varchar(32) | YES | | NULL | | | detail | text | YES | | NULL | | | created_at | datetime | NO | | NULL | | | updated_at | datetime | NO | | NULL | | | deleted_at | datetime | YES | | NULL | | +-------------+-------------+------+-----+---------+----------------+  swaggerの編集 paths GET:/books, POST:/books, GET:/books/{id}, PUT:/books/{id}, DELETE:/books/{id} を追加します。</description>
+mysql&amp;gt; desc books; +-------------+-------------+------+-----+---------+----------------+ | Field | Type | Null | Key | Default | Extra | +-------------+-------------+------+-----+---------+----------------+ | id | int(11) | NO | PRI | NULL | auto_increment | | title | varchar(64) | YES | | NULL | | | author_name | varchar(32) | YES | | NULL | | | detail | text | YES | | NULL | | | created_at | datetime | NO | | NULL | | | updated_at | datetime | NO | | NULL | | | deleted_at | datetime | YES | | NULL | | +-------------+-------------+------+-----+---------+----------------+  Step1 - swaggerの編集 paths GET:/books, POST:/books, GET:/books/{id}, PUT:/books/{id}, DELETE:/books/{id} を追加します。</description>
     </item>
     
     <item>
@@ -192,15 +243,15 @@ Step2 - 並び替える 並び替えたいエンドポイントをドラッグ&a
     </item>
     
     <item>
-      <title>各種リファレンス</title>
-      <link>https://cam-inc.github.io/viron-doc/installation_guide/reference/</link>
+      <title>環境変数</title>
+      <link>https://cam-inc.github.io/viron-doc/installation_guide/env/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cam-inc.github.io/viron-doc/installation_guide/reference/</guid>
-      <description> 環境変数 example-nodeが利用する環境変数の一覧です。
+      <guid>https://cam-inc.github.io/viron-doc/installation_guide/env/</guid>
+      <description>example-nodeが利用する環境変数の一覧です。
  SERVICE_ENV
- 環境を表す名称を指定します。名称が一致したコンフィグファイルがロードされます。省略した場合は local が適用されます。  PORT
- サーバをListenするポート番号を指定します。省略した場合は swagger.yaml の host に記述されているポート番号が適用されます。  GOOGLE_OAUTH_CLIENT_ID
+ 環境を表す名称を指定します。名称が一致するコンフィグファイルがロードされます。省略した場合は local が適用されます。  PORT
+ サーバをListenするポート番号を指定します。省略した場合はswagger.yamlのhostに記述されているポート番号が適用されます。  GOOGLE_OAUTH_CLIENT_ID
  GoogleOAuth認証を使用する際のクライアントIDです。省略した場合GoogleOAuthは利用できません。  GOOGLE_OAUTH_CLIENT_SECRET
  GoogleOAuth認証を使用する際のクライアントシークレットです。省略した場合GoogleOAuthは利用できません。  MYSQL_USER_NAME
  MySQLサーバーのユーザーです。  MYSQL_USER_PASSWORD
@@ -233,6 +284,22 @@ Step2 - 並び替える 並び替えたいエンドポイントをドラッグ&a
     </item>
     
     <item>
+      <title>オートコンプリートを実装する</title>
+      <link>https://cam-inc.github.io/viron-doc/admin_guide/autocomplete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/admin_guide/autocomplete/</guid>
+      <description> データ入力補助としてオートコンプリート機能を実装することができます。
+Step1 - swaggerの定義 オートコンプリートを適用したいパラメータにx-autocompleteを定義することでオートコンプリートが有効になります。
+user_id: description: ユーザーID example: 1 format: int64 type: integer x-autocomplete: field: name path: /viron_autocomplete query: model: users value: id  上記はexample-nodeのUserBlogPayloadを一部抜粋したものです。
+nameを入力することでusersテーブルを検索し、idを補完することができます。
+x-autocompleteの各フィールドについて  field  ユーザが入力する値がどのフィールドの値なのかを指定します。 ex) 上記例でユーザーがhogeと入力しているとき、サーバへのリクエストは GET: /viron_autocomplete?name=hoge となります。  path  検索を行い、一致するリストを返却するコントローラのパスです。 example-nodeで使用している/viron_autocompleteはmodelで指定したテーブルに部分一致検索を行うシンプルな汎用コントローラです。  query  field以外にサーバに送信したいクエリがあるときに指定します。 上記例では GET: /viron_autocomplete?name=hoge&amp;amp;model=users&amp;amp;value=id が実際に送信されるリクエストになります。   Step2 - controllerの実装 x-autocomplete.pathに指定したコントローラの実装を行います。
+他のコントローラ同様、swaggerの定義も必要です。
+下記インタフェースでAPIを実装してください。
+[ { name: &#39;test-user01&#39;, // オートコンプリート結果をリスト表示する際の表示項目です value: 1, // 選択時に実際に入力される値です }, { name: &#39;test-user02&#39;, value: 2, }, ]  </description>
+    </item>
+    
+    <item>
       <title>エンドポイントを共有する</title>
       <link>https://cam-inc.github.io/viron-doc/user_guide/endpoint_share/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -241,6 +308,17 @@ Step2 - 並び替える 並び替えたいエンドポイントをドラッグ&a
       <description>Step1 - 共有用ファイルをダウンロードする 左カラムのダウンロードボタンをクリックすると、現在のエンドポイント群情報の共有用ファイルをダウンロード出来ます。
 Step2 - 共有用ファイルを配置する ダウンロードした共有用ファイルを、DropboxやGithub上等、チームメンバーがアクセス可能な場所に配置して下さい。共有用ファイルには、環境別のエンドポイント群を含めると良いでしょう。
 Step3 - 共有用ファイルをアップロードする 共有用ファイルをVironに反映させるには、左カラムのアップロードボタンをクリックして下さい。ファイル選択ダイアログが表示されるので共有用ファイルを選択して下さい。エンドポイント群が追加されるとアップロード成功となります。</description>
+    </item>
+    
+    <item>
+      <title>バリデータを定義する</title>
+      <link>https://cam-inc.github.io/viron-doc/admin_guide/validator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cam-inc.github.io/viron-doc/admin_guide/validator/</guid>
+      <description>swaggerにバリデータの定義を行うことで、Vironにバリデーションの機能を持たせることができます。
+利用可能なバリデータについてはexample-nodeのswagger.yamlのValidatorを参考にしてください。
+また、バリデータの記述方法についてはJSON-schema-validationのドキュメントを参照してください。</description>
     </item>
     
     <item>

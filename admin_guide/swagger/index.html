@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-  <title>エンドポイントを追加する &middot; Viron</title>
+  <title>エンドポイントを実装する &middot; Viron</title>
   
 
   
@@ -55,6 +55,8 @@
       
         <li><a href="/viron-doc/development_guide/"> Development Guide </a></li>
       
+        <li><a href="/viron-doc/operation_guide/"> Operation Guide </a></li>
+      
         <li><a href="/viron-doc/release_note/"> Release Note </a></li>
       
         <li><a href="/viron-doc/others/"> Others </a></li>
@@ -68,21 +70,21 @@
 
   <div class="content container">
     <div class="post">
-      <h1>エンドポイントを追加する</h1>
+      <h1>エンドポイントを実装する</h1>
       
 
-<p>Vironサーバのエンドポイントとは <code>swagger.json</code> を取得するパスです。<br />
+<p>Vironサーバのエンドポイントは <code>swagger.json</code> を取得するURLで、GETでアクセスできる必要があります。<br />
 example-nodeでは <code>/swagger.json</code> をエンドポイントとしています。</p>
 
 <h3 id="swagger-yaml">swagger.yaml</h3>
 
-<p>SwaggerExpressではswaggerはyamlで記述します。<br />
+<p>example-nodeではswaggerをyamlで記述しています。<br />
 yamlファイルの場所は <code>api/swagger/swagger.yaml</code> です。</p>
 
 <h3 id="swagger-controller">swagger controller</h3>
 
 <p><code>api/controller/swagger.js</code> に <code>swagger#show</code> という名前でcontrollerを実装します。<br />
-example-nodeではnode-vironlibが提供するcontrollerを利用しています。<br />
+example-nodeはnode-vironlibが提供するcontrollerを利用しています。<br />
 このcontrollerは <code>api/swagger/swagger.yaml</code> をパースしたjsonを返すだけでなく、ログインユーザーが権限を持たないパスは返さないなど動的な変換にも対応しています。</p>
 
     </div>
@@ -91,7 +93,7 @@ example-nodeではnode-vironlibが提供するcontrollerを利用しています
       
         
         <li>
-          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを追加する</a></span>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/swagger/">エンドポイントを実装する</a></span>
         </li>
         
       
@@ -112,6 +114,18 @@ example-nodeではnode-vironlibが提供するcontrollerを利用しています
         
         <li>
           <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/crud/">CRUDを追加する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/autocomplete/">オートコンプリートを実装する</a></span>
+        </li>
+        
+      
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/admin_guide/validator/">バリデータを定義する</a></span>
         </li>
         
       

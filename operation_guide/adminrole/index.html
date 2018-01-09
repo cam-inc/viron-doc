@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-  <title>User Guide &middot; Viron</title>
+  <title>ユーザ権限を管理する &middot; Viron</title>
   
 
   
@@ -26,7 +26,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://cam-inc.github.io/viron-doc/user_guide/index.xml" rel="alternate" type="application/rss+xml" title="Viron" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Viron" />
 
   
   <script src="https://cam-inc.github.io/viron-doc/js/highlight.pack.js"></script>
@@ -34,7 +34,6 @@
 </head>
 
 <body class=" ">
-
   <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -71,49 +70,78 @@
 
   <div class="content container">
     <div class="post">
-      <h1>User Guide</h1>
-      <p>プロデューサやディレクター等の職種向けに、Vironの操作方法等に関する情報をまとめています。</p>
+      <h1>ユーザ権限を管理する</h1>
+      
+
+<p>Vironユーザに割り当てる権限を追加/変更/削除します。<br />
+Vironのユーザ権限はリソース毎に参照/追加/変更/削除を設定することが可能です。</p>
+
+<h3 id="ユーザ権限を追加する">ユーザ権限を追加する</h3>
+
+<h4 id="step1-viron-ユーザ権限-コンポーネントを開く">Step1 - Viron ユーザ権限 コンポーネントを開く</h4>
+
+<p><img src="menu_button.png" alt="menu_button" /></p>
+
+<p>左カラムの<code>Viron ユーザ権限</code>ボタンをクリックしてコンポーネントを開きます。</p>
+
+<h4 id="step2-ユーザ権限作成-モーダルを開く">Step2 - ユーザ権限作成 モーダルを開く</h4>
+
+<p><img src="table.png" alt="table" /></p>
+
+<p>コンポーネント下部の<code>ユーザ権限作成</code>をクリックしてモーダルを開きます。</p>
+
+<h4 id="step3-ユーザ権限を作成する">Step3 - ユーザ権限を作成する</h4>
+
+<p><img src="modal.png" alt="modal" /></p>
+
+<p>必要な情報を入力してユーザ権限を作成します。</p>
+
+<ul>
+<li>paths.path
+
+<ul>
+<li>対象の操作をセレクトボックスから選択します。</li>
+</ul></li>
+<li>paths.allow
+
+<ul>
+<li>選択した操作を許可する場合はチェックします。</li>
+</ul></li>
+<li>role_id
+
+<ul>
+<li>ユーザ権限のIDです。ユーザへはこのIDを付与します。</li>
+</ul></li>
+</ul>
 
     </div>
+    <h2>関連項目</h2>
     <ul class="posts">
       
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/endpoint_add/">エンドポイントを新規追加する</a></span>
-      </li>
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/operation_guide/adminuser/">Vironユーザを管理する</a></span>
+        </li>
+        
       
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/endpoint_edit/">エンドポイントを編集する</a></span>
-      </li>
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/operation_guide/adminrole/">ユーザ権限を管理する</a></span>
+        </li>
+        
       
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/endpoint_remove/">エンドポイントを削除する</a></span>
-      </li>
+        
+        <li>
+          <span><a href="https://cam-inc.github.io/viron-doc/operation_guide/auditlog/">監査ログを閲覧する</a></span>
+        </li>
+        
       
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/endpoint_order/">エンドポイントの並び順を変更する</a></span>
-      </li>
-      
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/endpoint_filter/">エンドポイントを絞り込む</a></span>
-      </li>
-      
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/endpoint_share/">エンドポイントを共有する</a></span>
-      </li>
-      
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/component/">コンポーネントを操作する</a></span>
-      </li>
-      
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/component_table/">テーブルコンポーネントを操作する</a></span>
-      </li>
-      
-      <li>
-        <span><a href="https://cam-inc.github.io/viron-doc/user_guide/action/">アクションを実行する</a></span>
-      </li>
+        
       
     </ul>
-  </div>
+
+			
+		</div>
+
 </body>
 </html>
