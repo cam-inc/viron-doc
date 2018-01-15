@@ -104,29 +104,30 @@ const Features = props => (
   <Block layout="fourColumn">
     {[
       {
-        content: 'TODO',
+        content: 'HTML、CSS、JavaScript等のフロント用ソースコードを記述する必要はありません。APIサーバのみを用意して下さい。',
         image: imgUrl('viron.svg'),
         imageAlign: 'top',
         title: 'フロントレス',
       },
       {
-        content: 'TODO:',
+        content: 'デスクトップ端末とモバイル端末上で画面サイズに応じたレイアウトが設定されます。',
         image: imgUrl('viron.svg'),
         imageAlign: 'top',
-        title: 'デザインレス',
+        title: 'レスポンシブデザイン',
       },
       {
-        content: 'TODO:',
+        content: 'あなたのサービスに最適なテーマを使用しましょう。',
         image: imgUrl('viron.svg'),
         imageAlign: 'top',
-        title: 'レイアウトレス',
+        title: 'カラーテーマ機能',
       },
       {
-        content: 'TODO:',
+        content: 'GitHub上でオープンソースとして公開されています。誰でも無料で使用できます。',
         image: imgUrl('viron.svg'),
         imageAlign: 'top',
-        title: '無料',
+        title: '無料/オープンソース',
       },
+
     ]}
   </Block>
 );
@@ -136,6 +137,12 @@ const FeatureCallout = props => (
     className="productShowcaseSection paddingBottom"
     style={{textAlign: 'center'}}>
     <MarkdownBlock>These are features of this project</MarkdownBlock>
+  </div>
+);
+
+const Demo = props => (
+  <div>
+    <img src={imgUrl('demo.gif')} style={{margin:'0 auto', display: 'block', width: '80%'}} />
   </div>
 );
 
@@ -217,11 +224,12 @@ class Index extends React.Component {
       <div>
         <HomeSplash language={language} />
         <div className="mainContainer">
+          <Demo />
           <Features />
           {/*<FeatureCallout />*/}
-          <LearnHow />
+          {/*<LearnHow />*/}
           {/* <TryOut /> */}
-          <Description />
+          {/*<Description />*/}
           {/*<Showcase language={language} />*/}
         </div>
       </div>

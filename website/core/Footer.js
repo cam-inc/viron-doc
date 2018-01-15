@@ -49,7 +49,12 @@ class Footer extends React.Component {
             <h5>Community</h5>
             {/*<a href={this.pageUrl('users.html', this.props.language)}>
               User Showcase
-            </a>*/}
+              </a>*/}
+            <a
+              href="https://github.com/cam-inc/viron/issues"
+              target="_blank">
+              Issues
+            </a>
             <a
               href="http://stackoverflow.com/questions/tagged/viron"
               target="_blank">

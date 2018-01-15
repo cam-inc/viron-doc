@@ -23,7 +23,6 @@ const siteConfig = {
   projectName: 'viron-doc',
   headerLinks: [
     {doc: 'demo', label: 'ドキュメント'},
-    {page: 'help', label: 'ヘルプ'},
     {blog: true, label: 'ブログ'}
   ],
   users,
