@@ -28,13 +28,13 @@ const siteConfig = {
   ],
   users,
   /* path to images for header/footer */
-  headerIcon: 'img/docusaurus.svg',
-  footerIcon: 'img/docusaurus.svg',
+  headerIcon: 'img/viron.svg',
+  footerIcon: 'img/viron.svg',
   favicon: 'img/favicon.png',
   /* colors for website */
   colors: {
-    primaryColor: '#2E8555',
-    secondaryColor: '#205C3B',
+    primaryColor: '#484848',
+    secondaryColor: '#a3a3a3',
   },
   // This copyright info is used in /core/Footer.js and blog rss/atom feeds.
   copyright:
