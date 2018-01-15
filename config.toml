@@ -1,8 +1,0 @@
-baseURL = "https://cam-inc.github.io/viron-doc/"
-languageCode = "en-us"
-title = "Viron"
-theme = "hyde"
-
-[params]
-  description = "Design-based Management Console."
-  copyright = "Copyright © CA MOBILE, Ltd. All rights reserved."
