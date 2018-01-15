@@ -8,8 +8,8 @@ title: CRUDを追加する
 実装には
 
 - [swaggerの編集](#swagger)
-- [controllerの追加](#controller)
-- [/viron の編集](#viron)
+- [コントローラの追加](#controller)
+- [グローバルメニューの編集](#viron)
 
 の3つの手順が必要です。
 
@@ -37,7 +37,7 @@ mysql> desc books;
 
 #### paths
 
-`GET:/books`, `POST:/books`, `GET:/books/{id}`, `PUT:/books/{id}`, `DELETE:/books/{id}` を追加します。
+`GET:/books`, `POST:/books`, `PUT:/books/{id}`, `DELETE:/books/{id}` を追加します。
 
 ```yaml
 paths:
@@ -110,30 +110,6 @@ paths:
       - books
 
   /books/{id}:
-    get: # GET:/books/{id}
-      x-swagger-router-controller: books
-      description: book更新
-      operationId: books#show
-      parameters:
-      - in: path
-        name: id
-        required: true
-        type: integer
-      produces:
-      - application/json
-      responses:
-        "200":
-          schema:
-            $ref: '#/definitions/Book'
-      schemes:
-      - https
-      security:
-      - jwt
-        - api:access
-      summry: book取得
-      tags:
-      - books
-
     put: # PUT:/books/{id}
       x-swagger-router-controller: books
       description: book更新
@@ -197,7 +173,7 @@ definitions:
   BookCollection:
     type: array
     items:
-      $ref: '#/definitions/Book' # BookCollectionはBookの配列
+      $ref: '#/definitions/Book'
   
   Book:
     type: object
@@ -222,8 +198,8 @@ definitions:
 
 ### <a name="controller">Step2 - controllerの追加</a>
 
-`api/controller/` 配下に `books.js` を作成します。  
-実際は、期待するレスポンスを返すためにDBや外部APIなど各種リソースにアクセスするロジックが必要です。
+`controllers/` 配下に `books.js` を作成します。  
+実際にはDBや外部APIなど各種リソースにアクセスするロジックが必要です。
 
 ```js
 const list = (req, res, next) => {
@@ -232,11 +208,6 @@ const list = (req, res, next) => {
 };
 
 const create = (req, res, next) => {
-  ...
-  res.json({});
-};
-
-const show = (req, res, next) => {
   ...
   res.json({});
 };
@@ -254,7 +225,6 @@ const remove = (req, res, next) => {
 module.exports = {
  'books#list': list,
  'books#create': create,
- 'books#show': show,
  'books#update': update,
  'books#remove': remove,
 }
@@ -262,7 +232,7 @@ module.exports = {
 
 ### <a name="viron">Step3 - /viron の編集</a>
 
-最後に `/viron` にページを追加します。
+最後に `controllers/viron.js` にページを追加します。
 
 ```js
 {

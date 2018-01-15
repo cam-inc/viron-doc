@@ -1,15 +1,18 @@
 ---
 id: menu
-title: グローバルメニューを編集する
+title: 必須API: グローバルメニューを取得
 ---
 
-Vironトップに表示されるエンドポイントの情報や、サインイン後のグローバルメニューの構成を取得できる必要があります。  
-`/viron` のレスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。
+Vironトップに表示されるエンドポイントの情報や、グローバルメニューの構成を取得するAPIです。  
+URLは `GET: /viron` 固定です。  
+ユーザーのロールに応じてレスポンスが可変になるため、認証をかけてください。  
+レスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。 
 
 ### viron controller
 
-`api/controller/viron.js` に `viron#show` という名前でcontrollerを実装します。
+`controllers/viron.js` に `viron#show` という名前でcontrollerを実装します。  
 下記インタフェースでAPIを実装してください。  
+[example-nodeのサンプル](https://github.com/cam-inc/viron/blob/develop/example-node/controllers/viron.js)
 
 ```javascript
 {
@@ -88,8 +91,8 @@ Vironトップに表示されるエンドポイントの情報や、サインイ
 
 Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentを操作するAPIとして表示します。  
 
-上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user`、  
-さらにprimaryの定義を使用して `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を抽出し、それらがswaggerに定義されている場合画面に表示します。  
+上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user` を基本セットとし、  
+さらにprimaryの定義を使用して `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を抽出し、swaggerに定義されている場合画面に表示します。  
   
 自動抽出されないAPIを関連付けたい場合、actionsを定義することで実現できます。
 上記例では `/user/download/csv` をactionsに定義し、 
