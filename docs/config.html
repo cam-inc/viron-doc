@@ -1,0 +1,61 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>コンフィグの設定 · Viron</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="コンフィグの設定 · Viron"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cam-inc.github.io/viron/v1/cam-inc/index.html"/><meta property="og:description" content="example-nodeはDBの接続先等の環境情報をコンフィグファイルに記述します。"/><link rel="shortcut icon" href="/cam-inc/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://cam-inc.github.io/viron/v1/blog/atom.xml" title="Viron Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://cam-inc.github.io/viron/v1/blog/feed.xml" title="Viron Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/cam-inc/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/cam-inc/"><img class="logo" src="/cam-inc/img/docusaurus.svg"/><h2 class="headerTitle">Viron</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/cam-inc/docs/demo.html" target="_self">ドキュメント</a></li><li><a href="/cam-inc/en/help.html" target="_self">ヘルプ</a></li><li><a href="/cam-inc/blog" target="_self">ブログ</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>環境構築</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>始め方</h3><ul><li class="navListItem"><a class="navItem" href="/cam-inc/docs/demo.html">デモ</a></li></ul></div><div class="navGroup navGroupActive"><h3>環境構築</h3><ul><li class="navListItem"><a class="navItem" href="/cam-inc/docs/provision.html">サーバ構築の準備</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/cam-inc/docs/config.html">コンフィグの設定</a></li></ul></div><div class="navGroup navGroupActive"><h3>その他</h3><ul><li class="navListItem"><a class="navItem" href="/cam-inc/docs/restrict.html">制限</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>コンフィグの設定</h1></header><article><div><span><p>example-nodeはDBの接続先等の環境情報をコンフィグファイルに記述します。
+読み込むファイルは<code>shared/config/</code>に配置し、環境変数<code>{SERVICE_ENV}</code>でロードするファイルを切り替えることができます。</p>
+<ul>
+<li><p><code>host</code></p>
+<ul>
+<li>サーバのホスト名(:ポート)です。ブラウザからアクセスをされるホストを指定してください。</li>
+<li>環境変数<code>{PORT}</code>を省略した場合はexample-nodeをListenするポートにもなります。</li>
+</ul></li>
+<li><p><code>default_role</code></p>
+<ul>
+<li>管理ユーザーが追加された際に付与される初期ロールIDです。</li>
+</ul></li>
+<li><p><code>super_role</code></p>
+<ul>
+<li>すべての権限を持つスーパーユーザーのロールIDです。</li>
+</ul></li>
+<li><p><code>google_oauth</code></p>
+<ul>
+<li>Google認証を利用するには<a href="https://console.cloud.google.com/">GoogleCloudConsole</a>でOAuthクライアントの認証情報を作成する必要があります。</li>
+<li><code>client_id</code>: 認証情報を作成した際に発行されたOAuthクライアントID</li>
+<li><code>client_secret</code>: 認証情報を作成した際に発行されたOAuthクライアントシークレット</li>
+<li><code>redirect_url</code>: Google認証後に呼び出されるViron側のAPI。認証情報作成時に「承認済みのリダイレクトURI」に登録する必要があります。</li>
+<li><code>allow_email_domains</code>: 企業などで独自ドメインを運用している場合、そのドメインを記入することでドメインのユーザーのみに利用させることができます。独自ドメインがない場合は、利用者の制限を行う実装が必要かもしれません。</li>
+</ul></li>
+<li><p><code>acl</code></p>
+<ul>
+<li>CORS対応のためにレスポンスヘッダに付与するAccessControlの設定です。</li>
+<li><code>allow_origin</code>: <code>Access-Control-Allow-Origin</code>ヘッダに付与されます。</li>
+<li><code>allow_headers</code>: <code>Access-Control-Allow-Headers</code>ヘッダに付与されます。</li>
+<li><code>expose_headers</code>: <code>Access-Control-Expose-Headers</code>ヘッダに付与されます。</li>
+</ul></li>
+<li><p><code>stores</code></p>
+<ul>
+<li>MySQLサーバーの接続情報や<a href="http://docs.sequelizejs.com/">Sequelize</a>の設定</li>
+</ul></li>
+<li><p><code>auth_jwt</code></p>
+<ul>
+<li>Vironは<a href="https://tools.ietf.org/html/rfc7519">JWT</a>認証を採用しています。JWTの有効期限や暗号化に使用する設定を行います。</li>
+<li><code>token_expire</code>: JWTの有効期限をミリ秒単位で指定します。</li>
+<li><code>algorithm</code>: 暗号化に用いるアルゴリズムです。RSA(RS256,RS384,RS512)およびHMAC(HS256,HS384,HS512)をサポートしています。</li>
+<li><code>claims</code>: JWTに含めるクレームセットです。</li>
+<li><code>rsa_private_key</code>: RSAを利用する場合の秘密鍵です。</li>
+<li><code>rsa_public_key</code>: RSAを利用する場合の公開鍵です。</li>
+<li><code>secret</code>: HMACを利用する場合の共通鍵です。</li>
+</ul></li>
+<li><p><code>ssl</code></p>
+<ul>
+<li>HTTPSサーバを起動する場合のSSL鍵や証明書の情報。</li>
+<li>Vironは<code>GitHub Pages</code>で提供されるため、クロスオリジンとなるVironサーバへのアクセスもHTTPSが必須です。<code>ssl</code>設定はVironサーバ自身をHTTPSで起動する手段を提供しますが、SSLに対応したLoadBalancerを経由させることでVironサーバはHTTPで起動するといった構成も可能です。</li>
+<li><code>use</code>: HTTP/HTTPSのどちらで起動するかを制御します。<code>true</code>でHTTPSサーバになります。</li>
+<li><code>key</code>: SSL公開鍵です。</li>
+<li><code>cert</code>: SSLサーバ証明書です。</li>
+</ul></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="provision.html">← サーバ構築の準備</a><a class="docs-next button" href="restrict.html">制限 →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/cam-inc/" class="nav-home"><img src="/cam-inc/img/docusaurus.svg" alt="Viron" width="66" height="58"/></a><div><h5>Docs</h5><a href="/cam-inc/docs/en/demo.html">Demo</a><a href="/cam-inc/docs/en/demo.html">Getting Started</a><a href="/cam-inc/docs/en/help.html">Help</a></div><div><h5>Community</h5><a href="http://stackoverflow.com/questions/tagged/viron" target="_blank">Stack Overflow</a></div><div><h5>More</h5><a href="/cam-inc/blog">Blog</a><a href="https://github.com/cam-inc/viron">GitHub</a><a class="github-button" href="https://github.com/cam-inc/viron" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 CA MOBILE, Ltd.</section></footer></div></body></html>

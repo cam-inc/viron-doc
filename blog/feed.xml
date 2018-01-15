@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Viron Blog</title>
+        <link>https://cam-inc.github.io/viron/v1/blog</link>
+        <description>The best place to stay up-to-date with the latest Viron news and events.</description>
+        <lastBuildDate>Thu, 01 Feb 2018 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Viron Blog</title>
+            <url>https://cam-inc.github.io/viron/v1img/docusaurus.svg</url>
+            <link>https://cam-inc.github.io/viron/v1/blog</link>
+        </image>
+        <copyright>Copyright © 2018 CA MOBILE, Ltd.</copyright>
+        <item>
+            <title><![CDATA[Introducing Viron]]></title>
+            <link>https://cam-inc.github.io/viron/v1/blog/2018/02/01/introducing-viron.html</link>
+            <guid>https://cam-inc.github.io/viron/v1/blog/2018/02/01/introducing-viron.html</guid>
+            <pubDate>Thu, 01 Feb 2018 06:00:00 GMT</pubDate>
+            <description><![CDATA[
+Hello!!!
+
+]]></description>
+        </item>
+    </channel>
+</rss>
