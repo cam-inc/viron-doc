@@ -1,0 +1,277 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>CRUDを追加する · Viron</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="CRUDを追加する · Viron"/><meta property="og:type" content="website"/><meta property="og:url" content="https://cam-inc.github.io/viron/v1/viron-doc/index.html"/><meta property="og:description" content="ここでは開発のイメージを掴みやすくするために  "/><link rel="shortcut icon" href="/viron-doc/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://cam-inc.github.io/viron/v1/blog/atom.xml" title="Viron Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://cam-inc.github.io/viron/v1/blog/feed.xml" title="Viron Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/viron-doc/css/main.css"/></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/viron-doc/"><img class="logo" src="/viron-doc/img/viron.svg"/><h2 class="headerTitle">Viron</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li><a href="/viron-doc/docs/demo.html" target="_self">ドキュメント</a></li><li><a href="/viron-doc/en/help.html" target="_self">ヘルプ</a></li><li><a href="/viron-doc/blog" target="_self">ブログ</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>開発者向け</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>始め方</h3><ul><li class="navListItem"><a class="navItem" href="/viron-doc/docs/demo.html">デモ</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/architecture.html">Architecture</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/terminology.html">Terminology</a></li></ul></div><div class="navGroup navGroupActive"><h3>環境構築</h3><ul><li class="navListItem"><a class="navItem" href="/viron-doc/docs/provision.html">サーバ構築の準備</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/construction.html">サーバ構築</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/config.html">コンフィグの設定</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/env.html">環境変数</a></li></ul></div><div class="navGroup navGroupActive"><h3>操作方法</h3><ul><li class="navListItem"><a class="navItem" href="/viron-doc/docs/action.html">アクションを実行する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/component.html">コンポーネントを操作する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/component_table.html">テーブルコンポーネントを操作する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/endpoint_add.html">エンドポイントを新規追加する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/endpoint_edit.html">エンドポイントを編集する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/endpoint_filter.html">エンドポイントを絞り込む</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/endpoint_order.html">エンドポイントの並び順を変更する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/endpoint_remove.html">エンドポイントを削除する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/endpoint_share.html">エンドポイントを共有する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/adminrole.html">ユーザ権限を管理する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/adminuser.html">Vironユーザを管理する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/auditlog.html">監査ログを閲覧する</a></li></ul></div><div class="navGroup navGroupActive"><h3>開発者向け</h3><ul><li class="navListItem"><a class="navItem" href="/viron-doc/docs/authtype.html">認証方式を追加する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/swagger.html">エンドポイントを実装する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/menu.html">グローバルメニューを編集する</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/viron-doc/docs/crud.html">CRUDを追加する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/validator.html">バリデータを定義する</a></li><li class="navListItem"><a class="navItem" href="/viron-doc/docs/autocomplete.html">オートコンプリートを実装する</a></li></ul></div><div class="navGroup navGroupActive"><h3>その他</h3><ul><li class="navListItem"><a class="navItem" href="/viron-doc/docs/restrict.html">制限</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>CRUDを追加する</h1></header><article><div><span><p>ここでは開発のイメージを掴みやすくするために<br>
+架空のリソースに対するCRUDをVironに追加する手順を記載します。<br>
+実装には</p>
+<ul>
+<li><a href="#swagger">swaggerの編集</a></li>
+<li><a href="#controller">controllerの追加</a></li>
+<li><a href="#viron">/viron の編集</a></li>
+</ul>
+<p>の3つの手順が必要です。</p>
+<h3><a class="anchor" aria-hidden="true" name=""></a><a href="#" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>前提</h3>
+<p>追加するリソースは以下のようなスキーマを想定します。</p>
+<pre><code class="hljs css SQL">mysql&gt; desc books;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| id          | int(11)     | NO   | PRI | NULL    | auto_increment |
+| title       | varchar(64) | YES  |     | NULL    |                |
+| author_name | varchar(32) | YES  |     | NULL    |                |
+| detail      | text        | YES  |     | NULL    |                |
+| created_at  | datetime    | NO   |     | NULL    |                |
+| updated_at  | datetime    | NO   |     | NULL    |                |
+| deleted_at  | datetime    | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="a-name-swagger-step1-swagger-a"></a><a href="#a-name-swagger-step1-swagger-a" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name=swagger>Step1 - swaggerの編集</a></h3>
+<h4><a class="anchor" aria-hidden="true" name="paths"></a><a href="#paths" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>paths</h4>
+<p><code>GET:/books</code>, <code>POST:/books</code>, <code>GET:/books/{id}</code>, <code>PUT:/books/{id}</code>, <code>DELETE:/books/{id}</code> を追加します。</p>
+<pre><code class="hljs css yaml"><span class="hljs-attr">paths:</span>
+  <span class="hljs-string">/books:</span>
+<span class="hljs-attr">    get:</span> <span class="hljs-comment"># GET:/books</span>
+<span class="hljs-attr">      x-swagger-router-controller:</span> <span class="hljs-string">books</span> <span class="hljs-comment"># controllerファイル名</span>
+<span class="hljs-attr">      description:</span> <span class="hljs-string">book一覧</span>
+<span class="hljs-attr">      operationId:</span> <span class="hljs-string">books#list</span> <span class="hljs-comment"># controllerメソッド名 </span>
+<span class="hljs-attr">      parameters:</span>
+      <span class="hljs-comment"># pagination用のparameter</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">query</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">limit</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">query</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">offset</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
+      <span class="hljs-comment"># 検索用のparameter</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">query</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">id</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">query</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">title</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">query</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">author_name</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      produces:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
+<span class="hljs-attr">      responses:</span>
+        <span class="hljs-string">"200"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          schema:</span>
+            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/BookCollection'</span> <span class="hljs-comment"># レスポンスデータの型</span>
+<span class="hljs-attr">      schemes:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
+<span class="hljs-attr">      security:</span>
+<span class="hljs-attr">      - jwt:</span>
+<span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
+<span class="hljs-attr">      summary:</span> <span class="hljs-string">book一覧</span>
+<span class="hljs-attr">      tags:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
+ 
+<span class="hljs-attr">    post:</span> <span class="hljs-comment"># POST:/books</span>
+<span class="hljs-attr">      x-swagger-router-controller:</span> <span class="hljs-string">books</span>
+<span class="hljs-attr">      description:</span> <span class="hljs-string">book作成</span>
+<span class="hljs-attr">      operationId:</span> <span class="hljs-string">books#create</span>
+<span class="hljs-attr">      parameters:</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">body</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">payload</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        schema:</span>
+          <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span> <span class="hljs-comment"># リクエストペイロードの型</span>
+<span class="hljs-attr">      produces:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
+<span class="hljs-attr">      responses:</span>
+        <span class="hljs-string">"200"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          schema:</span>
+            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span>
+<span class="hljs-attr">      schemes:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
+<span class="hljs-attr">      security:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">jwt</span>
+<span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
+<span class="hljs-attr">      summry:</span> <span class="hljs-string">book作成</span>
+<span class="hljs-attr">      tags:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
+
+  <span class="hljs-string">/books/{id}:</span>
+<span class="hljs-attr">    get:</span> <span class="hljs-comment"># GET:/books/{id}</span>
+<span class="hljs-attr">      x-swagger-router-controller:</span> <span class="hljs-string">books</span>
+<span class="hljs-attr">      description:</span> <span class="hljs-string">book更新</span>
+<span class="hljs-attr">      operationId:</span> <span class="hljs-string">books#show</span>
+<span class="hljs-attr">      parameters:</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">path</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">id</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
+<span class="hljs-attr">      produces:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
+<span class="hljs-attr">      responses:</span>
+        <span class="hljs-string">"200"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          schema:</span>
+            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span>
+<span class="hljs-attr">      schemes:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
+<span class="hljs-attr">      security:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">jwt</span>
+<span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
+<span class="hljs-attr">      summry:</span> <span class="hljs-string">book取得</span>
+<span class="hljs-attr">      tags:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
+
+<span class="hljs-attr">    put:</span> <span class="hljs-comment"># PUT:/books/{id}</span>
+<span class="hljs-attr">      x-swagger-router-controller:</span> <span class="hljs-string">books</span>
+<span class="hljs-attr">      description:</span> <span class="hljs-string">book更新</span>
+<span class="hljs-attr">      operationId:</span> <span class="hljs-string">books#update</span>
+<span class="hljs-attr">      parameters:</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">path</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">id</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">body</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">payload</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        schema:</span>
+          <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span> <span class="hljs-comment"># リクエストペイロードの型</span>
+<span class="hljs-attr">      produces:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
+<span class="hljs-attr">      responses:</span>
+        <span class="hljs-string">"200"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          schema:</span>
+            <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span>
+<span class="hljs-attr">      schemes:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
+<span class="hljs-attr">      security:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">jwt</span>
+<span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
+<span class="hljs-attr">      summry:</span> <span class="hljs-string">book更新</span>
+<span class="hljs-attr">      tags:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
+
+<span class="hljs-attr">    delete:</span> <span class="hljs-comment"># DELETE:/books/{id}</span>
+<span class="hljs-attr">      x-swagger-router-controller:</span> <span class="hljs-string">books</span>
+<span class="hljs-attr">      description:</span> <span class="hljs-string">book削除</span>
+<span class="hljs-attr">      operationId:</span> <span class="hljs-string">books#remove</span>
+<span class="hljs-attr">      parameters:</span>
+<span class="hljs-attr">      - in:</span> <span class="hljs-string">path</span>
+<span class="hljs-attr">        name:</span> <span class="hljs-string">id</span>
+<span class="hljs-attr">        required:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
+<span class="hljs-attr">      produces:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
+<span class="hljs-attr">      responses:</span>
+        <span class="hljs-string">"204"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          description:</span> <span class="hljs-string">"No Content"</span>
+<span class="hljs-attr">      schemes:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
+<span class="hljs-attr">      security:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">jwt</span>
+<span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
+<span class="hljs-attr">      summry:</span> <span class="hljs-string">book削除</span>
+<span class="hljs-attr">      tags:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" name="definitions"></a><a href="#definitions" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>definitions</h4>
+<p>paths内で <code>$ref</code> で参照するスキーマの定義を記述します。<br>
+ここでは <code>BookCollection</code> <code>Book</code> が必要です。</p>
+<pre><code class="hljs css yaml"><span class="hljs-attr">definitions:</span>
+<span class="hljs-attr">  BookCollection:</span>
+<span class="hljs-attr">    type:</span> <span class="hljs-string">array</span>
+<span class="hljs-attr">    items:</span>
+      <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span> <span class="hljs-comment"># BookCollectionはBookの配列</span>
+  
+<span class="hljs-attr">  Book:</span>
+<span class="hljs-attr">    type:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    properties:</span>
+<span class="hljs-attr">      id:</span>
+<span class="hljs-attr">        description:</span> <span class="hljs-string">book</span> <span class="hljs-string">id</span>
+<span class="hljs-attr">        example:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">integer</span>
+<span class="hljs-attr">      title:</span>
+<span class="hljs-attr">        description:</span> <span class="hljs-string">title</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">book</span>
+<span class="hljs-attr">        example:</span> <span class="hljs-string">English</span> <span class="hljs-string">Dictionary</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      author_name:</span>
+<span class="hljs-attr">        description:</span> <span class="hljs-string">author</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">book</span>
+<span class="hljs-attr">        example:</span> <span class="hljs-string">noritama</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      detail:</span>
+<span class="hljs-attr">        description:</span> <span class="hljs-string">detail</span> <span class="hljs-string">of</span> <span class="hljs-string">the</span> <span class="hljs-string">book</span>
+<span class="hljs-attr">        example:</span> <span class="hljs-string">this</span> <span class="hljs-string">dictionary</span> <span class="hljs-string">is</span> <span class="hljs-string">...</span>
+<span class="hljs-attr">        type:</span> <span class="hljs-string">string</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="a-name-controller-step2-controller-a"></a><a href="#a-name-controller-step2-controller-a" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="controller">Step2 - controllerの追加</a></h3>
+<p><code>api/controller/</code> 配下に <code>books.js</code> を作成します。<br>
+実際は、期待するレスポンスを返すためにDBや外部APIなど各種リソースにアクセスするロジックが必要です。</p>
+<pre><code class="hljs css js"><span class="hljs-keyword">const</span> list = <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {
+  ...
+  res.json([{}]);
+};
+
+<span class="hljs-keyword">const</span> create = <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {
+  ...
+  res.json({});
+};
+
+<span class="hljs-keyword">const</span> show = <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {
+  ...
+  res.json({});
+};
+
+<span class="hljs-keyword">const</span> update = <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {
+  ...
+  res.json({});
+};
+
+<span class="hljs-keyword">const</span> remove = <span class="hljs-function">(<span class="hljs-params">req, res, next</span>) =&gt;</span> {
+  ...
+  res.status(<span class="hljs-number">204</span>).end();
+};
+
+<span class="hljs-built_in">module</span>.exports = {
+ <span class="hljs-string">'books#list'</span>: list,
+ <span class="hljs-string">'books#create'</span>: create,
+ <span class="hljs-string">'books#show'</span>: show,
+ <span class="hljs-string">'books#update'</span>: update,
+ <span class="hljs-string">'books#remove'</span>: remove,
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" name="a-name-viron-step3-viron-a"></a><a href="#a-name-viron-step3-viron-a" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a name="viron">Step3 - /viron の編集</a></h3>
+<p>最後に <code>/viron</code> にページを追加します。</p>
+<pre><code class="hljs css js">{
+  <span class="hljs-attr">pages</span>: [
+    {
+      <span class="hljs-attr">group</span>: <span class="hljs-string">"book"</span>,
+      <span class="hljs-attr">id</span>: <span class="hljs-string">"book"</span>,
+      <span class="hljs-attr">name</span>: <span class="hljs-string">"ブック"</span>,
+      <span class="hljs-attr">section</span>: <span class="hljs-string">"manage"</span>,
+      <span class="hljs-attr">components</span>: [{
+        <span class="hljs-attr">name</span>: <span class="hljs-string">"ブック"</span>,
+        <span class="hljs-attr">api</span>: {
+          <span class="hljs-attr">path</span>: <span class="hljs-string">"/books"</span>,
+          <span class="hljs-attr">method</span>: <span class="hljs-string">"get"</span>,
+        },
+        <span class="hljs-attr">style</span>: <span class="hljs-string">"table"</span>,
+        <span class="hljs-attr">primary</span>: <span class="hljs-string">"id"</span>,
+        <span class="hljs-attr">pagination</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">query</span>: [
+          {<span class="hljs-attr">key</span>: <span class="hljs-string">"id"</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">"integer"</span>},
+          {<span class="hljs-attr">key</span>: <span class="hljs-string">"title"</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">"string"</span>},
+          {<span class="hljs-attr">key</span>: <span class="hljs-string">"author_name"</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">"string"</span>},
+        ],
+        <span class="hljs-attr">table_labels</span>: [
+          <span class="hljs-string">"id"</span>,
+          <span class="hljs-string">"title"</span>,
+        ],
+      }]
+    }
+  ]
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="menu.html">← グローバルメニューを編集する</a><a class="docs-next button" href="validator.html">バリデータを定義する →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/viron-doc/" class="nav-home"><img src="/viron-doc/img/viron.svg" alt="Viron" width="66" height="58"/></a><div><h5>Docs</h5><a href="/viron-doc/docs/en/demo.html">Demo</a><a href="/viron-doc/docs/en/demo.html">Getting Started</a><a href="/viron-doc/docs/en/help.html">Help</a></div><div><h5>Community</h5><a href="http://stackoverflow.com/questions/tagged/viron" target="_blank">Stack Overflow</a></div><div><h5>More</h5><a href="/viron-doc/blog">Blog</a><a href="https://github.com/cam-inc/viron">GitHub</a><a class="github-button" href="https://github.com/cam-inc/viron" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 CA MOBILE, Ltd.</section></footer></div></body></html>
