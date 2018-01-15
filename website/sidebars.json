@@ -1,8 +1,29 @@
 {
   "docs": {
-    "始め方": ["demo"],
-    "環境構築": ["provision", "config"],
-    "操作方法": [],
+    "始め方": ["demo", "architecture", "terminology"],
+    "環境構築": ["provision", "construction", "config", "env"],
+    "操作方法": [
+      "action",
+      "component",
+      "component_table",
+      "endpoint_add",
+      "endpoint_edit",
+      "endpoint_filter",
+      "endpoint_order",
+      "endpoint_remove",
+      "endpoint_share",
+      "adminrole",
+      "adminuser",
+      "auditlog"
+    ],
+    "開発者向け": [
+      "authtype",
+      "swagger",
+      "menu",
+      "crud",
+      "validator",
+      "autocomplete"
+    ],
     "その他": ["restrict"]
   }
 }
