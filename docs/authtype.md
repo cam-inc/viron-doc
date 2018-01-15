@@ -1,16 +1,17 @@
 ---
 id: authtype
-title: 認証方式を追加する
+title: 必須API: 認証方式を取得
 ---
 
-Vironサーバでは標準でメールアドレスおよびGoogleOAuthによる認証をサポートしています。  
-認証方式を追加する場合は、 `/viron_authtype` に定義を追加する必要があります。
+サーバがサポートする認証方式の一覧を取得するAPIです。  
+アプリ側では受け取った一覧を元にログイン画面を生成します。  
+URLは `GET: /viron_authtype` 固定で、非認証状態でコールできる必要があります。  
 
 ### authtype controller
 
-Vironサーバがサポートしている認証方式をクライアントに返すためのAPIです。   
-`api/controller/viron_authtype.js` に `auth_type#list` という名前でcontrollerを実装します。  
-下記インタフェースでAPIを実装してください。
+`controllers/viron_authtype.js` に `auth_type#list` という名前でcontrollerを実装します。  
+下記インタフェースでAPIを実装してください。  
+[example-nodeのサンプル](https://github.com/cam-inc/viron/blob/develop/example-node/controllers/viron_authtype.js)
 
 ```javascript
 [

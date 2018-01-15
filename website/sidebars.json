@@ -17,6 +17,7 @@
       "auditlog"
     ],
     "開発者向け": [
+      "api",
       "authtype",
       "swagger",
       "menu",
