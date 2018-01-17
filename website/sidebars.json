@@ -1,7 +1,10 @@
 {
   "docs": {
-    "始め方": ["demo", "architecture", "terminology"],
-    "環境構築": ["provision", "construction", "config", "env"],
+    "はじめに": [
+      "demo",
+      "architecture",
+      "terminology"
+    ],
     "操作方法": [
       "action",
       "component",
@@ -17,6 +20,10 @@
       "auditlog"
     ],
     "開発者向け": [
+      "provision",
+      "construction",
+      "config",
+      "env",
       "api",
       "authtype",
       "swagger",

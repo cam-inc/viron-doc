@@ -3,4 +3,4 @@ id: demo
 title: デモ
 ---
 
-Demo page here.
+Welcome to Viron Document!

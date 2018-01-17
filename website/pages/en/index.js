@@ -127,6 +127,12 @@ const Features = props => (
         imageAlign: 'top',
         title: '無料/オープンソース',
       },
+      {
+        content: 'ほげほげ',
+        image: imgUrl('viron.svg'),
+        imageAlign: 'top',
+        title: 'OAS駆動',
+      },
 
     ]}
   </Block>

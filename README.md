@@ -10,6 +10,11 @@ $ npm run start
 
 then access to [here]( http://localhost:3000).
 
+## How to Add Documents
+
+1. Add new `.md` files in `./docs/` directory.
+2. Edit `website/sidebars.json` file.
+
 ## How to Publish
 
 ```

@@ -1,6 +1,6 @@
 ---
 id: terminology
-title: Terminology
+title: 用語集
 ---
 
 <details>
