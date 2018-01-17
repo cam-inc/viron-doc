@@ -18,6 +18,8 @@
     "construction": "サーバ構築",
     "crud": "CRUDを追加する",
     "demo": "デモ",
+    "dev_endpoint_card": "エンドポイントカード",
+    "dev_intro": "はじめに",
     "endpoint_add": "エンドポイントを新規追加する",
     "endpoint_edit": "エンドポイントを編集する",
     "endpoint_filter": "エンドポイントを絞り込む",

@@ -20,6 +20,9 @@
       "auditlog"
     ],
     "開発者向け": [
+      "dev_intro",
+      "dev_endpoint_card",
+
       "provision",
       "construction",
       "config",
