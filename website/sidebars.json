@@ -33,6 +33,9 @@
       "autocomplete",
       "dev_endpoint_card",
       "dev_menu",
+      "dev_component_common",
+      "dev_component_number",
+      "dev_component_table"
     ],
     "その他": ["restrict"]
   }
