@@ -32,6 +32,7 @@
     "env": "環境変数",
     "menu": "必須API: グローバルメニューを取得",
     "provision": "サーバ構築の準備",
+    "quickstart": "クイックスタート",
     "restrict": "制限",
     "swagger": "必須API: swaggerを取得",
     "terminology": "用語集",

@@ -2,6 +2,7 @@
   "docs": {
     "はじめに": [
       "demo",
+      "quickstart",
       "architecture",
       "terminology"
     ],
@@ -37,6 +38,8 @@
       "dev_component_number",
       "dev_component_table"
     ],
-    "その他": ["restrict"]
+    "その他": [
+      "restrict"
+    ]
   }
 }
