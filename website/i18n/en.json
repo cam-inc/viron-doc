@@ -28,6 +28,7 @@
     "dev_form_select": "プルダウン入力フォーム",
     "dev_form_textarea": "テキスト入力フォーム(複数行)",
     "dev_form_textinput": "テキスト入力フォーム(単一行)",
+    "dev_form_wyswyg": "WYSWYG入力フォーム",
     "dev_menu": "メニュー",
     "endpoint_add": "エンドポイントを新規追加する",
     "endpoint_edit": "エンドポイントを編集する",
