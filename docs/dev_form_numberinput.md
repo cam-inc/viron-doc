@@ -1,6 +1,6 @@
 ---
 id: dev_form_numberinput
-title: 数値入力フォーム(単一行)
+title: 数値入力フォーム
 ---
 
 ![form_numberinput](./assets/form_numberinput.png)

@@ -39,7 +39,9 @@
       "dev_component_table",
       "dev_component_chart",
       "dev_form_textinput",
-      "dev_form_numberinput"
+      "dev_form_numberinput",
+      "dev_form_select",
+      "dev_form_autocomplete"
     ],
     "その他": [
       "restrict"
