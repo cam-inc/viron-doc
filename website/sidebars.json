@@ -37,7 +37,8 @@
       "dev_component_common",
       "dev_component_number",
       "dev_component_table",
-      "dev_component_chart"
+      "dev_component_chart",
+      "dev_form_textinput"
     ],
     "その他": [
       "restrict"
