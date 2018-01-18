@@ -24,6 +24,7 @@
     "dev_component_table": "テーブルコンポーネント",
     "dev_endpoint_card": "エンドポイントカード",
     "dev_form_autocomplete": "オートコンプリート付き入力フォーム",
+    "dev_form_checkbox": "チェックボックス入力フォーム",
     "dev_form_numberinput": "数値入力フォーム",
     "dev_form_select": "プルダウン入力フォーム",
     "dev_form_textarea": "テキスト入力フォーム(複数行)",

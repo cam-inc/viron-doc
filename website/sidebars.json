@@ -42,6 +42,7 @@
       "dev_form_textarea",
       "dev_form_numberinput",
       "dev_form_select",
+      "dev_form_checkbox",
       "dev_form_wyswyg",
       "dev_form_autocomplete"
     ],
