@@ -1,10 +1,7 @@
 {
   "docs": {
     "はじめに": [
-      "demo",
-      "quickstart",
-      "architecture",
-      "terminology"
+      "demo"
     ],
     "操作方法": [
       "action",
@@ -21,6 +18,7 @@
       "auditlog"
     ],
     "開発者向け": [
+      "quickstart",
       "provision",
       "construction",
       "config",
@@ -48,6 +46,8 @@
       "dev_form_uploader"
     ],
     "その他": [
+      "architecture",
+      "terminology",
       "restrict"
     ]
   }

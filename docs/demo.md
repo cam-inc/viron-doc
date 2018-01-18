@@ -39,10 +39,18 @@ ID: visiter@viron.com
 Password: Ev4PNxRrls4U
 ```
 
-![demo_quickview](./assets/demo_quickview.png)
+![demo_top](./assets/demo_top.png)
 
 この画面が表示されれば成功です。
 
-### Step3: Enjoy It!!
+### Step3: 操作してみる
 
-TODO...
+デモサーバーは大きく「ダッシュボード」と「管理画面」にわかれています。
+
+![demo_quickview](./assets/demo_quickview.png)
+
+「ダッシュボード」はシンプルな数値や複雑なグラフのコンポーネントが並んでおり、KPIの確認や日々の実績を比較/評価等に利用されることを想定しています。
+
+![demo_admin](./assets/demo_admin.png)
+
+「管理画面」はデータのCRUDを提供しています。自由に閲覧/作成/削除等を行ってみてください。
