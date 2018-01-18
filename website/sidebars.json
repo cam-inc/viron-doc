@@ -44,7 +44,8 @@
       "dev_form_select",
       "dev_form_checkbox",
       "dev_form_wyswyg",
-      "dev_form_autocomplete"
+      "dev_form_autocomplete",
+      "dev_form_uploader"
     ],
     "その他": [
       "restrict"
