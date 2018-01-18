@@ -27,7 +27,7 @@
       "provision",
       "construction",
       "config",
-      "env"
+      "env",
       "dev_endpoint_card",
       "dev_menu",
       "dev_component_common",
