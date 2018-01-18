@@ -1,6 +1,6 @@
 ---
 id: dev_form_textinput
-title: テキスト入力(単一行)
+title: テキスト入力フォーム(単一行)
 ---
 
 ![form_textinput](./assets/form_textinput.png)
