@@ -1,6 +1,6 @@
 ---
 id: crud
-title: CRUDを追加する
+title: CRUDの追加
 ---
 
 ここでは開発のイメージを掴みやすくするために  
@@ -33,7 +33,7 @@ mysql> desc books;
 +-------------+-------------+------+-----+---------+----------------+
 ```
 
-### <a name=swagger>Step1 - swaggerの編集</a>
+### <a name=swagger>Step1: swaggerの編集</a>
 
 #### paths
 
@@ -166,7 +166,7 @@ paths:
 #### definitions
 
 paths内で `$ref` で参照するスキーマの定義を記述します。  
-ここでは `BookCollection` `Book` が必要です。
+ここでは `BookCollection`, `Book` が必要です。
 
 ```yaml
 definitions:
@@ -196,7 +196,7 @@ definitions:
         type: string
 ```
 
-### <a name="controller">Step2 - controllerの追加</a>
+### <a name="controller">Step2: controllerの追加</a>
 
 `controllers/` 配下に `books.js` を作成します。  
 実際にはDBや外部APIなど各種リソースにアクセスするロジックが必要です。
@@ -230,7 +230,7 @@ module.exports = {
 }
 ```
 
-### <a name="viron">Step3 - /viron の編集</a>
+### <a name="viron">Step3: グローバルメニューの編集</a>
 
 最後に `controllers/viron.js` にページを追加します。
 

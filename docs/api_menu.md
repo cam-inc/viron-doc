@@ -1,6 +1,6 @@
 ---
-id: menu
-title: 必須API: グローバルメニューを取得
+id: api_menu
+title: 必須API: グローバルメニューの取得
 ---
 
 Vironトップに表示されるエンドポイントの情報や、グローバルメニューの構成を取得するAPIです。  
@@ -12,13 +12,13 @@ URLは `GET: /viron` 固定です。
 
 `controllers/viron.js` に `viron#show` という名前でcontrollerを実装します。  
 下記インタフェースでAPIを実装してください。  
-[example-nodeのサンプル](https://github.com/cam-inc/viron/blob/develop/example-node/controllers/viron.js)
+[example-email](https://github.com/cam-inc/viron/blob/develop/example-email/controllers/viron.js)
 
 ```javascript
 {
   // エンドポイントに関する情報
   "color": "white", // カラーテーマ
-  "name": "Viron example for Node.js - local", // エンドポイントの名称。サービス名や環境など
+  "name": "Viron example - local", // エンドポイントの名称。サービス名や環境など
   "tags": [ // エンドポイントに付与するタグ
     "local",
     "viron",
