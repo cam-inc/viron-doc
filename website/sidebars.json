@@ -36,7 +36,8 @@
       "dev_menu",
       "dev_component_common",
       "dev_component_number",
-      "dev_component_table"
+      "dev_component_table",
+      "dev_component_chart"
     ],
     "その他": [
       "restrict"
