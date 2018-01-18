@@ -26,6 +26,7 @@
     "dev_form_autocomplete": "オートコンプリート付き入力フォーム",
     "dev_form_numberinput": "数値入力フォーム",
     "dev_form_select": "プルダウン入力フォーム",
+    "dev_form_textarea": "テキスト入力フォーム(複数行)",
     "dev_form_textinput": "テキスト入力フォーム(単一行)",
     "dev_menu": "メニュー",
     "endpoint_add": "エンドポイントを新規追加する",
