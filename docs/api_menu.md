@@ -5,7 +5,6 @@ title: 必須API: グローバルメニューの取得
 
 Vironトップに表示されるエンドポイントの情報や、グローバルメニューの構成を取得するAPIです。  
 URLは `GET: /viron` 固定です。  
-ユーザーのロールに応じてレスポンスが可変になるため、認証をかけてください。  
 レスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。 
 
 ### viron controller
@@ -89,18 +88,17 @@ URLは `GET: /viron` 固定です。
 
 #### API間の関連付け
 
-Vironはcomponent取得APIのパスから関連するAPIを自動で抽出し、componentを操作するAPIとして表示します。  
+Vironはコンポーネント取得のパス(`components[].api`)から関連するAPIを自動で抽出し、コンポーネントを操作するAPIとして扱います。  
 
-上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user` を基本セットとし、  
-さらにprimaryの定義を使用して `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を抽出し、swaggerに定義されている場合画面に表示します。  
+上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user` を基本API群とし、  
+さらに 主キー(`components[].primary`)を関連付け、 `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を関連するAPIとして扱います。
   
-自動抽出されないAPIを関連付けたい場合、actionsを定義することで実現できます。
-上記例では `/user/download/csv` をactionsに定義し、 
+自動抽出されないAPIを関連付けたい場合、`components[].actions` を定義することで実現できます。
+上記例では `/user/download/csv` をactionsに定義しているため、
 
 - `GET:/user/download/csv`
 - `POST:/user/download/csv`
 - `PUT:/user/download/csv`
 - `DELETE:/user/download/csv`
 
-を追加で関連付けしています。  
-これらも自動抽出のAPIと同じように、swaggerに定義されている場合のみ表示されます。
+を追加で関連付けします。  

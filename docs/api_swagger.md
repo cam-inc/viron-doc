@@ -3,12 +3,12 @@ id: api_swagger
 title: 必須API: swaggerの取得
 ---
 
-swaggerを取得するAPIです。URLは `GET: /swagger.json` です。
-ユーザーのロールに応じてレスポンスが可変になるため、認証をかけてください。
+swaggerを取得するAPIです。  
+URLは `GET: /swagger.json` です。
 
 ### swagger.yaml
 
-yamlで記述したswaggerをjsonにパースして返却しています。 
+yamlで記述したswaggerをjsonにパースして返却しています。   
 [example-emailのswagger.yaml](https://github.com/cam-inc/viron/blob/develop/example-email/swagger/swagger.yaml)
 
 ### swagger controller
