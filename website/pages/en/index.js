@@ -82,7 +82,7 @@ class HomeSplash extends React.Component {
           <PromoSection>
             {/*<Button href="#try">Try It Out</Button>*/}
             <Button href={docUrl('demo.html', language)}>ドキュメント</Button>
-            <Button href="https://cam-inc.github.io/viron/v1/" target="_blank">Viron</Button>
+            <Button href="https://cam-inc.github.io/viron/latest/" target="_blank">Viron</Button>
             <Button href="https://github.com/cam-inc/viron/" target="_blank">GitHub</Button>
           </PromoSection>
         </div>
