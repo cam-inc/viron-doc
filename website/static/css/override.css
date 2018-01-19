@@ -12,6 +12,48 @@
   background-color: #fff;
 }
 
+.slidingNav a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  color: #484848 !important;
+}
+
+.navGroup ul {
+  background-color: white !important;
+}
+
+.navListItemActive a,
+.navItem:hover {
+  color: #627edf !important;
+}
+
+body,
+.mainContainer {
+  background-color: white !important;
+}
+
+footer {
+  background-color: #484848 !important;
+}
+
+footer h5 {
+  color: white !important;
+}
+
+.button {
+  color: #484848 !important;
+  border-color: #484848 !important;
+}
+
+.button:hover {
+  color: #627edf !important;
+  border-color: #627edf !important;
+}
+
 @media screen and (max-width: 735px) {
   footer .sitemap {
     display: block;

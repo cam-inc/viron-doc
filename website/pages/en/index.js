@@ -76,7 +76,7 @@ class HomeSplash extends React.Component {
     let language = this.props.language || '';
     return (
       <SplashContainer>
-        <Logo img_src={imgUrl('viron.svg')} />
+        {/*<Logo img_src={imgUrl('viron.svg')} />*/}
         <div className="inner">
           <ProjectTitle />
           <PromoSection>
@@ -105,25 +105,25 @@ const Features = props => (
     {[
       {
         content: 'HTML、CSS、JavaScript等のフロント用ソースコードを記述する必要はありません。APIサーバのみを用意して下さい。',
-        image: imgUrl('viron.svg'),
+        image: imgUrl('frontend.png'),
         imageAlign: 'top',
         title: 'フロントレス',
       },
       {
         content: 'デスクトップ端末とモバイル端末上で画面サイズに応じたレイアウトが設定されます。',
-        image: imgUrl('viron.svg'),
+        image: imgUrl('responsive.png'),
         imageAlign: 'top',
         title: 'レスポンシブデザイン',
       },
       {
         content: 'OpenAPI Specification 2.0に準拠。',
-        image: imgUrl('viron.svg'),
+        image: imgUrl('oas.png'),
         imageAlign: 'top',
         title: 'OAS駆動',
       },
       {
         content: 'GitHub上でオープンソースとして公開されています。誰でも無料で使用できます。',
-        image: imgUrl('viron.svg'),
+        image: imgUrl('oss.png'),
         imageAlign: 'top',
         title: '無料/オープンソース',
       },
