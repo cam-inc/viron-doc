@@ -6,14 +6,10 @@
     "操作方法": [
       "usage_endpoint_add",
       "usage_endpoint_remove",
-      "action",
-      "component",
-      "component_table",
-      "endpoint_order",
-      "endpoint_share",
-      "adminrole",
-      "adminuser",
-      "auditlog"
+      "usage_endpoint_order",
+      "usage_endpoint_share",
+      "usage_component",
+      "usage_action"
     ],
     "開発者向け": [
       "quickstart",
@@ -25,7 +21,9 @@
       "provision",
       "construction",
       "config",
-      "env",
+      "env"
+    ],
+    "カスタマイズ": [
       "dev_endpoint_card",
       "dev_menu",
       "dev_component_common",

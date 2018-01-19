@@ -116,10 +116,10 @@ const Features = props => (
         title: 'レスポンシブデザイン',
       },
       {
-        content: 'あなたのサービスに最適なテーマを使用しましょう。',
+        content: 'OpenAPI Specification 2.0に準拠。',
         image: imgUrl('viron.svg'),
         imageAlign: 'top',
-        title: 'カラーテーマ機能',
+        title: 'OAS駆動',
       },
       {
         content: 'GitHub上でオープンソースとして公開されています。誰でも無料で使用できます。',
@@ -127,13 +127,6 @@ const Features = props => (
         imageAlign: 'top',
         title: '無料/オープンソース',
       },
-      {
-        content: 'ほげほげ',
-        image: imgUrl('viron.svg'),
-        imageAlign: 'top',
-        title: 'OAS駆動',
-      },
-
     ]}
   </Block>
 );
