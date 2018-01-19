@@ -4,10 +4,10 @@
       "demo"
     ],
     "操作方法": [
+      "usage_endpoint_add",
       "action",
       "component",
       "component_table",
-      "endpoint_add",
       "endpoint_edit",
       "endpoint_filter",
       "endpoint_order",
@@ -44,7 +44,6 @@
       "dev_form_uploader"
     ],
     "その他": [
-      "architecture",
       "terminology",
       "restrict"
     ]
