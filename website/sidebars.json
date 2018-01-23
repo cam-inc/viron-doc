@@ -39,6 +39,9 @@
       "dev_form_autocomplete",
       "dev_form_uploader"
     ],
+    "高度な開発者向け": [
+      "adv_vironlib"
+    ],
     "その他": [
       "terminology",
       "restrict"

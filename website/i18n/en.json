@@ -6,6 +6,7 @@
     "tagline": "Automated design-based management console",
     "adminrole": "ユーザ権限を管理する",
     "adminuser": "Vironユーザを管理する",
+    "adv_vironlib": "node-vironlib",
     "api_authtype": "必須API: 認証方式の取得",
     "api_menu": "必須API: グローバルメニューの取得",
     "api_swagger": "必須API: swaggerの取得",
@@ -50,6 +51,7 @@
     "操作方法": "操作方法",
     "開発者向け": "開発者向け",
     "カスタマイズ": "カスタマイズ",
+    "高度な開発者向け": "高度な開発者向け",
     "その他": "その他"
   },
   "pages-strings": {
