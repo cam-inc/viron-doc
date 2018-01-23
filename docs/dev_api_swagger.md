@@ -1,5 +1,5 @@
 ---
-id: api_swagger
+id: dev_api_swagger
 title: 必須API: swaggerの取得
 ---
 

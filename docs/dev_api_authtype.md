@@ -1,5 +1,5 @@
 ---
-id: api_authtype
+id: dev_api_authtype
 title: 必須API: 認証方式の取得
 ---
 

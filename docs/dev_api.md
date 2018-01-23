@@ -1,5 +1,5 @@
 ---
-id: api
+id: dev_api
 title: 必須API
 ---
 

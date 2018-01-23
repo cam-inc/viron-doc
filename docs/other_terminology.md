@@ -1,5 +1,5 @@
 ---
-id: terminology
+id: other_terminology
 title: 用語集
 ---
 

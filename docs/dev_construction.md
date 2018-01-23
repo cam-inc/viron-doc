@@ -1,5 +1,5 @@
 ---
-id: construction
+id: dev_construction
 title: サーバ構築
 ---
 

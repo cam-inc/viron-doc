@@ -12,16 +12,16 @@
       "usage_action"
     ],
     "開発者向け": [
-      "quickstart",
-      "api",
-      "api_authtype",
-      "api_swagger",
-      "api_menu",
-      "crud",
-      "provision",
-      "construction",
-      "config",
-      "env"
+      "dev_quickstart",
+      "dev_api",
+      "dev_api_authtype",
+      "dev_api_swagger",
+      "dev_api_menu",
+      "dev_crud",
+      "dev_provision",
+      "dev_construction",
+      "dev_config",
+      "dev_env"
     ],
     "カスタマイズ": [
       "dev_endpoint_card",
@@ -43,8 +43,8 @@
       "adv_vironlib"
     ],
     "その他": [
-      "terminology",
-      "restrict"
+      "other_terminology",
+      "other_restrict"
     ]
   }
 }

@@ -1,5 +1,5 @@
 ---
-id: restrict
+id: other_restrict
 title: 制限
 ---
 

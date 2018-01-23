@@ -1,5 +1,5 @@
 ---
-id: provision
+id: dev_provision
 title: サーバ構築の準備
 ---
 

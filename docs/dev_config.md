@@ -1,5 +1,5 @@
 ---
-id: config
+id: dev_config
 title: コンフィグ
 ---
 

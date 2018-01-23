@@ -1,5 +1,5 @@
 ---
-id: crud
+id: dev_crud
 title: CRUDの追加
 ---
 

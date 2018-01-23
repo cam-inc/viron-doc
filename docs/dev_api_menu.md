@@ -1,5 +1,5 @@
 ---
-id: api_menu
+id: dev_api_menu
 title: 必須API: グローバルメニューの取得
 ---
 

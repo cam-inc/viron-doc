@@ -1,5 +1,5 @@
 ---
-id: quickstart
+id: dev_quickstart
 title: クイックスタート
 ---
 
