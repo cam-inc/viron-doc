@@ -9,8 +9,8 @@ DBの接続先等の環境情報をコンフィグファイルに記述します
 | property name | type | required | description |
 | ------------- | ---- | -------- | ----------- |
 | host | String | yes | サーバのホスト名(:ポート)です。ブラウザからアクセスをされるホストを指定してください。 |
-| default_role | String | yes | 管理ユーザーが追加された際に付与される初期ロールIDです。 |
-| super_role | String | yes | すべての権限を持つスーパーユーザーのロールIDです。 |
+| default_role | String | yes | 管理ユーザーが追加された際に付与される初期権限IDです。 |
+| super_role | String | yes | すべての権限を持つスーパーユーザーの権限IDです。 |
 | google_oauth.client_id | String | no | 認証情報を作成した際に発行されたOAuthクライアントID |
 | google_oauth.client_secret | String | no | 認証情報を作成した際に発行されたOAuthクライアントシークレット |
 | google_oauth.redirect_url | String | no | Google認証後に呼び出されるVIRON側のAPI。認証情報作成時に「承認済みのリダイレクトURI」に登録する必要があります。 |
