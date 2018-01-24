@@ -41,6 +41,7 @@
     "endpoint_filter": "エンドポイントを絞り込む",
     "other_restrict": "制限",
     "other_terminology": "用語集",
+    "other_versioning": "バージョンについて",
     "usage_action": "アクションを実行する",
     "usage_component": "コンポーネントを操作する",
     "usage_endpoint_add": "エンドポイントを新規追加する",

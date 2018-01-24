@@ -46,6 +46,7 @@
     ],
     "その他": [
       "other_terminology",
+      "other_versioning",
       "other_restrict"
     ]
   }
