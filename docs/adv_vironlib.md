@@ -5,7 +5,7 @@ title: node-vironlib
 
 APIサーバーを迅速に構築するための手助けとして [node-vironlib](https://github.com/cam-inc/node-vironlib) を公開しています。
 
-node-vironlibは、認証や監査ログ取得等Vironの基本機能をライブラリとして提供するものです。
+node-vironlibは、認証や監査ログ取得等VIRONの基本機能をライブラリとして提供するものです。
 
 [example-emailのvironlib設定箇所](https://github.com/cam-inc/viron/blob/develop/example-email/shared/context.js#L51)
 
@@ -46,7 +46,7 @@ node-vironlibは、認証や監査ログ取得等Vironの基本機能をライ�
 | auth.google_oauth | Object | no | GoogleOAuthの設定 |
 | auth.google_oauth.client_id | String | yes | GoogleOAuthクライアントID |
 | auth.google_oauth.client_secret | String | yes | GoogleOAuthクライアントシークレット |
-| auth.google_oauth.redirect_url | String | no | Google認証後に呼び出されるViron側のAPI |
+| auth.google_oauth.redirect_url | String | no | Google認証後に呼び出されるVIRON側のAPI |
 | auth.google_oauth.allow_email_domains | Array<String> | no | 利用を許可するドメインの一覧 |
 | auth.autocomplete | Object | no | 汎用オートコンプリートのコントローラ |
 | auth.autocomplete.store | Sequelize | yes | `sequelize` インスタンス |
@@ -55,6 +55,6 @@ node-vironlibは、認証や監査ログ取得等Vironの基本機能をライ�
 | auth.swagger | Object | no | Swagger取得用コントローラおよびヘルパー関数 |
 | auth.swagger.host | String | yes | APIサーバーのホスト名 |
 | auth.swagger.store | Sequelize | yes | `sequelize` インスタンス |
-| body_completion | Object | no | VironからPOST(PUT)されなかったデータを特定の値で補完するためのミドルウェア |
+| body_completion | Object | no | VIRONからPOST(PUT)されなかったデータを特定の値で補完するためのミドルウェア |
 | body_completion.exclude_paths | Array<String> | no | 補完から除外するパス |
 | logger | CustomLogger | no | node-vironlibが利用するロガーインスタンス default) console |

@@ -3,7 +3,7 @@ id: dev_api_menu
 title: 必須API: グローバルメニューの取得
 ---
 
-Vironトップに表示されるエンドポイントの情報や、グローバルメニューの構成を取得するAPIです。  
+VIRONトップに表示されるエンドポイントの情報や、グローバルメニューの構成を取得するAPIです。  
 URLは `GET: /viron` 固定です。  
 レスポンスデータをカスタマイズして、簡単に画面構成を追加/変更することが可能です。 
 
@@ -88,7 +88,7 @@ URLは `GET: /viron` 固定です。
 
 #### API間の関連付け
 
-Vironはコンポーネント取得のパス(`components[].api`)から関連するAPIを自動で抽出し、コンポーネントを操作するAPIとして扱います。  
+VIRONはコンポーネント取得のパス(`components[].api`)から関連するAPIを自動で抽出し、コンポーネントを操作するAPIとして扱います。  
 
 上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user` を基本API群とし、  
 さらに 主キー(`components[].primary`)を関連付け、 `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を関連するAPIとして扱います。

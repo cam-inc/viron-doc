@@ -3,7 +3,7 @@ id: dev_provision
 title: サーバ構築の準備
 ---
 
-Vironに付属しているサンプルプロジェクトはNode.js+MySQL環境で動作します。  
+VIRONに付属しているサンプルプロジェクトはNode.js+MySQL環境で動作します。  
 実際にサーバ構築を行う前にNode.jsとMySQLの実行環境を確認する必要があります。  
 
 ## Node.jsの実行環境の確認

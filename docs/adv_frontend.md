@@ -3,7 +3,7 @@ id: adv_frontend
 title: フロントエンド関連
 ---
 
-[Vironリポジトリ](https://github.com/cam-inc/viron)のフロントエンドに関するページです。
+[VIRONリポジトリ](https://github.com/cam-inc/viron)のフロントエンドに関するページです。
 
 ### ビルドとデプロイ
 
@@ -12,7 +12,7 @@ $ npm install .
 $ npm run build
 ```
 
-生成物は`dist`ディレクトリ配下に展開されます。自前でホスティングする際は`dist`ディレクトリをデプロイして下さい。[Viron](https://cam-inc.github.io/viron/latest)はGitHub Pagesに`dist`ディレクトリをデプロイしています。
+生成物は`dist`ディレクトリ配下に展開されます。自前でホスティングする際は`dist`ディレクトリをデプロイして下さい。[VIRON](https://cam-inc.github.io/viron/latest)はGitHub Pagesに`dist`ディレクトリをデプロイしています。
 
 ### 主だったライブラリやフレームワーク等
 

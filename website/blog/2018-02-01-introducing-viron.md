@@ -1,7 +1,7 @@
 ---
 author: Go Ohtani
 authorURL: https://github.com/cathcheeno/
-title: Introducing Viron
+title: Introducing VIRON
 ---
 
 Hello!!!
