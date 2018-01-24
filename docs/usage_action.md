@@ -15,4 +15,4 @@ title: アクションを実行する
 
 ![validation_form](./assets/validation_form.png)
 
-入力値に誤りがあると`エラー`が表示されます。バリデート結果が正になるよう修正して下さい。./validation_form.png
+入力値に誤りがあると`エラー`が表示されます。バリデート結果が正になるよう修正して下さい。
