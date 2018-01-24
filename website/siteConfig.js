@@ -23,7 +23,8 @@ const siteConfig = {
   projectName: 'viron-doc',
   headerLinks: [
     {doc: 'demo', label: 'ドキュメント'},
-    {blog: true, label: 'ブログ'}
+    // TODO: Uncomment bellow if writte the blog
+    // {blog: true, label: 'ブログ'}
   ],
   users,
   /* path to images for header/footer */
