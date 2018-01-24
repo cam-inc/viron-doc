@@ -41,7 +41,8 @@
       "dev_form_uploader"
     ],
     "高度な開発者向け": [
-      "adv_vironlib"
+      "adv_vironlib",
+      "adv_frontend"
     ],
     "その他": [
       "other_terminology",

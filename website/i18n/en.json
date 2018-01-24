@@ -3,9 +3,10 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Automated design-based management console",
+    "tagline": "Automated admin tool",
     "adminrole": "ユーザ権限を管理する",
     "adminuser": "Vironユーザを管理する",
+    "adv_frontend": "フロントエンド関連",
     "adv_vironlib": "node-vironlib",
     "architecture": "アーキテクチャ",
     "auditlog": "監査ログを閲覧する",
