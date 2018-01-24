@@ -17,7 +17,7 @@ const users = [
 
 const siteConfig = {
   title: 'Viron' /* title for your website */,
-  tagline: 'Automated design-based management console',
+  tagline: 'Automated admin tool',
   url: 'https://cam-inc.github.io/viron/latest' /* your website url */,
   baseUrl: '/viron-doc/' /* base url for your project */,
   projectName: 'viron-doc',

@@ -60,6 +60,8 @@ const ProjectTitle = props => (
   <h2 className="projectTitle">
     {siteConfig.title}
     <small>{siteConfig.tagline}</small>
+    <small>All you do is just create a API server and a OAS2.0 json file. Then viron admin tool is ready to use.</small>
+    <small>You don't need to write frontend code!</small>
   </h2>
 );
 
