@@ -35,6 +35,7 @@
     "dev_menu": "メニュー",
     "dev_provision": "サーバ構築の準備",
     "dev_quickstart": "クイックスタート",
+    "dev_theme": "カラーテーマ",
     "endpoint_edit": "エンドポイントを編集する",
     "endpoint_filter": "エンドポイントを絞り込む",
     "other_restrict": "制限",
