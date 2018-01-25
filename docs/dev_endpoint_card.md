@@ -22,4 +22,4 @@ title: エンドポイントカード
 | name | String | yes | '' | タイトル部に使用されます。 |
 | thumbnail | String | no | vironデフォルト画像 | サムネイルとして使用されます。 |
 | tags | Array\<String\> | no | [] | タグ群を渡して下さい。 |
-| color | String | no | 'purple' | ドットカラーに使用されます。`purple`, `blue`, `green`, `yellow`, `red`, `gray`, `black`もしくは`white`を指定して下さい。 |
+| color | String | no | 'blue' | ドットカラーに使用されます。`purple`, `blue`, `green`, `yellow`, `red`, `gray`, `black`もしくは`white`を指定して下さい。 |
