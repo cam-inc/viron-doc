@@ -48,4 +48,12 @@ title: チャートコンポーネント
 }
 ```
 
+| key | type | required | default | description |
+| ---- | ---- | -------- | ------- | ----------- |
+| chart | Object | yes | - | チャート全体設定。 |
+| chart.type | String | yes | 'area' | チャートのタイプ。`area` `areaspline` `arearange` `areasplinerange` `bar` `column` `columnrange` `line` `pareto` `pie` `scatter` `spline`等。 |
+| xAsis | Object | no | - | x軸設定 |
+| yAsis | Object | no | - | x軸設定 |
+| series | Array | yes | - | チャートに反映させるデータ群です。 |
+
 [Highchart](https://api.highcharts.com/highcharts/)の仕様に則ります。
