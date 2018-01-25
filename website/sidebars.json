@@ -18,6 +18,9 @@
       "dev_api_swagger",
       "dev_api_menu",
       "dev_crud",
+      "dev_auth",
+      "dev_adminrole",
+      "dev_auditlog",
       "dev_provision",
       "dev_construction",
       "dev_config",
@@ -42,7 +45,8 @@
     ],
     "高度な開発者向け": [
       "adv_vironlib",
-      "adv_frontend"
+      "adv_frontend",
+      "adv_oas_autogen"
     ],
     "その他": [
       "other_terminology",

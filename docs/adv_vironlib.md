@@ -27,17 +27,17 @@ node-vironlibは、認証や監査ログ取得等Vironの基本機能をライ�
 | audit_log.unless | Object | no | 監査ログ取得を除外する設定 [express-unless](https://github.com/jfromaniello/express-unless) |
 | admin_user | Object | no | 管理ユーザー情報のコントローラ | 
 | admin_user.admin_users | Sequelize#Model | yes | `admin_users` モデル |
-| admin_user.default_role | String | yes | 管理ユーザーが追加された際に付与される初期ロールID |
+| admin_user.default_role | String | yes | 管理ユーザーが追加された際に付与される初期権限ID |
 | admin_role | Object | no | 管理権限をチェックするミドルウェア、および管理権限のコントローラ |
 | admin_role.admin_roles | Sequelize#Model | yes | `admin_roles` モデル |
 | admin_role.admin_users | Sequelize#Model | yes | `admin_users` モデル |
 | admin_role.store | Sequelize | yes | `sequelize` インスタンス |
-| admin_role.default_role | String | yes | 管理ユーザーが追加された際に付与される初期ロールID |
+| admin_role.default_role | String | yes | 管理ユーザーが追加された際に付与される初期権限ID |
 | auth | Object | no | メール認証、GoogleOAuth認証に必要なミドルウェア、コントローラ |
 | auth.admin_roles | Sequelize#Model | yes | `admin_roles` モデル |
 | auth.admin_users | Sequelize#Model | yes | `admin_users` モデル |
-| auth.super_role | String | yes | スーパーユーザーのロールID |
-| auth.default_role | String | yes | 管理ユーザーが追加された際に付与される初期ロールID |
+| auth.super_role | String | yes | スーパーユーザーの権限ID |
+| auth.default_role | String | yes | 管理ユーザーが追加された際に付与される初期権限ID |
 | auth.auth_jwt | Object | yes | JWTの設定 |
 | auth.auth_jwt.algorithm | String | yes | JWT生成に用いるアルゴリズム ex) "RS512" |
 | auth.auth_jwt.claims | Object | yes | JWTに含めるclaimセット |
@@ -51,7 +51,7 @@ node-vironlibは、認証や監査ログ取得等Vironの基本機能をライ�
 | auth.autocomplete | Object | no | 汎用オートコンプリートのコントローラ |
 | auth.autocomplete.store | Sequelize | yes | `sequelize` インスタンス |
 | auth.pager | Object | no | ページャー用ヘルパー関数 |
-| auth.pager.limit | number | yes | 1ページあたりの件数 |
+| auth.pager.limit | Number | yes | 1ページあたりの件数 |
 | auth.swagger | Object | no | Swagger取得用コントローラおよびヘルパー関数 |
 | auth.swagger.host | String | yes | APIサーバーのホスト名 |
 | auth.swagger.store | Sequelize | yes | `sequelize` インスタンス |

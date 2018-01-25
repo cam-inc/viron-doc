@@ -48,7 +48,7 @@ mysql> desc admin_users;
 
 <details>
   <summary>admin_roles</summary>
-Vironユーザに付与するロールを管理するテーブルです。
+Vironユーザに付与する権限を管理するテーブルです。
 
 ```
 mysql> desc admin_roles;
