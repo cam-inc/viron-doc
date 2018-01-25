@@ -3,7 +3,7 @@ id: dev_construction
 title: サーバ構築
 ---
 
-Vironサーバのソースを任意の場所に配置すればデプロイは完了です。
+VIRONサーバのソースを任意の場所に配置すればデプロイは完了です。
 
 ### インストール
 依存するライブラリ群をインストールするため、以下のコマンドを実行してください。
@@ -23,11 +23,11 @@ pong
 
 #### DBのテーブル追加の確認
 
-Vironサーバを起動するとデータベースに3つのテーブルが作成されます。
+VIRONサーバを起動するとデータベースに3つのテーブルが作成されます。
 
 <details>
   <summary>admin_users</summary>
-Vironサーバを利用するユーザ情報を管理するテーブルです。
+VIRONサーバを利用するユーザ情報を管理するテーブルです。
 
 ```
 mysql> desc admin_users;
@@ -48,7 +48,7 @@ mysql> desc admin_users;
 
 <details>
   <summary>admin_roles</summary>
-Vironユーザに付与する権限を管理するテーブルです。
+VIRONユーザに付与するロールを管理するテーブルです。
 
 ```
 mysql> desc admin_roles;
@@ -68,7 +68,7 @@ mysql> desc admin_roles;
 
 <details>
   <summary>audit_logs</summary>
-Vironサーバの監査ログを記録するテーブルです。
+VIRONサーバの監査ログを記録するテーブルです。
 
 ```
 mysql> desc audit_logs;

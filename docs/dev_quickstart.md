@@ -3,9 +3,9 @@ id: dev_quickstart
 title: クイックスタート
 ---
 
-Vironの開発を始めるための準備をしていきます。
+VIRONの開発を始めるための準備をしていきます。
 
-わずか3ステップでローカルマシン上でVironを動かすことができます。
+わずか3ステップでローカルマシン上でVIRONを動かすことができます。
 
 ### Step1: Vironリポジトリをクローンする
 
@@ -25,7 +25,7 @@ $ npm run dev
 
 ### Step3: アクセスする
 
-[ローカルViron](https://localhost:8080/) を開きます。
+[ローカルVIRON](https://localhost:8080/) を開きます。
 
 https://localhost:3000/swagger.json
 
@@ -34,6 +34,6 @@ https://localhost:3000/swagger.json
 ![quickstart_top](./assets/quickstart_top.png)
 
 
-> vironリポジトリには `demo` 以外にもAPIサーバーサンプルとして `example-email`, `example-google` を用意しています。  
+> VIRONリポジトリには `demo` 以外にもAPIサーバーサンプルとして `example-email`, `example-google` を用意しています。  
 それぞれEMail認証、Google認証のみをサポートした必要最小限の構成となっているため、これから開発を始める人の手助けになるはずです。  
 `example-email(google)` に移動した後、 `npm run dressup` で起動します。

@@ -13,7 +13,7 @@ DBの接続先等の環境情報をコンフィグファイルに記述します
 | super_role | String | yes | すべての権限を持つスーパーユーザーの権限IDです。 |
 | google_oauth.client_id | String | no | 認証情報を作成した際に発行されたOAuthクライアントID |
 | google_oauth.client_secret | String | no | 認証情報を作成した際に発行されたOAuthクライアントシークレット |
-| google_oauth.redirect_url | String | no | Google認証後に呼び出されるViron側のAPI。認証情報作成時に「承認済みのリダイレクトURI」に登録する必要があります。 |
+| google_oauth.redirect_url | String | no | Google認証後に呼び出されるVIRON側のAPI。認証情報作成時に「承認済みのリダイレクトURI」に登録する必要があります。 |
 | google_oauth.allow_email_domains | Array<String> | no | 企業などで独自ドメインを運用している場合、ドメインのユーザーのみに利用させることができます。 |
 | acl.allow_origin | String | no | `Access-Control-Allow-Origin` レスポンスヘッダに付与されます。 |
 | acl.allow_headers | String | yes | `Access-Control-Allow-Headers` レスポンスヘッダに付与されます。 |

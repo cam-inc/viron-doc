@@ -3,9 +3,9 @@ id: demo
 title: デモ
 ---
 
-まずはデモ用のAPIサーバーを使ってVironに触れてみましょう。
+まずはデモ用のAPIサーバーを使ってVIRONに触れてみましょう。
 
-[Viron](https://cam-inc.github.io/viron/latest) を開いてください。
+[VIRON](https://cam-inc.github.io/viron/latest) を開いてください。
 
 ![home_empty](./assets/home_empty.png)
 

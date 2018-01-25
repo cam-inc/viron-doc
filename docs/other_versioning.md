@@ -10,4 +10,4 @@ https://cam-inc.github.io/viron/v{バージョン番号}/
 
 例: https://cam-inc.github.io/viron/v1/
 
-また、**latest**(i.e. `https://cam-inc.github.io/viron/latest`)を指定することで、常に最新バージョンのVironを使用できます。
+また、**latest**(i.e. `https://cam-inc.github.io/viron/latest`)を指定することで、常に最新バージョンのVIRONを使用できます。
