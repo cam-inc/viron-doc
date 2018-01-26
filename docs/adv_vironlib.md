@@ -20,8 +20,8 @@ node-vironlibは、認証や監査ログ取得等Vironの基本機能をライ�
 | account.admin_users | Sequelize#Model | yes | `admin_users` モデル |
 | acl | Object | no | `Access-Control` レスポンスヘッダを付加するミドルウェア |
 | acl.allow_origin | String | no | `Access-Control-Allow-Origin` に設定する値 |
-| acl.allow_headers | String | yes | `Access-Control-Allow-Headers` に設定する値 |
-| acl.expose_headers | String | yes | `Access-Control-Expose-Headers` に設定する値 |
+| acl.allow_headers | String | no | `Access-Control-Allow-Headers` に設定する値 |
+| acl.expose_headers | String | no | `Access-Control-Expose-Headers` に設定する値 |
 | audit_log | Object | no | 監査ログを取得するミドルウェア、および閲覧用のコントローラ |
 | audit_log.audit_logs | Sequelize#Model | yes | `audit_logs` モデル |
 | audit_log.unless | Object | no | 監査ログ取得を除外する設定 [express-unless](https://github.com/jfromaniello/express-unless) |
@@ -48,13 +48,13 @@ node-vironlibは、認証や監査ログ取得等Vironの基本機能をライ�
 | auth.google_oauth.client_secret | String | yes | GoogleOAuthクライアントシークレット |
 | auth.google_oauth.redirect_url | String | no | Google認証後に呼び出されるViron側のAPI |
 | auth.google_oauth.allow_email_domains | Array<String> | no | 利用を許可するドメインの一覧 |
-| auth.autocomplete | Object | no | 汎用オートコンプリートのコントローラ |
-| auth.autocomplete.store | Sequelize | yes | `sequelize` インスタンス |
-| auth.pager | Object | no | ページャー用ヘルパー関数 |
-| auth.pager.limit | Number | yes | 1ページあたりの件数 |
-| auth.swagger | Object | no | Swagger取得用コントローラおよびヘルパー関数 |
-| auth.swagger.host | String | yes | APIサーバーのホスト名 |
-| auth.swagger.store | Sequelize | yes | `sequelize` インスタンス |
+| autocomplete | Object | no | 汎用オートコンプリートのコントローラ |
+| autocomplete.store | Sequelize | yes | `sequelize` インスタンス |
+| pager | Object | no | ページャー用ヘルパー関数 |
+| pager.limit | Number | yes | 1ページあたりの件数 |
+| swagger | Object | no | Swagger取得用コントローラおよびヘルパー関数 |
+| swagger.host | String | yes | APIサーバーのホスト名 |
+| swagger.store | Sequelize | yes | `sequelize` インスタンス |
 | body_completion | Object | no | VironからPOST(PUT)されなかったデータを特定の値で補完するためのミドルウェア |
 | body_completion.exclude_paths | Array<String> | no | 補完から除外するパス |
 | logger | CustomLogger | no | node-vironlibが利用するロガーインスタンス default) console |
