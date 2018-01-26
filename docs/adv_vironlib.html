@@ -19,8 +19,8 @@
 <tr><td>account.admin_users</td><td>Sequelize#Model</td><td>yes</td><td><code>admin_users</code> モデル</td></tr>
 <tr><td>acl</td><td>Object</td><td>no</td><td><code>Access-Control</code> レスポンスヘッダを付加するミドルウェア</td></tr>
 <tr><td>acl.allow_origin</td><td>String</td><td>no</td><td><code>Access-Control-Allow-Origin</code> に設定する値</td></tr>
-<tr><td>acl.allow_headers</td><td>String</td><td>yes</td><td><code>Access-Control-Allow-Headers</code> に設定する値</td></tr>
-<tr><td>acl.expose_headers</td><td>String</td><td>yes</td><td><code>Access-Control-Expose-Headers</code> に設定する値</td></tr>
+<tr><td>acl.allow_headers</td><td>String</td><td>no</td><td><code>Access-Control-Allow-Headers</code> に設定する値</td></tr>
+<tr><td>acl.expose_headers</td><td>String</td><td>no</td><td><code>Access-Control-Expose-Headers</code> に設定する値</td></tr>
 <tr><td>audit_log</td><td>Object</td><td>no</td><td>監査ログを取得するミドルウェア、および閲覧用のコントローラ</td></tr>
 <tr><td>audit_log.audit_logs</td><td>Sequelize#Model</td><td>yes</td><td><code>audit_logs</code> モデル</td></tr>
 <tr><td>audit_log.unless</td><td>Object</td><td>no</td><td>監査ログ取得を除外する設定 <a href="https://github.com/jfromaniello/express-unless">express-unless</a></td></tr>
@@ -47,13 +47,13 @@
 <tr><td>auth.google_oauth.client_secret</td><td>String</td><td>yes</td><td>GoogleOAuthクライアントシークレット</td></tr>
 <tr><td>auth.google_oauth.redirect_url</td><td>String</td><td>no</td><td>Google認証後に呼び出されるViron側のAPI</td></tr>
 <tr><td>auth.google_oauth.allow_email_domains</td><td>Array<String></td><td>no</td><td>利用を許可するドメインの一覧</td></tr>
-<tr><td>auth.autocomplete</td><td>Object</td><td>no</td><td>汎用オートコンプリートのコントローラ</td></tr>
-<tr><td>auth.autocomplete.store</td><td>Sequelize</td><td>yes</td><td><code>sequelize</code> インスタンス</td></tr>
-<tr><td>auth.pager</td><td>Object</td><td>no</td><td>ページャー用ヘルパー関数</td></tr>
-<tr><td>auth.pager.limit</td><td>Number</td><td>yes</td><td>1ページあたりの件数</td></tr>
-<tr><td>auth.swagger</td><td>Object</td><td>no</td><td>Swagger取得用コントローラおよびヘルパー関数</td></tr>
-<tr><td>auth.swagger.host</td><td>String</td><td>yes</td><td>APIサーバーのホスト名</td></tr>
-<tr><td>auth.swagger.store</td><td>Sequelize</td><td>yes</td><td><code>sequelize</code> インスタンス</td></tr>
+<tr><td>autocomplete</td><td>Object</td><td>no</td><td>汎用オートコンプリートのコントローラ</td></tr>
+<tr><td>autocomplete.store</td><td>Sequelize</td><td>yes</td><td><code>sequelize</code> インスタンス</td></tr>
+<tr><td>pager</td><td>Object</td><td>no</td><td>ページャー用ヘルパー関数</td></tr>
+<tr><td>pager.limit</td><td>Number</td><td>yes</td><td>1ページあたりの件数</td></tr>
+<tr><td>swagger</td><td>Object</td><td>no</td><td>Swagger取得用コントローラおよびヘルパー関数</td></tr>
+<tr><td>swagger.host</td><td>String</td><td>yes</td><td>APIサーバーのホスト名</td></tr>
+<tr><td>swagger.store</td><td>Sequelize</td><td>yes</td><td><code>sequelize</code> インスタンス</td></tr>
 <tr><td>body_completion</td><td>Object</td><td>no</td><td>VironからPOST(PUT)されなかったデータを特定の値で補完するためのミドルウェア</td></tr>
 <tr><td>body_completion.exclude_paths</td><td>Array<String></td><td>no</td><td>補完から除外するパス</td></tr>
 <tr><td>logger</td><td>CustomLogger</td><td>no</td><td>node-vironlibが利用するロガーインスタンス default) console</td></tr>

@@ -13,14 +13,15 @@ URLは <code>GET: /viron</code> 固定です。<br>
 <a href="https://github.com/cam-inc/viron/blob/develop/example-email/controllers/viron.js">example-email</a></p>
 <pre><code class="hljs css javascript">{
   <span class="hljs-comment">// エンドポイントに関する情報</span>
-  <span class="hljs-string">"color"</span>: <span class="hljs-string">"white"</span>, <span class="hljs-comment">// カラーテーマ</span>
+  <span class="hljs-string">"theme"</span>: <span class="hljs-string">"standard"</span>, <span class="hljs-comment">// カラーテーマ</span>
+  <span class="hljs-string">"color"</span>: <span class="hljs-string">"white"</span>, <span class="hljs-comment">// ドットカラー</span>
   <span class="hljs-string">"name"</span>: <span class="hljs-string">"Viron example - local"</span>, <span class="hljs-comment">// エンドポイントの名称。サービス名や環境など</span>
   <span class="hljs-string">"tags"</span>: [ <span class="hljs-comment">// エンドポイントに付与するタグ</span>
     <span class="hljs-string">"local"</span>,
     <span class="hljs-string">"viron"</span>,
     <span class="hljs-string">"example"</span>
   ],
-  <span class="hljs-string">"thumbnail"</span>: <span class="hljs-string">"https://avatars3.githubusercontent.com/u/23251378?v=3&amp;s=200"</span> <span class="hljs-comment">// サムネイル画像URL</span>
+  <span class="hljs-string">"thumbnail"</span>: <span class="hljs-string">"https://avatars3.githubusercontent.com/u/23251378?v=3&amp;s=200"</span>, <span class="hljs-comment">// サムネイル画像URL</span>
 
   <span class="hljs-comment">// グローバルメニュー</span>
   <span class="hljs-string">"pages"</span>: [ 
@@ -82,17 +83,4 @@ URLは <code>GET: /viron</code> 固定です。<br>
   ],
 }
 </code></pre>
-<h4><a class="anchor" aria-hidden="true" name="api"></a><a href="#api" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API間の関連付け</h4>
-<p>Vironはコンポーネント取得のパス(<code>components[].api</code>)から関連するAPIを自動で抽出し、コンポーネントを操作するAPIとして扱います。</p>
-<p>上記例では <code>GET:/user</code> を基点に <code>POST:/user</code>, <code>PUT:/user</code>, <code>DELETE:/user</code> を基本API群とし、<br>
-さらに 主キー(<code>components[].primary</code>)を関連付け、 <code>GET:/user/{id}</code>, <code>POST:/user/{id}</code>, <code>PUT:/user/{id}</code>, <code>DELETE:/user/{id}</code> を関連するAPIとして扱います。</p>
-<p>自動抽出されないAPIを関連付けたい場合、<code>components[].actions</code> を定義することで実現できます。
-上記例では <code>/user/download/csv</code> をactionsに定義しているため、</p>
-<ul>
-<li><code>GET:/user/download/csv</code></li>
-<li><code>POST:/user/download/csv</code></li>
-<li><code>PUT:/user/download/csv</code></li>
-<li><code>DELETE:/user/download/csv</code></li>
-</ul>
-<p>を追加で関連付けします。</p>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="dev_api_swagger.html">← 必須API: swaggerの取得</a><a class="docs-next button" href="dev_crud.html">CRUDの追加 →</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><div><h5>Docs</h5><a href="/viron-doc/docs/en/demo.html">Demo</a><a href="/viron-doc/docs/en/demo.html">Getting Started</a></div><div><h5>Community</h5><a href="https://github.com/cam-inc/viron/issues" target="_blank">Issues</a><a href="http://stackoverflow.com/questions/tagged/viron" target="_blank">Stack Overflow</a></div><div><h5>More</h5><a href="https://github.com/cam-inc/viron">GitHub</a><a class="github-button" href="https://github.com/cam-inc/viron" data-icon="octicon-star">Star</a></div></section><section class="copyright">Copyright © 2018 CA MOBILE, Ltd.</section></footer></div></body></html>
