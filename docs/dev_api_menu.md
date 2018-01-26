@@ -16,14 +16,15 @@ URLは `GET: /viron` 固定です。
 ```javascript
 {
   // エンドポイントに関する情報
-  "color": "white", // カラーテーマ
+  "theme": "standard", // カラーテーマ
+  "color": "white", // ドットカラー
   "name": "Viron example - local", // エンドポイントの名称。サービス名や環境など
   "tags": [ // エンドポイントに付与するタグ
     "local",
     "viron",
     "example"
   ],
-  "thumbnail": "https://avatars3.githubusercontent.com/u/23251378?v=3&s=200" // サムネイル画像URL
+  "thumbnail": "https://avatars3.githubusercontent.com/u/23251378?v=3&s=200", // サムネイル画像URL
 
   // グローバルメニュー
   "pages": [ 
@@ -85,20 +86,3 @@ URLは `GET: /viron` 固定です。
   ],
 }
 ```
-
-#### API間の関連付け
-
-Vironはコンポーネント取得のパス(`components[].api`)から関連するAPIを自動で抽出し、コンポーネントを操作するAPIとして扱います。  
-
-上記例では `GET:/user` を基点に `POST:/user`, `PUT:/user`, `DELETE:/user` を基本API群とし、  
-さらに 主キー(`components[].primary`)を関連付け、 `GET:/user/{id}`, `POST:/user/{id}`, `PUT:/user/{id}`, `DELETE:/user/{id}` を関連するAPIとして扱います。
-  
-自動抽出されないAPIを関連付けたい場合、`components[].actions` を定義することで実現できます。
-上記例では `/user/download/csv` をactionsに定義しているため、
-
-- `GET:/user/download/csv`
-- `POST:/user/download/csv`
-- `PUT:/user/download/csv`
-- `DELETE:/user/download/csv`
-
-を追加で関連付けします。  
