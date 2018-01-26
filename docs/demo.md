@@ -35,7 +35,7 @@ https://viron.camplat.com/swagger.json
 以下のID/Passwordを入力してログインしてください。
 
 ```
-ID: visiter@viron.com
+ID: viron@example.com
 Password: Ev4PNxRrls4U
 ```
 
