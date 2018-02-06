@@ -73,6 +73,7 @@ paths:
       - application/json
       responses:
         "200":
+          description: OK
           schema:
             $ref: '#/definitions/BookCollection' # レスポンスデータの型
       schemes:
@@ -98,14 +99,15 @@ paths:
       - application/json
       responses:
         "200":
+          description: OK
           schema:
             $ref: '#/definitions/Book'
       schemes:
       - https
       security:
-      - jwt
+      - jwt:
         - api:access
-      summry: book作成
+      summary: book作成
       tags:
       - books
 
@@ -128,14 +130,15 @@ paths:
       - application/json
       responses:
         "200":
+          description: OK
           schema:
             $ref: '#/definitions/Book'
       schemes:
       - https
       security:
-      - jwt
+      - jwt:
         - api:access
-      summry: book更新
+      summary: book更新
       tags:
       - books
 
@@ -156,9 +159,9 @@ paths:
       schemes:
       - https
       security:
-      - jwt
+      - jwt:
         - api:access
-      summry: book削除
+      summary: book削除
       tags:
       - books
 ```
