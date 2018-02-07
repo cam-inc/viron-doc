@@ -64,6 +64,7 @@
 <span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
 <span class="hljs-attr">      responses:</span>
         <span class="hljs-string">"200"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          description:</span> <span class="hljs-string">OK</span>
 <span class="hljs-attr">          schema:</span>
             <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/BookCollection'</span> <span class="hljs-comment"># レスポンスデータの型</span>
 <span class="hljs-attr">      schemes:</span>
@@ -89,14 +90,15 @@
 <span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
 <span class="hljs-attr">      responses:</span>
         <span class="hljs-string">"200"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          description:</span> <span class="hljs-string">OK</span>
 <span class="hljs-attr">          schema:</span>
             <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span>
 <span class="hljs-attr">      schemes:</span>
 <span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
 <span class="hljs-attr">      security:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">jwt</span>
+<span class="hljs-attr">      - jwt:</span>
 <span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
-<span class="hljs-attr">      summry:</span> <span class="hljs-string">book作成</span>
+<span class="hljs-attr">      summary:</span> <span class="hljs-string">book作成</span>
 <span class="hljs-attr">      tags:</span>
 <span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
 
@@ -119,14 +121,15 @@
 <span class="hljs-bullet">      -</span> <span class="hljs-string">application/json</span>
 <span class="hljs-attr">      responses:</span>
         <span class="hljs-string">"200"</span><span class="hljs-string">:</span>
+<span class="hljs-attr">          description:</span> <span class="hljs-string">OK</span>
 <span class="hljs-attr">          schema:</span>
             <span class="hljs-string">$ref:</span> <span class="hljs-string">'#/definitions/Book'</span>
 <span class="hljs-attr">      schemes:</span>
 <span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
 <span class="hljs-attr">      security:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">jwt</span>
+<span class="hljs-attr">      - jwt:</span>
 <span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
-<span class="hljs-attr">      summry:</span> <span class="hljs-string">book更新</span>
+<span class="hljs-attr">      summary:</span> <span class="hljs-string">book更新</span>
 <span class="hljs-attr">      tags:</span>
 <span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
 
@@ -147,9 +150,9 @@
 <span class="hljs-attr">      schemes:</span>
 <span class="hljs-bullet">      -</span> <span class="hljs-string">https</span>
 <span class="hljs-attr">      security:</span>
-<span class="hljs-bullet">      -</span> <span class="hljs-string">jwt</span>
+<span class="hljs-attr">      - jwt:</span>
 <span class="hljs-attr">        - api:</span><span class="hljs-string">access</span>
-<span class="hljs-attr">      summry:</span> <span class="hljs-string">book削除</span>
+<span class="hljs-attr">      summary:</span> <span class="hljs-string">book削除</span>
 <span class="hljs-attr">      tags:</span>
 <span class="hljs-bullet">      -</span> <span class="hljs-string">books</span>
 </code></pre>
