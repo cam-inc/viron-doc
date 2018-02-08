@@ -8,9 +8,16 @@
 const React = require('react');
 
 class Footer extends React.Component {
-  docUrl(doc) {
+  docUrl(doc, language) {
     const baseUrl = this.props.config.baseUrl;
+    // TODO: Need localization
+    // return baseUrl + 'docs/' + (language ? language + '/' : '') + doc;
     return baseUrl + 'docs/' + doc;
+  }
+
+  pageUrl(doc, language) {
+    const baseUrl = this.props.config.baseUrl;
+    return baseUrl + (language ? language + '/' : '') + doc;
   }
 
   render() {
@@ -20,10 +27,10 @@ class Footer extends React.Component {
         <section className="sitemap">
           <div>
             <h5>Docs</h5>
-            <a href={this.docUrl('demo.html')}>
+            <a href={this.docUrl('demo.html', this.props.language)}>
               Demo
             </a>
-            <a href={this.docUrl('demo.html')}>
+            <a href={this.docUrl('demo.html', this.props.language)}>
               Getting Started
             </a>
           </div>
