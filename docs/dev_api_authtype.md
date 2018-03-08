@@ -3,14 +3,14 @@ id: dev_api_authtype
 title: 必須API: 認証方式の取得
 ---
 
-サーバがサポートする認証方式の一覧を取得するAPIです。  
-アプリ側では受け取った一覧を元にログイン画面を生成します。  
-URLは `GET: /viron_authtype` 固定で、非認証状態でコールできる必要があります。  
+サーバがサポートする認証方式の一覧を取得するAPIです。
+アプリ側では受け取った一覧を元にログイン画面を生成します。
+URLは `GET: /viron/authtype` 固定で、非認証状態でコールできる必要があります。
 
 ### authtype controller
 
-`controllers/viron_authtype.js` に `auth_type#list` という名前でcontrollerを実装します。  
-下記インタフェースでAPIを実装してください。  
+`controllers/viron_authtype.js` に `auth_type#list` という名前でcontrollerを実装します。
+下記インタフェースでAPIを実装してください。
 [example-emailのサンプル](https://github.com/cam-inc/viron/blob/develop/example-email/controllers/viron_authtype.js)
 
 ```javascript
