@@ -17,7 +17,10 @@ $ cd viron
 
 ### Step2: サーバーを起動する
 
+dockerを起動
+
 ```
+$ npm install
 $ npm run dev
 ```
 
