@@ -36,6 +36,12 @@ https://localhost:3000/swagger.json
 
 ![quickstart_top](./assets/quickstart_top.png)
 
+カードをクリックしてログインフォームを開きます。以下のID/Passwordを入力してログインしてください。
+
+```
+ID: user1@example.com
+Password: XXXXXXXXXXXX
+```
 
 > vironリポジトリには `demo` 以外にもAPIサーバーサンプルとして `example-email`, `example-google` を用意しています。  
 それぞれEMail認証、Google認証のみをサポートした必要最小限の構成となっているため、これから開発を始める人の手助けになるはずです。  
