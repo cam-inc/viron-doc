@@ -9,9 +9,9 @@ Vironは運用管理画面という役割も持って、ユーザとProjectの�
 
 ![endpoint](endpoint.png)
 
-ProjectAは[OpenAPI Specification ver2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)のAPI定義書(例: GET /swagger.json)と認証方法(GET /viron_authtype)を公開しています。Vironはこれら2つの情報を元に画面上にエンドポイントカード(EndpointA)を表示します。Projectとエンドポイントカードは対になっており、仮に環境(stagingやproduction)別にProjectが存在する場合はその環境数だけエンドポイントカードが必要になります。
+ProjectAは[OpenAPI Specification ver2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)のAPI定義書(例: GET /swagger.json)と認証方法(GET /viron/authtype)を公開しています。Vironはこれら2つの情報を元に画面上にエンドポイントカード(EndpointA)を表示します。Projectとエンドポイントカードは対になっており、仮に環境(stagingやproduction)別にProjectが存在する場合はその環境数だけエンドポイントカードが必要になります。
 
-ユーザから見ると、エンドポイントカードはProjectへの玄関口になります。エンドポイントカードは、Projectが公開する認証方法(GET /viron_authtype)でユーザ認証を行うため、許可されていないユーザは玄関を開けることが出来ません。
+ユーザから見ると、エンドポイントカードはProjectへの玄関口になります。エンドポイントカードは、Projectが公開する認証方法(GET /viron/authtype)でユーザ認証を行うため、許可されていないユーザは玄関を開けることが出来ません。
 
 ### Projectページ
 
