@@ -17,7 +17,7 @@ title: デモ
 ![endpoint_add_form](./assets/endpoint_add_form.png)
 が開いたら、
 
-https://viron.camplat.com/swagger.json
+https://demo-v1.viron.plus/swagger.json
 
 と入力し、追加してください。
 
@@ -35,8 +35,8 @@ https://viron.camplat.com/swagger.json
 以下のID/Passwordを入力してログインしてください。
 
 ```
-ID: viron@example.com
-Password: Ev4PNxRrls4U
+ID: demo-v1@example.com
+Password: password
 ```
 
 ![demo_top](./assets/demo_top.png)
